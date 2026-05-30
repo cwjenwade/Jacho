@@ -180,8 +180,9 @@ const positions = [
     period: "Jan 2026 – Present",
     status: "current" as const,
     location: "Taipei, Taiwan",
-    supervisor: "Associate Prof. Chou Pei-wen (周珮雯)",
+    supervisor: "Catherine Pei Wern Chou (周珮雯)",
     supervisorInitials: "CP",
+    supervisorPhoto: "/supervisors/chou.jpg",
     description:
       "Statistical analysis of EMI (English as a Medium of Instruction) teaching effectiveness across NTU courses. Responsibilities include data cleaning, quantitative analysis using SPSS/R, and preparation of research reports for program evaluation.",
     skills: ["EMI Research", "Quantitative Analysis", "SPSS", "Program Evaluation"],
@@ -193,8 +194,9 @@ const positions = [
     period: "Oct 2025 – Present",
     status: "current" as const,
     location: "Taipei, Taiwan",
-    supervisor: "Prof. Yao Kai-ping (姚開屏) and Prof. Sun Hsiao-chih (孫效智)",
+    supervisor: "Kaiping Grace Yao (姚開屏) and Hsiao-chih Sun (孫效智)",
     supervisorInitials: "YK",
+    supervisorPhoto: "/supervisors/yao.png",
     description:
       "Development and psychometric validation of a spirituality scale, including item generation, expert review coordination, pilot testing, and statistical analysis.",
     skills: ["Scale Development", "Psychometrics", "Item Analysis", "Structural Validity"],
@@ -207,8 +209,9 @@ const positions = [
     period: "Oct 2025 – Present",
     status: "current" as const,
     location: "Taipei, Taiwan",
-    supervisor: "Prof. Hsu Yu-kuang (許育光)",
+    supervisor: "Yu-Kuang Kevin Hsu (許育光)",
     supervisorInitials: "HY",
+    supervisorPhoto: "/supervisors/hsu.jpg",
     description:
       "Designing an integrated research project on adolescent internet addiction, including literature review synthesis, research protocol development, and project website construction.",
     skills: ["Internet Addiction", "Research Design", "Literature Review", "Web Construction"],
@@ -220,30 +223,12 @@ const positions = [
     period: "Jan 2023 – Jan 2024",
     status: "completed" as const,
     location: "Hsinchu, Taiwan",
-    supervisor: "Dr. Kuo Meng-lun (郭孟倫)",
+    supervisor: "Tonny Menglun Kuo (郭孟倫)",
     supervisorInitials: "KM",
+    supervisorPhoto: "/supervisors/guo.jpg",
     description:
       "Qualitative coding and analysis using grounded theory methodology, contributing to a study on learning communities. Responsibilities included inter-rater reliability checks, theoretical memo writing, and academic paper drafting.",
     skills: ["Grounded Theory", "Qualitative Coding", "NVivo", "Academic Writing"],
-  },
-  {
-    role: "Research Assistant",
-    institution: "Dept. of Educational Psychology and Counseling, NTHU",
-    institutionFull:
-      "Department of Educational Psychology and Counseling, National Tsing Hua University",
-    period: "Jan 2023 – Feb 2024",
-    status: "completed" as const,
-    location: "Hsinchu, Taiwan",
-    supervisor: "Faculty Supervisor",
-    supervisorInitials: "FS",
-    description:
-      "Constructed the theoretical framework and literature base for a counseling research project. Assisted in research planning, recruitment coordination, and execution of study procedures.",
-    skills: [
-      "Literature Review",
-      "Theoretical Framework",
-      "Research Planning",
-      "Data Collection",
-    ],
   },
 ];
 
@@ -470,15 +455,18 @@ export default function HomePage() {
                     </div>
                   </div>
                   <div className="md:col-span-1 flex flex-col items-center gap-2 pt-1">
-                    <div
-                      className="w-14 h-14 rounded-full border-2 border-dashed border-zinc-300 bg-zinc-100 flex items-center justify-center"
-                      aria-label="Supervisor photo placeholder"
-                    >
-                      <span className="text-xs font-mono font-semibold text-zinc-400 select-none">
-                        {pos.supervisorInitials}
-                      </span>
-                    </div>
-                    <p className="text-[10px] text-zinc-400 text-center leading-tight max-w-[80px]">
+                    {pos.supervisorPhoto && (
+                      <div className="w-[160px] h-[160px] rounded-full overflow-hidden ring-2 ring-zinc-200 shrink-0">
+                        <Image
+                          src={pos.supervisorPhoto}
+                          alt={pos.supervisor.split("(")[0].trim()}
+                          width={160}
+                          height={160}
+                          className="w-full h-full object-cover object-top"
+                        />
+                      </div>
+                    )}
+                    <p className="text-[16px] text-zinc-400 text-center leading-tight max-w-[200px]">
                       {pos.supervisor.split("(")[0].trim()}
                     </p>
                   </div>
