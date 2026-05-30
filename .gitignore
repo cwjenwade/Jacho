@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build
+dist/
+
+# OS
+.DS_Store
+
+# Codegraph / OMC internals
+.codegraph/
+.omc/
+
+# Docs / source files not needed in repo
+Data/
+award.docx
+Agent.md
+CLAUDE.md
+Skill.md
+3brain.md
