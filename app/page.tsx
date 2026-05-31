@@ -294,25 +294,34 @@ export default function HomePage() {
       {/* Hero — pure white */}
       <section className="min-h-[100dvh] flex items-center bg-white border-b border-zinc-200">
         <div className="max-w-5xl mx-auto px-6 py-24 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-x-16 gap-y-12 lg:items-start">
             <div className="lg:col-span-3">
               <FadeIn y={16}>
-                <p className="text-[11px] font-mono text-zinc-400 uppercase tracking-[0.2em] mb-8">
-                  Licensed Counselor · PhD Student
+                <p className="text-[10px] md:text-[11px] font-mono text-zinc-400 uppercase tracking-[0.12em] lg:whitespace-nowrap mb-8">
+                  Counseling &amp; Clinical Psychology · Gender Studies · Masculinity and Mental Health
                 </p>
               </FadeIn>
               <FadeIn delay={0.08} y={40}>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-[-0.04em] text-zinc-900 leading-[0.95] text-balance mb-4">
+                <h1 className="text-5xl md:text-7xl lg:text-[3.85rem] xl:text-6xl font-bold tracking-[-0.035em] text-zinc-900 leading-[1] lg:whitespace-nowrap mb-3">
                   Wade Chi-Wei Jen
                 </h1>
-                <p className="text-3xl text-zinc-300 font-light tracking-[0.04em] mb-10">任祈蔚</p>
+                <p className="text-2xl text-zinc-300 font-light tracking-[0.04em] mb-10">任祈蔚</p>
               </FadeIn>
               <FadeIn delay={0.16} y={32}>
-                <p className="text-lg text-zinc-500 leading-[1.75] max-w-[44ch] mb-12">
-                  I hold a counseling psychology license in Taiwan and am a PhD student in clinical
-                  psychology at National Taiwan University. My research uses mixed methods to study
-                  alexithymia and relational transformation in group psychotherapy.
-                </p>
+                <div className="space-y-5 max-w-[48ch] mb-12">
+                  <p className="text-[17px] text-zinc-500 leading-[1.75]">
+                    I am a licensed counseling psychologist in Taiwan and a Ph.D. student in clinical
+                    psychology at National Taiwan University. My work explores how gender shapes
+                    emotional life, psychological suffering, and the ways people come to understand
+                    themselves in relation to others.
+                  </p>
+                  <p className="text-[17px] text-zinc-500 leading-[1.75]">
+                    My current research focuses on men, masculinity, depression, and emotional
+                    expression. I am especially interested in how social expectations influence what
+                    people feel able to say, hide, or need, and how clinical settings may both
+                    reflect and unsettle these expectations.
+                  </p>
+                </div>
               </FadeIn>
               <FadeIn delay={0.24} y={20}>
                 <Link
@@ -324,9 +333,9 @@ export default function HomePage() {
                 </Link>
               </FadeIn>
             </div>
-            <div className="lg:col-span-2 flex justify-center lg:justify-end">
+            <div className="lg:col-span-2 flex justify-center lg:justify-end lg:pt-12">
               <div className="hero-parallax hero-image-enter">
-                <div className="p-2 rounded-2xl bg-zinc-100 ring-1 ring-zinc-200/80">
+                <div className="p-2 rounded-2xl bg-zinc-100 ring-1 ring-zinc-200/80 shadow-[0_8px_40px_-12px_rgba(24,24,27,0.12)]">
                   <div className="w-72 h-96 md:w-80 md:h-[26rem] rounded-xl overflow-hidden bg-zinc-200">
                     <Image
                       src="/wade.png"
