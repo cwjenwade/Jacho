@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
-import { FadeIn, FadeInStagger } from "@/components/fade-in";
+import { FadeIn } from "@/components/fade-in";
 
 export const metadata: Metadata = {
   title: "Wade Chi-Wei Jen | Clinical Psychology PhD Student",
@@ -54,14 +54,60 @@ const awards = [
   },
 ];
 
-const interests = [
-  "Non-structured group counseling",
-  "Alexithymia and emotional processing",
-  "Couple therapy and interpersonal dynamics",
-  "Mixed-methods research",
-  "Constructionist perspectives in psychotherapy",
-  "Early intervention in psychopathology",
-  "Women's and gender studies in clinical contexts",
+const artworks = [
+  {
+    image: "/art/kandinsky.webp",
+    artwork: "Kandinsky, Color Study: Squares with Concentric Circles",
+    interest: "Alexithymia and emotional processing",
+    meaning:
+      "Emotional differentiation, emodiversity, and the processes through which feelings are identified, organized, and communicated.",
+  },
+  {
+    image: "/art/matisse.jpg",
+    artwork: "Matisse, Dance I",
+    interest: "Unstructured group counseling and early intervention",
+    meaning:
+      "Group counseling informed by Yalom's interpersonal framework, with attention to therapeutic processes, group movement, and mechanisms of change.",
+  },
+  {
+    image: "/art/delaunay.jpg",
+    artwork: "Delaunay, Rythme, Joie de vivre",
+    interest: "Couple therapy and interpersonal dynamics",
+    meaning:
+      "Relational rhythms, interactional cycles, and the ways negative dynamics may weaken intimacy, trust, and emotional responsiveness.",
+  },
+  {
+    image: "/art/zhuangzi.jpg",
+    artwork: "Ike no Taiga, Zhuangzi dreaming of a butterfly",
+    interest: "Zhuangzi thought",
+    meaning:
+      "Zhuangzi thought as a philosophical inquiry into transformation, freedom, the relation between self and world, and the limits of language in understanding life.",
+  },
+  {
+    image: "/art/blue-horse.jpg",
+    artwork: "Franz Marc, Blue Horse I",
+    interest: "Men, masculinity, and depression",
+    meaning:
+      "How men express, inhibit, or reshape emotional life in relation to social expectations, cultural norms, gendered standards, and experiences of depression.",
+  },
+];
+
+const education = [
+  {
+    degree: "Ph.D. in Clinical Psychology",
+    status: "In Progress",
+    institution: "Department of Psychology, National Taiwan University",
+    period: "Oct 2025 – Present",
+    detail: null,
+  },
+  {
+    degree: "M.S. in Educational Psychology and Counseling",
+    status: null,
+    institution: "National Tsing Hua University",
+    period: "Oct 2022 – Jul 2025",
+    detail:
+      "Thesis: Narrative Inquiry of the Transformation Process of Alexithymia Tendency among College Students in Group Counseling Based on an Interpersonal Interaction Orientation.",
+  },
 ];
 
 const publications = [
@@ -180,7 +226,7 @@ const positions = [
     period: "Jan 2026 – Present",
     status: "current" as const,
     location: "Taipei, Taiwan",
-    supervisor: "Catherine Pei Wern Chou (周珮雯)",
+    supervisor: "Associate Prof. Catherine Pei Wern Chou (周珮雯)",
     supervisorInitials: "CP",
     supervisorPhoto: "/supervisors/chou.jpg",
     description:
@@ -194,7 +240,7 @@ const positions = [
     period: "Oct 2025 – Present",
     status: "current" as const,
     location: "Taipei, Taiwan",
-    supervisor: "Kaiping Grace Yao (姚開屏) and Hsiao-chih Sun (孫效智)",
+    supervisor: "Prof. Kaiping Grace Yao (姚開屏) and Prof. Hsiao-chih Sun (孫效智)",
     supervisorInitials: "YK",
     supervisorPhoto: "/supervisors/yao.png",
     description:
@@ -209,7 +255,7 @@ const positions = [
     period: "Oct 2025 – Present",
     status: "current" as const,
     location: "Taipei, Taiwan",
-    supervisor: "Yu-Kuang Kevin Hsu (許育光)",
+    supervisor: "Prof. Yu-Kuang Kevin Hsu (許育光)",
     supervisorInitials: "HY",
     supervisorPhoto: "/supervisors/hsu.jpg",
     description:
@@ -223,7 +269,7 @@ const positions = [
     period: "Jan 2023 – Jan 2024",
     status: "completed" as const,
     location: "Hsinchu, Taiwan",
-    supervisor: "Tonny Menglun Kuo (郭孟倫)",
+    supervisor: "Assistant Prof. Tonny Menglun Kuo (郭孟倫)",
     supervisorInitials: "KM",
     supervisorPhoto: "/supervisors/guo.jpg",
     description:
@@ -298,6 +344,47 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Education — cool grayish-white */}
+      <section className="py-28 bg-[#EAECF1] border-b border-zinc-200">
+        <div className="max-w-5xl mx-auto px-6">
+          <FadeIn y={40}>
+            <SectionHeader>Education</SectionHeader>
+          </FadeIn>
+          <div>
+            {education.map((edu, i) => (
+              <FadeIn key={edu.degree} delay={i * 0.08} y={28}>
+                <div className="grid grid-cols-1 md:grid-cols-6 gap-6 py-8 border-b border-zinc-300/60 last:border-b-0">
+                  <div className="md:col-span-1">
+                    <span className="text-xs font-mono text-zinc-500 tabular-nums leading-relaxed">
+                      {edu.period}
+                    </span>
+                  </div>
+                  <div className="md:col-span-5">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <p className="text-lg font-semibold text-zinc-900 leading-snug">
+                        {edu.degree}
+                      </p>
+                      {edu.status && (
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-medium rounded-full uppercase tracking-wide">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                          {edu.status}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm text-zinc-500 mt-1">{edu.institution}</p>
+                    {edu.detail && (
+                      <p className="text-sm text-zinc-600 italic leading-relaxed mt-3 max-w-[60ch]">
+                        {edu.detail}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Honors and Awards — warm off-white */}
       <section className="py-28 bg-[#F0EEE9] border-b border-zinc-200">
         <div className="max-w-5xl mx-auto px-6">
@@ -330,16 +417,31 @@ export default function HomePage() {
           <FadeIn y={40}>
             <SectionHeader>Research Interests</SectionHeader>
           </FadeIn>
-          <FadeInStagger className="flex flex-wrap gap-3">
-            {interests.map((item) => (
-              <span
-                key={item}
-                className="px-4 py-2 border border-zinc-300 rounded-lg text-sm text-zinc-700 bg-white hover:border-zinc-600 hover:text-zinc-900 transition-all duration-150 cursor-default"
-              >
-                {item}
-              </span>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
+            {artworks.map((art, i) => (
+              <FadeIn key={art.interest} delay={i * 0.08} y={32}>
+                <figure className="group">
+                  <div className="overflow-hidden rounded-xl bg-[#FAFAF8] ring-1 ring-zinc-200/80 aspect-[4/5] flex items-center justify-center p-3">
+                    <Image
+                      src={art.image}
+                      alt={art.artwork}
+                      width={600}
+                      height={750}
+                      className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <figcaption className="mt-5">
+                    <p className="text-base font-semibold text-zinc-900 leading-snug">
+                      {art.interest}
+                    </p>
+                    <p className="text-sm text-zinc-500 leading-relaxed mt-1.5">{art.meaning}</p>
+                    <p className="text-xs text-zinc-400 italic mt-2.5">{art.artwork}</p>
+                  </figcaption>
+                </figure>
+              </FadeIn>
             ))}
-          </FadeInStagger>
+          </div>
         </div>
       </section>
 
@@ -415,8 +517,8 @@ export default function HomePage() {
           <div>
             {positions.map((pos, i) => (
               <FadeIn key={`${pos.role}-${pos.institution}`} delay={i * 0.06} y={24}>
-                <div className="grid grid-cols-1 md:grid-cols-6 gap-6 py-8 border-b border-zinc-300/60 last:border-b-0 hover:bg-white/60 transition-colors duration-200 -mx-3 px-3 rounded">
-                  <div className="md:col-span-1 space-y-3">
+                <div className="grid grid-cols-1 md:grid-cols-[130px_1fr_190px] gap-6 py-8 border-b border-zinc-300/60 last:border-b-0 hover:bg-white/60 transition-colors duration-200 -mx-3 px-3 rounded items-start">
+                  <div className="space-y-3">
                     <span
                       className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-medium rounded-full uppercase tracking-wide ${
                         pos.status === "current"
@@ -439,7 +541,7 @@ export default function HomePage() {
                     </div>
                     <p className="text-xs text-zinc-400">{pos.location}</p>
                   </div>
-                  <div className="md:col-span-4">
+                  <div>
                     <p className="text-base font-semibold text-zinc-900">{pos.role}</p>
                     <p className="text-sm text-zinc-500 mb-3">{pos.institutionFull}</p>
                     <p className="text-sm text-zinc-600 leading-relaxed mb-3">{pos.description}</p>
@@ -454,7 +556,7 @@ export default function HomePage() {
                       ))}
                     </div>
                   </div>
-                  <div className="md:col-span-1 flex flex-col items-center gap-2 pt-1">
+                  <div className="flex flex-col items-center gap-2 pt-1">
                     {pos.supervisorPhoto && (
                       <div className="w-[160px] h-[160px] rounded-full overflow-hidden ring-2 ring-zinc-200 shrink-0">
                         <Image
