@@ -185,7 +185,21 @@ function ProjectMeta({ project, featured = false }: { project: Project; featured
 
 export default function ProgramsPage() {
   return (
-    <div className="bg-white min-h-screen text-[#111111] selection:bg-[#E1F3FE] pt-12">
+    <div className="bg-white min-h-screen text-[#111111] selection:bg-[#E1F3FE]">
+      {/* Manifesto */}
+      <section className="bg-white border-b border-zinc-100">
+        <div className="max-w-5xl mx-auto px-6 pt-40 pb-28 text-center md:text-left">
+          <FadeIn y={20}>
+            <p className="text-[10px] font-mono text-[#787774] uppercase tracking-[0.25em] mb-12">Programs · Framework</p>
+          </FadeIn>
+          <FadeIn delay={0.1} y={32}>
+            <h1 className="text-3xl md:text-[3.25rem] font-bold tracking-[-0.04em] leading-[1.1] max-w-4xl mx-auto md:mx-0">
+              Integrating clinical warmth, narrative depth, and digital innovation to build systems that resonate with the human experience.
+            </h1>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Research Method */}
       <section className="py-32 bg-white border-b border-[#EAEAEA]">
         <div className="max-w-5xl mx-auto px-6">
