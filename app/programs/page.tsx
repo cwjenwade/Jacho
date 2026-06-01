@@ -11,19 +11,23 @@ const researchMethods = [
   {
     category: "Qualitative & Interpretive",
     items: [
-      { name: "Narrative Inquiry", image: null },
-      { name: "Thematic Analysis", image: null },
-      { name: "Grounded Theory", image: null },
-      { name: "Interview Research", image: null },
+      { name: "Narrative Inquiry", image: "/methods/narrative-inquiry.png" },
+      { name: "Thematic Analysis", image: "/methods/thematic-analysis.png" },
+      { name: "Grounded Theory", image: "/methods/grounded-theory.png" },
+      { name: "Interview Research", image: "/methods/interview-research.png" },
+      { name: "Content Analysis", image: null },
+      { name: "Action Research", image: null },
     ],
   },
   {
     category: "Quantitative & Psychometric",
     items: [
-      { name: "Structural Equation Modeling", image: null },
-      { name: "Factor Analysis (EFA / CFA)", image: null },
-      { name: "Scale Development", image: null },
-      { name: "Categorical Data Analysis", image: null },
+      { name: "Structural Equation Modeling", image: "/methods/sem.png" },
+      { name: "Factor Analysis (EFA/CFA)", image: "/methods/factor-analysis.png" },
+      { name: "Scale Development", image: "/methods/scale-development.png" },
+      { name: "Categorical Data Analysis", image: "/methods/categorical-data.png" },
+      { name: "Basic Statistics", image: null },
+      { name: "Item Response Theory", image: null },
     ],
   },
 ];
@@ -211,7 +215,16 @@ export default function ProgramsPage() {
       {/* Operational Core */}
       <section className="py-32 bg-[#FBFBFA] border-b border-[#EAEAEA]">
         <div className="max-w-5xl mx-auto px-6">
-          <FadeIn y={40}><SectionHeader>Operational Core</SectionHeader></FadeIn>
+          <FadeIn y={40}>
+            <div className="flex items-end justify-between border-t border-[#EAEAEA] pt-6 mb-16">
+              <h3 className="text-2xl md:text-3xl font-bold tracking-[-0.03em] text-[#111111] leading-none">
+                Operational Core
+              </h3>
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#787774] opacity-50 mb-1">
+                [ Hover to reveal ]
+              </span>
+            </div>
+          </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
             {mondrianItems.map((item, i) => (
               <FadeIn key={item.id} delay={0.1 + i * 0.05} y={32}>
