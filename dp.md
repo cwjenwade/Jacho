@@ -1,8 +1,7 @@
 # Design Plan: Programs Page
 
 ## 1. Core Concept: The Manifesto
-**"Integrating clinical warmth, narrative depth, and digital innovation to build systems that resonate with the human experience."**
-(結合臨床溫度、敘事深度與數位創新，建立能與人類經驗共鳴的系統。)
+**"Sometimes I need to make something out of what’s in my head, just to digest everything I’ve taken in. It makes life a little more interesting."**
 
 ## 2. Page Structure (`/programs`)
 The content follows the **2/3/1** order, reframed through a professional/academic lens.

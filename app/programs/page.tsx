@@ -172,7 +172,7 @@ export default function ProgramsPage() {
           </FadeIn>
           <FadeIn delay={0.1} y={32}>
             <h1 className="text-3xl md:text-[3.25rem] font-bold tracking-[-0.04em] leading-[1.1] max-w-4xl mx-auto md:mx-0">
-              Integrating clinical warmth, narrative depth, and digital innovation to build systems that resonate with the human experience.
+              Sometimes I need to make something out of what’s in my head, just to digest everything I’ve taken in. It makes life a little more interesting.
             </h1>
           </FadeIn>
         </div>
