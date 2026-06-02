@@ -164,7 +164,7 @@ function ProjectMeta({ project, featured = false }: { project: Project; featured
 
 export default function ProgramsPage() {
   return (
-    <div className="bg-white min-h-screen text-[#111111] selection:bg-[#E1F3FE]">
+    <div className="bg-white min-h-screen text-[#111111] selection:bg-[#E1F3FE] font-sans">
       {/* Manifesto */}
       <section className="bg-white border-b border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 pt-40 pb-28 text-center md:text-left">
