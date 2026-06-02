@@ -1,16 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+
 import type { ReactNode } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft, ImageSquare } from "@phosphor-icons/react/dist/ssr";
 import { FadeIn } from "@/components/fade-in";
 import { motion } from "framer-motion";
-
-export const metadata: Metadata = {
-  title: "Programs | Wade Chi-Wei Jen",
-  description:
-    "Methodological toolkit and active development projects of Wade Chi-Wei Jen, spanning narrative inquiry, psychometric modeling, and digital mental-health innovation.",
-};
 
 const spectrum = [
   {
@@ -136,7 +130,7 @@ function MondrianBlock({ item }: { item: (typeof mondrianItems)[0] }) {
         transition={{ duration: 0.2, ease: "linear" }}
         className="absolute inset-0 z-10 cursor-pointer grayscale-[0.8] sepia-[0.2] contrast-[1.1] hover:grayscale-0 hover:sepia-0 transition-all duration-200 shadow-inner"
         style={{
-          backgroundImage: "url("/art/mondrian.jpg")",
+          backgroundImage: "url('/art/mondrian.jpg')",
           backgroundSize: "200% 200%",
           backgroundPosition: item.bgPos,
         }}
