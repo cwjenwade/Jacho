@@ -262,7 +262,11 @@ export default function ProgramsPage() {
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-0 p-6 md:p-10 md:items-center">
                     <div className="md:col-span-7 md:pr-12">
                       <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-[#EAEAEA] bg-[#FBFBFA] flex items-center justify-center">
-                         <div className="opacity-10"><ImageSquare size={48} weight="thin" /></div>
+                         {projects[0].image ? (
+                           <Image src={projects[0].image} alt={projects[0].name} fill className="object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                         ) : (
+                           <div className="opacity-10"><ImageSquare size={48} weight="thin" /></div>
+                         )}
                       </div>
                     </div>
                     <div className="md:col-span-5"><ProjectMeta project={projects[0]} featured /></div>
@@ -275,7 +279,11 @@ export default function ProgramsPage() {
                    <article className="group flex flex-col overflow-hidden rounded-2xl bg-white border border-[#EAEAEA] transition-all duration-500 hover:border-zinc-300 h-full">
                       <div className="flex flex-col p-6 md:p-8">
                         <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-[#EAEAEA] bg-[#FBFBFA] flex items-center justify-center">
-                           <div className="opacity-10"><ImageSquare size={32} weight="thin" /></div>
+                           {project.image ? (
+                             <Image src={project.image} alt={project.name} fill className="object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                           ) : (
+                             <div className="opacity-10"><ImageSquare size={32} weight="thin" /></div>
+                           )}
                         </div>
                         <div className="mt-8"><ProjectMeta project={project} /></div>
                       </div>
