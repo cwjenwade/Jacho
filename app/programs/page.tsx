@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,27 +6,32 @@ import { ArrowLeft, ImageSquare } from "@phosphor-icons/react/dist/ssr";
 import { FadeIn } from "@/components/fade-in";
 import { motion } from "framer-motion";
 
-const researchMethods = [
+export const metadata: Metadata = {
+  title: "Programs | Wade Chi-Wei Jen",
+  description:
+    "Methodological toolkit and active development projects of Wade Chi-Wei Jen, spanning narrative inquiry, psychometric modeling, and digital mental-health innovation.",
+};
+
+const spectrum = [
   {
-    category: "Qualitative & Interpretive",
-    items: [
-      { name: "Narrative Inquiry", image: "/methods/narrative-inquiry.png" },
-      { name: "Thematic Analysis", image: "/methods/thematic-analysis.png" },
-      { name: "Grounded Theory", image: "/methods/grounded-theory.png" },
-      { name: "Interview Research", image: "/methods/interview-research.png" },
-      { name: "Content Analysis", image: null },
-      { name: "Action Research", image: null },
-    ],
+    pole: "Meaning-making",
+    node: "#B45309",
+    title: "Qualitative & Interpretive",
+    blurb: "Deep-dive into human stories and subjective experiences through rigorous inquiry.",
+    skills: ["Narrative Inquiry", "Thematic Analysis", "Grounded Theory", "Interview Research", "Content Analysis", "Action Research"],
   },
   {
-    category: "Quantitative & Psychometric",
-    items: [
-      { name: "Structural Equation Modeling", image: "/methods/sem.png" },
-      { name: "Factor Analysis (EFA/CFA)", image: "/methods/factor-analysis.png" },
-      { name: "Scale Development", image: "/methods/scale-development.png" },
-      { name: "Categorical Data Analysis", image: "/methods/categorical-data.png" },
-      { name: "Basic Statistics", image: null },
-      { name: "Item Response Theory", image: null },
+    pole: "Precision",
+    node: "#1D4ED8",
+    title: "Quantitative & Psychometric",
+    blurb: "Rigorous validation and algorithmic modeling, powered by R, JASP, and MATLAB.",
+    skills: [
+      "Structural Equation Modeling",
+      "Factor Analysis (EFA/CFA)",
+      "Scale Development",
+      "Categorical Data Analysis",
+      "Basic Statistics",
+      "Item Response Theory"
     ],
   },
 ];
@@ -108,26 +112,6 @@ function SectionHeader({ children }: { children: ReactNode }) {
   );
 }
 
-function SkillCard({ item }: { item: { name: string; image: string | null } }) {
-  return (
-    <div className="flex flex-col bg-white border border-[#EAEAEA] rounded-xl overflow-hidden hover:border-zinc-300 hover:shadow-sm transition-all duration-500 group h-full">
-      <div className="relative aspect-[4/3] bg-[#FBFBFA] border-b border-[#EAEAEA] overflow-hidden flex items-center justify-center">
-        {item.image ? (
-          <Image src={item.image} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-        ) : (
-          <div className="opacity-10 group-hover:opacity-20 transition-opacity">
-            <ImageSquare size={32} weight="thin" />
-          </div>
-        )}
-      </div>
-      <div className="p-7 flex flex-col justify-between flex-grow">
-        <h4 className="text-[16px] font-bold text-[#111111] tracking-tight leading-snug">{item.name}</h4>
-        <div className="mt-6 h-0.5 w-6 bg-[#111111] opacity-0 group-hover:w-full group-hover:opacity-100 transition-all duration-700" />
-      </div>
-    </div>
-  );
-}
-
 function MondrianBlock({ item }: { item: (typeof mondrianItems)[0] }) {
   return (
     <div className="relative aspect-square overflow-hidden rounded-xl border border-[#EAEAEA] group bg-white shadow-sm hover:shadow-xl transition-all duration-700">
@@ -152,7 +136,7 @@ function MondrianBlock({ item }: { item: (typeof mondrianItems)[0] }) {
         transition={{ duration: 0.2, ease: "linear" }}
         className="absolute inset-0 z-10 cursor-pointer grayscale-[0.8] sepia-[0.2] contrast-[1.1] hover:grayscale-0 hover:sepia-0 transition-all duration-200 shadow-inner"
         style={{
-          backgroundImage: "url('/art/mondrian.jpg')",
+          backgroundImage: "url("/art/mondrian.jpg")",
           backgroundSize: "200% 200%",
           backgroundPosition: item.bgPos,
         }}
@@ -200,27 +184,52 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* Research Method */}
+      {/* Research Spectrum */}
       <section className="py-32 bg-white border-b border-[#EAEAEA]">
         <div className="max-w-5xl mx-auto px-6">
           <FadeIn y={40}><SectionHeader>Research Method</SectionHeader></FadeIn>
-          <div className="space-y-24">
-            {researchMethods.map((group, groupIdx) => (
-              <div key={group.category}>
-                <FadeIn delay={groupIdx * 0.1} y={20}>
-                  <div className="flex flex-col gap-6 mb-12">
-                    <h4 className="text-2xl md:text-3xl font-bold tracking-tight text-[#111111]">{group.category}</h4>
-                    <div className="h-px w-12 bg-[#111111]" />
+
+          <FadeIn delay={0.1} y={20}>
+            <div className="relative mb-20 px-4">
+              <div className="absolute left-0 right-0 top-[7px] h-[1px] bg-[#EAEAEA]" />
+              <div className="relative flex justify-between">
+                {spectrum.map((band) => (
+                  <div key={band.pole} className="flex flex-col items-center">
+                    <div
+                      className="w-3.5 h-3.5 rounded-full border-4 border-white"
+                      style={{ backgroundColor: band.node }}
+                    />
+                    <span className="mt-4 text-[10px] font-mono uppercase tracking-[0.2em] text-[#787774]">
+                      {band.pole}
+                    </span>
                   </div>
-                </FadeIn>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                  {group.items.map((item, itemIdx) => (
-                    <FadeIn key={item.name} delay={0.1 + itemIdx * 0.05} y={32}>
-                      <SkillCard item={item} />
-                    </FadeIn>
-                  ))}
-                </div>
+                ))}
               </div>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+            {spectrum.map((band, i) => (
+              <FadeIn key={band.title} delay={0.15 + i * 0.1} y={28}>
+                <div className="flex flex-col h-full">
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#111111] tracking-tight">
+                    {band.title}
+                  </h3>
+                  <p className="text-[15px] text-[#787774] leading-relaxed mt-4 mb-10 max-w-sm">
+                    {band.blurb}
+                  </p>
+                  <div className="flex flex-wrap gap-2.5 mt-auto">
+                    {band.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3.5 py-1.5 bg-white border border-[#EAEAEA] text-[#2F3437] text-[11px] font-mono uppercase tracking-tight rounded-md"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
