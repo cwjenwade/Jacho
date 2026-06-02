@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ImageSquare } from "@phosphor-icons/react/dist/ssr";
 import { FadeIn } from "@/components/fade-in";
 import { motion } from "framer-motion";
