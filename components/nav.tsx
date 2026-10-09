@@ -1,85 +1,45 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { List, X } from "@phosphor-icons/react/dist/ssr";
 
 const links = [
-  { label: "Programs", href: "/programs" },
+  { href: "/", label: "首頁" },
+  { href: "/about", label: "關於小祈" },
+  { href: "/counseling", label: "心理諮商" },
+  { href: "/journal", label: "觀點書寫" },
+  { href: "/research", label: "學術研究" },
 ];
 
 export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-
   return (
-    <>
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-zinc-200">
-        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link
-            href="/"
-            className="text-sm font-semibold text-zinc-900 tracking-tight hover:text-zinc-600 transition-colors duration-200"
-          >
-            Wade Jen
-            <span className="ml-2 text-xs font-mono text-zinc-400 font-normal hidden sm:inline">
-              任祈蔚
-            </span>
-          </Link>
-
-          <nav className="hidden md:flex items-center gap-1">
-            {links.map((link) => {
-              const active = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`px-3 py-1.5 rounded-md text-sm transition-all duration-200 ${
-                    active
-                      ? "text-zinc-900 font-semibold underline underline-offset-4 decoration-1"
-                      : "text-zinc-400 hover:text-zinc-900"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
-
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="md:hidden p-2 -mr-2 text-zinc-500 hover:text-zinc-900 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {open ? <X size={20} weight="regular" /> : <List size={20} weight="regular" />}
-          </button>
-        </div>
-      </header>
-
-      {open && (
-        <div className="fixed inset-0 z-40 bg-white md:hidden" style={{ top: "64px" }}>
-          <nav className="px-6 py-8 flex flex-col gap-1">
-            {links.map((link, i) => {
-              const active = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-base transition-all duration-200 ${
-                    active
-                      ? "text-zinc-900 font-semibold underline underline-offset-4 decoration-1"
-                      : "text-zinc-400 hover:text-zinc-900"
-                  }`}
-                  style={{ transitionDelay: `${i * 40}ms` }}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
-      )}
-    </>
+    <header className="xq-header">
+      <div className="xq-nav-inner">
+        <Link href="/" className="xq-logo" aria-label="小祈叔叔的心理學研究，回首頁" onClick={() => setOpen(false)}>
+          小祈叔叔的心理學研究
+        </Link>
+        <nav className="xq-nav-links" aria-label="主要導覽">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href}
+              aria-current={pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href + "/")) ? "page" : undefined}
+              className={pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href + "/")) ? "xq-active" : ""}>
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <button className="xq-menu-toggle" type="button" aria-label={open ? "關閉選單" : "開啟選單"} aria-expanded={open}
+          aria-controls="xq-mobile-nav" onClick={() => setOpen(!open)}>
+          {open ? "關閉" : "選單"} <span aria-hidden="true">{open ? "×" : "☰"}</span>
+        </button>
+      </div>
+      {open && <nav id="xq-mobile-nav" className="xq-mobile-nav" aria-label="手機導覽">
+        {links.map((link) => (
+          <Link key={link.href} href={link.href} onClick={() => setOpen(false)}
+            aria-current={pathname === link.href ? "page" : undefined}>{link.label} <span aria-hidden="true">↗</span></Link>
+        ))}
+      </nav>}
+    </header>
   );
 }

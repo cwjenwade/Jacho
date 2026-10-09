@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470">
+<defs><radialGradient id="a"><stop stop-color="#85a393" stop-opacity=".7"/><stop offset="1" stop-color="#85a393" stop-opacity="0"/></radialGradient>
+<radialGradient id="b"><stop stop-color="#d6b19a" stop-opacity=".5"/><stop offset="1" stop-color="#d6b19a" stop-opacity="0"/></radialGradient>
+<filter id="d"><feTurbulence baseFrequency=".018" numOctaves="3" seed="3" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="25"/></filter></defs>
+<rect width="1200" height="470" fill="#e8ede5"/>
+<ellipse cx="965" cy="260" rx="410" ry="290" fill="url(#a)" filter="url(#d)"/>
+<ellipse cx="1150" cy="130" rx="370" ry="200" fill="url(#b)" filter="url(#d)"/>
+<path d="M850 500 Q1080 270 1220 105" stroke="#ad917b" stroke-width="2" fill="none" opacity=".52"/>
+</svg>
