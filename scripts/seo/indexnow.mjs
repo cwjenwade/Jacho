@@ -65,13 +65,18 @@ for (const file of changed) {
   if (match && !match[1].includes("[") && !match[1].includes("(")) {
     const url = SITE + "/" + match[1];
     if (current.has(url)) candidates.add(url);
-    else console.warn("New page missing from sitemap.xml: " + url);
+    else throw new Error("New public page must be added to public/sitemap.xml before publication: " + url);
   }
 }
 if (changed.includes("public/sitemap.xml")) {
   for (const [url, modified] of current) {
     if (!previous.has(url) || previous.get(url) !== modified) candidates.add(url);
   }
+}
+// Content formats are not assumed: new markdown routes must enter sitemap.xml.
+if (changed.some((file) => /^(?:content|articles|posts)\/.*\.mdx?$/.test(file)) &&
+    !changed.includes("public/sitemap.xml")) {
+  throw new Error("Article content changed without a sitemap update. Add its canonical URL to public/sitemap.xml.");
 }
 // A single initial homepage smoke test confirms the pipeline really submits.
 if (changed.includes(".github/workflows/jacho-indexnow.yml") &&
