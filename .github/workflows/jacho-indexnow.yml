@@ -27,8 +27,8 @@ jobs:
           node-version: "22"
       - name: Wait for matching Vercel deployment and submit changed canonical URLs
         env:
-          GH_TOKEN: \${{ github.token }}
-          GH_REPOSITORY: \${{ github.repository }}
-          GH_SHA: \${{ github.sha }}
-          GH_BEFORE: \${{ github.event.before }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+          GH_SHA: ${{ github.sha }}
+          GH_BEFORE: ${{ github.event.before }}
         run: node scripts/seo/indexnow.mjs
