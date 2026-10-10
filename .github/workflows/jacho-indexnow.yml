@@ -1,0 +1,34 @@
+name: Notify IndexNow after Jacho production deployment
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: read
+
+concurrency:
+  group: jacho-indexnow-production
+  cancel-in-progress: false
+
+jobs:
+  notify-indexnow:
+    name: Verify Vercel release and notify IndexNow
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Wait for matching Vercel deployment and submit changed canonical URLs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+          GH_SHA: ${{ github.sha }}
+          GH_BEFORE: ${{ github.event.before }}
+        run: node scripts/seo/indexnow.mjs
