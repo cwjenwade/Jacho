@@ -1,99 +1,672 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f5ef">
-  <meta name="description" content="小祈叔叔的心理學研究｜諮商與心理治療。任祈蔚諮商心理師。">
-  <title>諮商與心理治療｜小祈叔叔的心理學研究</title>
-  <link href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTgiIGZpbGw9IiNmOGY1ZWYiLz48cGF0aCBkPSJNMTEgMzJoNDIiIHN0cm9rZT0iI2I2YzZiNCIgc3Ryb2tlLXdpZHRoPSIxIi8+PHRleHQgeD0iMzIiIHk9IjQ0IiBmaWxsPSIjMzAzMDJkIiBmb250LXNpemU9IjM5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zdHlsZT0iaXRhbGljIj5KLjwvdGV4dD48L3N2Zz4=" rel="icon" type="image/svg+xml"/>
-  <link rel="stylesheet" href="/brand/css/counseling.css">
-</head>
-<body>
-<a class="visually-hidden" href="#main-content">跳到主要內容</a>
-<main id="main-content">
-  <section aria-label="諮商與心理治療封面" class="cover">
-<div class="cover__paper">
-<header class="header header--paper">
-<nav aria-label="主要導覽" class="header__nav"><a href="/">首頁</a><a href="/about">關於小祈</a><a aria-current="page" href="/counseling">諮商與心理治療</a><a href="/journal">研究書寫</a><a href="/research" rel="noopener noreferrer" target="_blank">學術CV</a></nav>
-<div class="header__right"><button aria-controls="mobile-nav" aria-expanded="false" class="menu-button" type="button">選單 <span aria-hidden="true" class="menu-button__icon"></span></button></div>
-<nav aria-label="行動版導覽" class="mobile-nav" data-open="false" id="mobile-nav"><a href="/">首頁</a><a href="/about">關於小祈</a><a aria-current="page" href="/counseling">諮商與心理治療</a><a href="/journal">研究書寫</a><a href="/research" rel="noopener noreferrer" target="_blank">學術CV</a></nav>
-</header>
-<div class="cover__center">
-<div class="brand"><h1 class="brand__title"><span>諮商與心理治療</span></h1>
-<p class="brand__role">任祈蔚　·　諮商心理師</p><span aria-hidden="true" class="brand__roman">Uncle Wade | Psychology & Research</span>
-</div>
-</div>
-<div class="cover__bottom"></div>
-</div>
-<figure class="cover__illustration"><img alt="一座有庭院與木椅的小屋繪本風景畫" decoding="async" fetchpriority="high" src="/brand/images/counseling.webp"/>
-<span aria-hidden="true" class="cover__art-credit">ORIGINAL ILLUSTRATION · JACHO</span>
-</figure>
-</section>
-  <section id="future" class="future-page" aria-label="後續內容預留空間"><p>To be continued.</p></section>
-</main>
-<script>
-document.addEventListener("DOMContentLoaded",()=>{
-'use strict';
-(() => {
-  const button=document.querySelector('.menu-button');
-  const nav=document.querySelector('.mobile-nav');
-  if(button && nav){
-    function close(){nav.dataset.open='false';button.setAttribute('aria-expanded','false');}
-    button.addEventListener('click',()=>{
-      const open=nav.dataset.open!=='true';nav.dataset.open=String(open);button.setAttribute('aria-expanded',String(open));
-    });
-    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
-  }
-  const tabs=document.querySelectorAll('.journal-tab');
-  const search=document.querySelector('.journal-search');
-  const cards=[...document.querySelectorAll('.journal-card')];
-  const empty=document.querySelector('.journal-empty');
-  let category='全部';
-  function filter(){
-    const query=(search?.value||'').trim().toLowerCase();let count=0;
-    cards.forEach(card=>{const visible=(category==='全部'||card.dataset.category===category) && card.textContent.toLowerCase().includes(query);card.hidden=!visible;if(visible)count++});
-    if(empty)empty.style.display=count?'none':'block';
-  }
-  tabs.forEach(tab=>tab.addEventListener('click',()=>{category=tab.dataset.category;tabs.forEach(t=>t.setAttribute('aria-pressed',String(t===tab)));filter()}));
-  search?.addEventListener('input',filter);
-  const articleHolder=document.querySelector('#dynamic-article');
-  if(articleHolder){
-    const data={
-      'emotion-language':{title:'當情緒還沒有名字',category:'我的觀點',paragraphs:[
-        '有些感受在還沒被說出來以前，已經以身體緊繃、沉默或不易解釋的不舒服被經驗到。描述情緒，是一項涉及辨識與語言組織的心理歷程。',
-        '心理學研究將情緒辨識、情緒描述及情緒調節視為可以區分的構念。這些區分有助於討論人們經驗感受的差異。',
-        '在諮商歷程中，談論情緒不只是為了找到一個正確的詞，也與理解感受發生的情境與人際關係有關。'
-      ]},
-      'relationship-patterns':{title:'為什麼我們總在關係裡重複同一段對話？',category:'關係與生活',paragraphs:[
-        '在親密關係中，互動常具有循環特性。一方的回應會影響另一方接下來的反應，雙方於是共同形成熟悉的互動模式。',
-        '只討論某一次爭執的內容，可能不足以理解為什麼相似的衝突不斷出現。伴侶治療常將情緒經驗與互動歷程放在一起討論。',
-        '理解關係中的重複模式，涉及辨識彼此的反應、期待與需要。'
-      ]},
-      'alexithymia':{title:'述情障礙：感受與語言之間',category:'研究筆記',paragraphs:[
-        '述情障礙（alexithymia）通常涉及辨識情緒的困難、描述感受的困難，以及偏向外在導向的思考方式。這些面向在研究中各有不同的測量方法。',
-        '研究述情障礙時，需要區分構念定義、量表分數與實際臨床經驗。單一測驗分數不等於完整的個人心理評估。',
-        '從心理計量到心理治療歷程，述情障礙提供一個理解情緒加工差異的研究方向。'
-      ]},
-      'counseling-process':{title:'心理諮商，究竟談些什麼？',category:'我的觀點',paragraphs:[
-        '前來諮商的人，可能正面對具體的心理困擾，也可能希望理解自己在生活與關係中的經驗。',
-        '心理諮商是一項有專業架構的工作。評估、治療關係、共同形成目標與持續討論，都可能構成諮商的一部分。',
-        '不同取向對治療歷程的理解有所差異。以情緒經驗為焦點的工作，特別重視感受的辨識、表達及其人際脈絡。'
-      ]}
-    };
-    const slug=new URLSearchParams(window.location.search).get('slug')||'emotion-language';
-    const item=data[slug];
-    if(item){document.title=item.title+'｜小祈叔叔的心理學研究';
-      document.querySelector('[data-article-category]').textContent=item.category;
-      document.querySelector('[data-article-title]').textContent=item.title;
-      articleHolder.innerHTML='';
-      item.paragraphs.forEach(t=>{const p=document.createElement('p');p.textContent=t;articleHolder.append(p)});
-    }else{document.querySelector('[data-article-title]').textContent='找不到文章';}
-  }
-})();
 
-});
-</script>
-</body>
-</html>
+<html lang="zh-Hant"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#f8f5ef" name="theme-color"/><title>心理治療取向專論｜八種理論與治療概念｜小祈叔叔的心理學研究</title><meta name="description" content="任祈蔚整理心理動力、人本、行為、認知行為、建構後現代、系統關係、女性主義與團體治療八種取向，介紹理論脈絡、治療概念與參考文獻。"/><link rel="canonical" href="https://jacho.vercel.app/counseling"/><meta property="og:type" content="website"/><meta property="og:locale" content="zh_TW"/><meta property="og:site_name" content="小祈叔叔的心理學研究"/><meta property="og:title" content="心理治療取向專論｜八種理論與治療概念"/><meta property="og:description" content="任祈蔚整理八種心理治療取向，介紹理論脈絡、治療概念與參考文獻。"/><meta property="og:url" content="https://jacho.vercel.app/counseling"/><meta property="og:image" content="https://jacho.vercel.app/brand/images/counseling.webp"/><meta name="twitter:card" content="summary_large_image"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"心理治療取向專論","description":"八種心理治療取向的理論介紹與參考文獻。","url":"https://jacho.vercel.app/counseling","inLanguage":"zh-Hant","author":{"@type":"Person","name":"任祈蔚","alternateName":"Wade Chi-Wei Jen","url":"https://jacho.vercel.app/about"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"心理動力典範","url":"https://jacho.vercel.app/counseling/psychodynamic"},{"@type":"ListItem","position":2,"name":"人本—存在—經驗典範","url":"https://jacho.vercel.app/counseling/humanistic-existential-experiential"},{"@type":"ListItem","position":3,"name":"行為典範","url":"https://jacho.vercel.app/counseling/behavioral"},{"@type":"ListItem","position":4,"name":"認知與認知行為典範","url":"https://jacho.vercel.app/counseling/cognitive-behavioral"},{"@type":"ListItem","position":5,"name":"建構與後現代典範","url":"https://jacho.vercel.app/counseling/constructivist-postmodern"},{"@type":"ListItem","position":6,"name":"系統與關係典範","url":"https://jacho.vercel.app/counseling/systemic-relational"},{"@type":"ListItem","position":7,"name":"女性主義與批判典範","url":"https://jacho.vercel.app/counseling/feminist-critical"},{"@type":"ListItem","position":8,"name":"團體諮商與心理治療","url":"https://jacho.vercel.app/counseling/group-counseling-and-psychotherapy"}]}}</script><style>
+:root{--paper:#f8f5ef;--paper2:#f4f1ea;--wash:#edece2;--ink:#30332e;--body:#484c44;--muted:#7b8177;--hair:#d5d7ce;--sage:#728576;--clay:#b39b83;--serif:'Iowan Old Style','Songti TC','STSong','PMingLiU',Georgia,serif;--sans:'PingFang TC','Hiragino Sans','Microsoft JhengHei',sans-serif;--latin:'Cormorant Garamond','Baskerville','Times New Roman',serif}
+*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--paper)}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}h1,h2,h3,h4,p,figure{margin:0}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid var(--sage);outline-offset:3px}img{max-width:100%;display:block}
+body:after{content:'';pointer-events:none;position:fixed;inset:0;z-index:30;opacity:.016;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
+/* Jacho's split-screen cover remains untouched in composition. */
+.hero{min-height:min(860px,100svh);display:grid;grid-template-columns:66.3% 33.7%;border-bottom:1px solid #e0dcd4}.hero-paper{display:flex;flex-direction:column;min-width:0}.nav{height:90px;padding:0 6.5%;display:flex;align-items:center;gap:clamp(14px,2.9vw,42px);white-space:nowrap}.nav a{font:600 11px/1.5 var(--sans);color:#5d5b56;letter-spacing:.045em;padding-bottom:6px;border-bottom:1px solid transparent}.nav a[aria-current]{border-bottom-color:#b89a7e;color:#30302d}.hero-center{flex:1;display:grid;place-items:center;padding:30px 15px 65px}.hero-center h1{font:400 clamp(38px,4.4vw,69px)/1.6 var(--serif);letter-spacing:.08em;white-space:nowrap;text-align:center;color:#292b28}.hero-center .role{text-align:center;color:#81786c;font:12px/1.5 var(--sans);letter-spacing:.25em;margin-top:23px}.hero-center .en{text-align:center;font:italic 15px/1.5 var(--latin);letter-spacing:.12em;color:#9b8f82;margin-top:17px}.hero-image{position:relative;min-height:740px;background:#e0e6d8;overflow:hidden}.hero-image img{height:100%;width:100%;object-fit:cover;object-position:center;position:absolute;inset:0}.hero-image small{position:absolute;right:16px;bottom:20px;writing-mode:vertical-rl;color:#fffdf7;text-shadow:0 1px 4px #5d6656;font:9px/1.4 var(--latin);letter-spacing:.1em}
+/* Collapsed catalog: minimal, spacious typographic lines. */
+.atlas{background:var(--paper2);padding:100px clamp(23px,6vw,100px) 124px}.atlas-shell{max-width:1010px;margin:0 auto}.eyebrow{font:11px/1.5 var(--latin);letter-spacing:.22em;text-transform:uppercase;color:#899187}.atlas-item{border-top:1px solid #d3d5ca}.atlas-item:last-child{border-bottom:1px solid #d3d5ca}.atlas-button{width:100%;border:0;background:transparent;display:grid;grid-template-columns:62px minmax(0,1fr) 26px;gap:10px;align-items:center;text-align:left;padding:32px 1px;color:var(--ink);transition:color .15s}.atlas-button:hover .atlas-title{color:#7a866f}.atlas-item[data-open='true'] .atlas-button{padding-bottom:25px}.atlas-count{font:italic 20px/1 var(--latin);color:#a6aa9f}.atlas-title{display:block;font:400 clamp(25px,3.2vw,38px)/1.55 var(--serif);letter-spacing:.017em}.atlas-english{display:block;font:italic 14px/1.35 var(--latin);letter-spacing:.04em;color:#9a9d93;margin-top:0}.atlas-symbol{font:300 28px/1 var(--sans);color:#929d91}.atlas-panel{margin:0 -20px 58px;background:var(--paper);border:1px solid #e6e5dc}.atlas-panel[hidden]{display:none}.atlas-stage{padding:0}
+/* The same article structure powers both wireframe and production candidate. */
+.reading{color:var(--ink);background:var(--paper);overflow:hidden}.reading-wrap{max-width:910px;margin:0 auto;padding:0 clamp(24px,5vw,68px)}.reading-head{padding:79px 0 26px}.reading-head .serial{display:flex;align-items:center;gap:17px;color:#8b9488;font:italic 15px var(--latin)}.reading-head .serial:after{content:'';height:1px;flex:1;background:#dbded4}.reading h2{font:400 clamp(37px,5vw,61px)/1.33 var(--serif);letter-spacing:.025em;color:#292f29;margin:20px 0 14px}.reading-subtitle{font:400 clamp(16px,2vw,21px)/1.8 var(--serif);color:#71796d;letter-spacing:.06em}.reading-label{color:#90998e;font:italic 17px var(--latin);margin-bottom:25px}.reading-rule{height:1px;background:var(--hair)}
+/* illustration 01 as quiet editorial entrance, not a banner at 100% crop. */
+.art-hero{margin:40px 0 80px;height:clamp(260px,34vw,350px);background:#ebeadf;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.art-hero:before{content:'';position:absolute;inset:0;background:linear-gradient(95deg,#e7e7dd88 0%,transparent 44%,#dedfcc66 100%)}.art-hero img{position:relative;z-index:1;width:83%;height:83%;max-width:83%;max-height:83%;mix-blend-mode:multiply;object-fit:contain;filter:saturate(.8)}.art-corner{font:10px var(--latin);letter-spacing:.22em;color:#9c9f94;position:absolute;bottom:17px;left:23px;z-index:2}
+.reading-chapter{padding-bottom:80px;position:relative}.chapter-cap{display:flex;align-items:baseline;gap:20px;padding:10px 0 21px;border-top:1px solid #c9cec3;margin-bottom:41px}.chapter-number{font:italic 31px/1.2 var(--latin);color:#aeb5a9;min-width:55px}.chapter-name{font:400 clamp(31px,4vw,42px)/1.55 var(--serif);color:#303a31;letter-spacing:.02em}.chapter-prose{max-width:738px;margin:0 auto}.chapter-prose h3{font:400 clamp(22px,2.7vw,29px)/1.5 var(--serif);margin:48px 0 21px;letter-spacing:.025em}.chapter-prose h3:first-child{margin-top:0}.chapter-prose h4{font:500 clamp(17px,1.95vw,20px)/1.7 var(--serif);margin:39px 0 13px;color:#3b463c;padding-left:17px;border-left:2px solid #b3bea9}.chapter-prose p,.chapter-prose li{font:400 clamp(15.5px,1.5vw,17.5px)/2.15 var(--sans);color:#444c44;letter-spacing:.008em}.chapter-prose p{margin:0 0 23px}.chapter-prose em{font-style:italic}.chapter-prose strong{font-weight:600;color:#364337}.chapter-prose li{margin-bottom:8px}.chapter-prose ul,.chapter-prose ol{padding-left:24px;margin:20px 0 27px}.chapter-prose a{border-bottom:1px solid #a5b4a6}.chapter-prose a:hover{color:var(--sage)}
+.chapter-prose table{border-collapse:collapse;width:100%;margin:25px 0 40px;color:#455047}.chapter-prose thead{border-top:1px solid #a4aea2;border-bottom:1px solid #bec7b9;background:#eeefe7}.chapter-prose th{font:600 13px/1.6 var(--sans);text-align:left;padding:12px 16px}.chapter-prose td{padding:14px 16px;vertical-align:top;border-bottom:1px solid #e0e4da;font:14px/1.95 var(--sans);color:#596257}.chapter-prose td:first-child{font-weight:500;color:#344235;min-width:110px}.concept-dictionary{overflow-x:auto}
+/* Let the theory hero span the full white reading panel. */
+.art-hero{width:min(1050px,calc(100vw - 48px));max-width:none;margin-left:50%;transform:translateX(-50%)}
+/* Small editorial images within the essay: only three supporting positions. */
+.art-interlude{margin:65px 0 68px;min-height:208px;padding:36px;display:grid;grid-template-columns:1fr 1.3fr;align-items:center;background:#edeee5;gap:22px}.art-interlude .art-visual{height:156px;display:flex;align-items:center;justify-content:center}.art-interlude img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;filter:saturate(.78)}.art-interlude figcaption{padding:0 20px;color:#7e897d}.art-interlude figcaption span{display:block;font:italic 23px/1.5 var(--latin);letter-spacing:.02em;margin-bottom:9px;color:#5c6c5e}.art-interlude figcaption small{font:12px/1.8 var(--sans);letter-spacing:.05em}
+.art-transition{margin:0 0 87px;display:grid;grid-template-columns:1fr 230px;gap:25px;align-items:center;padding:27px 0;border-top:1px solid #d9ded4;border-bottom:1px solid #d9ded4}.art-transition p{color:#8d978b;font:italic 24px/1.5 var(--latin);letter-spacing:.08em}.art-transition img{width:100%;height:125px;object-fit:contain;mix-blend-mode:multiply;filter:saturate(.75)}
+.art-colophon{margin:0 auto 82px;max-width:780px;display:grid;grid-template-columns:165px 1fr;align-items:center;gap:25px;padding:25px 0;border-top:1px solid #d7dcd1;border-bottom:1px solid #d7dcd1}.art-colophon img{max-width:165px;height:120px;object-fit:contain;mix-blend-mode:multiply}.art-colophon p{font:italic 20px/1.75 var(--latin);color:#879083}.reading .fineprint{font:12px/1.8 var(--sans);color:#9a9f94}.reading-end{border-top:1px solid #d7dcd1;padding:28px 0 65px;display:flex;justify-content:space-between;align-items:center;gap:12px}.reading-end button{border:0;background:transparent;color:#778674;font:13px var(--sans);padding:9px 0}.ref-heading{border-top:1px solid #cbd4c6;margin-top:32px}.chapter-prose p.apa-entry{padding-left:1.3em;text-indent:-1.3em;font:13px/1.95 var(--sans);margin-bottom:12px;color:#5d655c;overflow-wrap:anywhere}
+.atlas-panel .reading-head{padding:56px 0 10px}.atlas-panel .reading-subtitle{font:400 clamp(24px,3.2vw,33px)/1.6 var(--serif);letter-spacing:.025em;color:#4e5a4c;max-width:25ch;margin-top:23px}.site-footer{border-top:1px solid #d8d8ce;background:var(--paper2);padding:27px max(26px,6vw);display:flex;justify-content:space-between;align-items:center}.site-footer span:last-child{font:11px var(--sans);color:#92948b}
+/* A wireframe variant shows just one fully designed article. */
+.wireframe-shell{background:var(--paper2);padding:75px 26px 100px}.wireframe-panel{max-width:1050px;margin:0 auto;box-shadow:0 14px 60px #48513d0b;border:1px solid #e3e5da}.wireframe-hint{max-width:1050px;margin:0 auto 26px;border-top:1px solid #d1d5ca;padding-top:17px;display:flex;justify-content:space-between;gap:8px}
+@media(max-width:800px){.hero{grid-template-columns:60% 40%}.nav{gap:14px;overflow-x:auto;scrollbar-width:none}.nav a{font-size:10px}.atlas{padding:74px 23px 90px}.atlas-panel{margin:0 -10px 33px}.atlas-button{grid-template-columns:38px 1fr 24px;padding:23px 0}.reading-wrap{padding:0 32px}.reading-head{padding-top:50px}.art-hero{height:250px;margin-bottom:63px}.art-interlude{margin:50px 0}.reading-chapter{padding-bottom:55px}}
+@media(max-width:600px){.hero{display:flex;flex-direction:column;min-height:0}.nav{height:65px;padding:0 22px;gap:17px}.hero-center{min-height:225px;padding:26px 12px 28px}.hero-center h1{font-size:36px}.hero-center .role{margin-top:8px;font-size:10px}.hero-center .en{margin-top:7px;font-size:12px}.hero-image{height:270px;min-height:270px}.atlas{padding:55px 16px 74px}.atlas-title{font-size:23px;line-height:1.45}.atlas-english{font-size:12px;margin-top:4px}.atlas-button{grid-template-columns:26px 1fr 20px;gap:9px;padding:21px 0}.atlas-count{font-size:16px}.atlas-panel{margin:0 -7px 25px}.reading-wrap{padding:0 20px}.reading-head{padding:38px 0 15px}.reading h2{font-size:33px;margin:17px 0 9px}.reading-subtitle{font-size:16px}.art-hero{height:220px;margin:24px 0 60px}.art-hero img{width:92%;height:84%;max-height:84%;max-width:92%}.chapter-cap{gap:10px;margin-bottom:30px}.chapter-number{font-size:25px;min-width:40px}.chapter-name{font-size:27px}.chapter-prose h3{font-size:23px;margin:38px 0 17px}.chapter-prose h4{font-size:17px;margin-top:32px;padding-left:10px}.chapter-prose p,.chapter-prose li{font-size:15.5px;line-height:2.03}.chapter-prose th{font-size:12px;padding:10px}.chapter-prose td{font-size:13px;padding:11px}.chapter-prose td:first-child{min-width:92px}.art-interlude{display:flex;flex-direction:column-reverse;gap:3px;padding:25px 17px;margin:38px 0 49px}.art-interlude figcaption{padding:0;align-self:flex-start}.art-interlude figcaption span{font-size:21px;margin-bottom:5px}.art-interlude .art-visual{height:135px;width:100%}.art-transition{grid-template-columns:1fr 125px;margin-bottom:62px}.art-transition p{font-size:18px}.art-transition img{height:90px}.art-colophon{grid-template-columns:95px 1fr;gap:12px;margin-bottom:62px}.art-colophon img{width:95px;height:85px}.art-colophon p{font-size:17px}.wireframe-shell{padding:45px 7px 72px}.wireframe-hint{padding:0 15px 14px}.wireframe-panel{border:none}.site-footer{padding:20px 21px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Theorists' portraits — stable calm circular photo plate, independent of long-form biographies. */
+.people-section{border-top:1px solid #dfe3d9;margin:27px 0 50px;padding:24px 0 7px}
+.people-overline{font:italic 12px/1.5 var(--latin);letter-spacing:.17em;color:#939d90;text-transform:uppercase;margin-bottom:27px}
+.people-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(108px,1fr));column-gap:12px;row-gap:30px;margin:0 auto 16px;max-width:746px;justify-items:center}
+.person-photo{margin:0;width:100%;max-width:125px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.person-photo > a:first-child{display:block;border:0!important;text-decoration:none!important}
+.portrait-round{display:grid;place-items:center;position:relative;width:112px;height:112px;border-radius:50%;overflow:hidden;background:#e9e9de;border:5px solid #f4f3ec;box-shadow:0 0 0 1px #d5dcd0;transition:transform .22s ease,box-shadow .22s ease}
+.person-photo a:hover .portrait-round{transform:translateY(-3px);box-shadow:0 0 0 1px #adb7a6,0 10px 20px #67786413}
+.portrait-round img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(100%) sepia(16%) contrast(.95);position:relative;z-index:2}
+.portrait-fallback{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;color:#929b8c;font:italic 27px var(--latin);letter-spacing:.04em}
+.person-caption{font:500 13px/1.45 var(--latin);margin-top:13px;color:#424d41;min-height:38px;letter-spacing:.015em}
+.person-source{font:9px/1.5 var(--latin);letter-spacing:.11em;color:#8c9589!important;border:0!important;text-decoration:none!important;opacity:.88;margin-top:2px}
+.person-source:hover{text-decoration:underline!important}
+.bibliography-reading{padding-top:10px}.bibliography-chapter{padding-bottom:40px}
+.bibliography-prose .apa-entry{font:15px/2 var(--sans)!important;color:#49534a!important;margin:0 0 24px!important;padding-left:2em!important;text-indent:-2em!important;overflow-wrap:anywhere}
+.bibliography-prose .bib-intro{font-size:16px;line-height:2;color:#626d62;margin:0 0 38px}
+.photo-credits{border-top:1px solid #dbe0d4;padding:30px 0 60px;max-width:738px;margin:auto}
+.photo-credits h3{font:400 22px/1.4 var(--serif);margin:0 0 13px}.photo-credits>p{font:13px/1.95 var(--sans);color:#7b857a;max-width:650px;margin:0 0 16px}
+.photo-credit-list{display:flex;gap:11px 18px;flex-wrap:wrap}.photo-credit-list a{font:12px/1.5 var(--latin);color:#849083;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:600px){.people-gallery{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:9px;row-gap:24px;justify-items:center}.person-photo{max-width:105px;min-width:0}.portrait-round{width:90px;height:90px;border-width:4px}.person-caption{font-size:12px;min-height:34px}.person-source{font-size:8px}.people-overline{font-size:10px}.bibliography-prose .apa-entry{font-size:13px!important;line-height:1.9!important}}
+
+/* JACHO portraits: unified circle, biography-aligned editorial rail */
+.bio-block{display:grid;grid-template-columns:136px minmax(0,1fr);align-items:start;column-gap:30px;margin:26px 0 49px}
+.bio-rail{display:flex;flex-direction:column;align-items:center;gap:28px;padding:5px 0 0}
+.bio-person{margin:0;width:126px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.bio-image-link{display:block;width:108px;border:none!important;text-decoration:none!important}
+.bio-circle{position:relative;display:grid;place-items:center;overflow:hidden;width:108px;height:108px;border:5px solid #f2f0e8;border-radius:50%;background:#e8e9de;box-shadow:0 0 0 1px #d5dacf}
+.bio-circle>img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:cover;object-position:center 23%;filter:grayscale(100%) sepia(14%) contrast(.96)}
+.bio-initials{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;font:italic 29px/1 var(--latin);letter-spacing:.035em;color:#858f82}
+.bio-person-name{font:500 14px/1.45 var(--latin);color:#444c43;margin-top:11px;letter-spacing:.02em;max-width:130px}
+.bio-main{min-width:0}.bio-main h4{margin-top:0!important;padding-top:0!important}.bio-main p:last-child{margin-bottom:0}
+@media(max-width:720px){.bio-block{grid-template-columns:110px minmax(0,1fr);gap:13px;margin:24px 0 41px}.bio-rail{gap:24px}.bio-person{width:104px}.bio-person-name{font-size:12px}.bio-image-link,.bio-circle{width:86px}.bio-circle{height:86px;border-width:4px}.bio-initials{font-size:22px}.bio-main h4{font-size:19px!important;line-height:1.62!important}.bio-main p{font-size:15px!important;line-height:1.95!important}}
+@media(max-width:400px){.bio-block{grid-template-columns:95px minmax(0,1fr);gap:10px}.bio-person{width:92px}.bio-image-link,.bio-circle{width:78px}.bio-circle{height:78px}.bio-person-name{font-size:11px}.bio-main h4{font-size:18px!important}}
+
+/* Eighth long-form group counseling article: same editorial system. */
+.group-opening{padding:4px 0 28px;border-bottom:1px solid #dfe1d6;margin:0 0 30px}
+.group-opening p{margin-bottom:17px}
+.group-opening p:last-child{margin-bottom:0}
+.group-opening strong{font-weight:600}
+
+/* Four consistent panoramic hero images per theory article. */
+.art-hero{display:block;position:relative;aspect-ratio:1016/147;height:auto;min-height:0;margin:36px 0 52px;overflow:hidden;background:#e7eee5;line-height:0}
+.art-hero::before{content:none}
+.art-hero img{display:block;position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:center;mix-blend-mode:normal;filter:none}
+@media(max-width:600px){.art-hero{margin:24px 0 40px}}
+
+/* Match the panoramic illustration to the white article panel. */
+.art-hero{position:relative;left:50%;width:80vw;max-width:none;margin:36px 0 52px;transform:translateX(-50%)}
+@media(max-width:700px){.art-hero{width:calc(100vw - 32px);margin-top:24px;margin-bottom:40px}}
+
+.atlas-button{font:inherit}.atlas-title-link{display:block;min-width:0}.atlas-toggle{width:26px;height:44px;border:0;background:transparent;padding:0;display:grid;place-items:center;color:inherit}</style></head><body><section aria-label="諮商與心理治療封面" class="hero"><div class="hero-paper"><nav aria-label="主要導覽" class="nav"><a href="https://jacho.vercel.app/">首頁</a><a href="https://jacho.vercel.app/about">關於小祈</a><a aria-current="page" href="/counseling">諮商與心理治療</a><a href="https://jacho.vercel.app/journal">研究書寫</a><a href="https://jacho.vercel.app/research">學術 CV</a></nav><div class="hero-center"><div><h1>諮商與心理治療</h1><p class="role">任祈蔚　·　諮商心理師</p><p class="en">Uncle Wade | Psychology &amp; Research</p></div></div></div><figure class="hero-image"><img alt="彩繪村莊巷道、腳踏車與黑貓插畫" src="/brand/images/counseling.webp"/><small>ORIGINAL ILLUSTRATION · JACHO</small></figure></section><main class="atlas" id="theories"><div class="atlas-shell"><div class="atlas-list"><section class="atlas-item" data-open="false" id="theory-psychodynamic"><h2 class="atlas-button"><span class="atlas-count">01</span><a class="atlas-title-link" href="/counseling/psychodynamic"><span class="atlas-title">心理動力典範</span><span class="atlas-english">Psychodynamic</span></a><button aria-controls="panel-psychodynamic" aria-expanded="false" class="atlas-toggle" id="trigger-psychodynamic" type="button" aria-label="展開心理動力典範內容"><span aria-hidden="true" class="atlas-symbol">+</span></button></h2><div aria-labelledby="trigger-psychodynamic" class="atlas-panel" hidden="" id="panel-psychodynamic" role="region"><article class="reading" id="article-psychodynamic"><div class="reading-wrap"><header class="reading-head"><div class="serial"><span>THEORY STUDIES / 01</span></div><p class="reading-subtitle">那些未曾說出口的經驗，如何留在今日的關係裡</p></header><figure class="art-hero" data-image-slot="01-01"><img alt="海邊奔跑的狗與燈塔插畫" src="/brand/heros/01.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="psychodynamic-chapter-1"><header class="chapter-cap"><span class="chapter-number">I.</span><h3 class="chapter-name">思想的誕生</h3></header><div class="chapter-prose"><h3>01｜理論起源與發展</h3><p>心理動力取向從一個困難的問題開始：人為何會重複某些令自己受傷的選擇，即使已經明白這些選擇的代價？意識到的念頭只是心理生活的一部分。願望、恐懼、防衛、童年關係與尚未整合的情緒，有時在當事人尚未察覺時影響決定。心理動力治療關心一段經驗怎麼留在關係裡，成為日後理解自己與他人的慣常方式。（Sharf, 2012, pp. 28–54; Prochaska &amp; Norcross, 2010, chs. 2–3）</p><h3>從維也納的診間到多個心理動力傳統</h3><p>十九世紀末的精神醫學主要致力於辨識症狀及其生理基礎。Freud 從神經學與臨床工作出發，轉而研究主觀經驗、記憶和無意識衝突；精神分析歷經催眠、自由聯想，以及後來對移情與阻抗的研究，才確立主要的工作方式。其後 Jung 與 Adler 分別批評以性驅力為核心的解釋，開展象徵與個體化、目的與社會興趣兩條不同道路。（Sharf, 2012, pp. 29–35, 83–86, 124–129; Seligman &amp; Reichenberg, 2010, pp. 37–66, 82–91）</p><p>在二十世紀中葉，精神分析開始從驅力及自我防衛，進一步討論早期照顧關係。客體關係論關切人如何內化重要他人，Kohut 自體心理學討論同理回應如何支持自體凝聚，關係精神分析則把治療者納入共同形塑治療現場的互動。各學派在同一歷史傳統中分流，沒有一條新學派依序取代舊學派的發展路線。（Sharf, 2012, pp. 39–46; Prochaska &amp; Norcross, 2010, pp. 76–82; Seligman &amp; Reichenberg, 2010, pp. 82–114）</p><h3>走進理論家的生命</h3><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Sigmund Freud"><a aria-label="Sigmund Freud肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Sigmund_Freud%2C_by_Max_Halberstadt_(cropped).jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Sigmund Freud 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sigmund%20Freud%2C%20by%20Max%20Halberstadt%20(cropped).jpg?width=320"/><span aria-hidden="true" class="bio-initials">SF</span></span></a><figcaption class="bio-person-name">Sigmund Freud</figcaption></figure></div><div class="bio-main"><h4>Sigmund Freud（1856–1939）｜從神經科醫師到精神分析</h4><p>Freud 起初接受的是醫學與神經生理學訓練。1885 年，他前往巴黎跟隨 Jean-Martin Charcot，觀察當時稱為「歇斯底里」的身體症狀與催眠工作。這段經歷使他開始思考：身體表現未必能單憑神經損傷說明，記憶與情緒有時也會在症狀中留下痕跡。回到維也納後，他與 Josef Breuer 的工作，以及其後對夢、自由聯想和移情的研究，共同奠定精神分析的基礎。Freud 由此改變了治療中的問題：不再只問症狀是什麼，而開始問症狀在人的心理生活中扮演什麼角色。（Sharf, 2012, pp. 29–33; Seligman &amp; Reichenberg, 2010, ch. 3）</p><p>Freud 的理論先後經歷不同階段：從壓抑與無意識，到本我、自我、超我的結構模型，再到防衛、焦慮與關係中的重複。今日的心理動力學派對這些理論仍有分歧；後續學者正是從修正它們開始，形成不同的心理動力系統。（Sharf, 2012, pp. 33–46）</p></div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Carl Gustav Jung"><a aria-label="Carl Gustav Jung肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Carl-Jung-mod.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Carl Gustav Jung 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Carl-Jung-mod.jpg?width=320"/><span aria-hidden="true" class="bio-initials">CGJ</span></span></a><figcaption class="bio-person-name">Carl Gustav Jung</figcaption></figure></div><div class="bio-main"><h4>Carl Gustav Jung（1875–1961）｜與 Freud 分道揚鑣</h4><p>Jung 的家族背景連結宗教與醫學。他在蘇黎世的精神醫療工作中研究詞語聯想、象徵與病人的內在經驗。1907 年，他與 Freud 初次長談，隨後一度成為精神分析運動的重要人物。兩人對宗教、象徵及無意識的理解日益分歧，最後走向分裂。Jung 在兩人分裂後經歷多年內在動盪，持續探索夢、神話與自身幻想；這些探索後來成為分析心理學的重要來源。（Sharf, 2012, pp. 83–86）</p><p>Jung 不將無意識限於被壓抑的個人願望。他提出個人無意識、集體無意識、原型、情結與個體化歷程，關注人在不同生命階段如何整合相互矛盾的心理面向。（Sharf, 2012, pp. 86–100）</p></div></div></div><figure class="art-hero" data-image-slot="01-02"><img alt="湖畔草地上奔跑的狗插畫" src="/brand/heros/02.webp" decoding="async" loading="lazy"/></figure><div class="chapter-prose"><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Alfred Adler"><a aria-label="Alfred Adler肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Alfred_Adler1.png" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Alfred Adler 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Alfred%20Adler1.png?width=320"/><span aria-hidden="true" class="bio-initials">AA</span></span></a><figcaption class="bio-person-name">Alfred Adler</figcaption></figure></div><div class="bio-main"><h4>Alfred Adler（1870–1937）｜從身體脆弱走向社會連結</h4><p>Adler 童年曾有嚴重疾病，也經歷弟弟死亡。成為醫師後，他由眼科、一般醫療走向精神醫學，愈來愈在意病人所處的家庭與社會情境。1902 年他加入 Freud 的圈子，1911 年因理論分歧離開。Adler 認為，人會依自己的生活目標做選擇，過往經驗無法單獨決定一切。其後，他關心教育、家庭與社群，發展生活風格、補償、目的性與社會興趣等概念。（Sharf, 2012, pp. 124–130; Seligman &amp; Reichenberg, 2010, ch. 4）</p><p>Adler 所說的「自卑感」是一種生命經驗，不能直接當成人格標籤，也無法解釋所有成就。個體如何解釋自己的不足、追求何種優越、能否與他人合作，才是個體心理學的重點。（Sharf, 2012, pp. 127–131）</p></div></div><div class="bio-block" data-people="2"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Donald W. Winnicott"><a aria-label="Donald W. Winnicott肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Donald_Woods_Winnicott.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Donald W. Winnicott 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Donald%20Woods%20Winnicott.jpg?width=320"/><span aria-hidden="true" class="bio-initials">DWW</span></span></a><figcaption class="bio-person-name">Donald W. Winnicott</figcaption></figure><figure class="bio-person" data-person="Heinz Kohut"><a aria-label="Heinz Kohut肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Heinz_Kohut_dust_jacket_author_photo_(1971).jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Heinz Kohut 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Heinz%20Kohut%20dust%20jacket%20author%20photo%20(1971).jpg?width=320"/><span aria-hidden="true" class="bio-initials">HK</span></span></a><figcaption class="bio-person-name">Heinz Kohut</figcaption></figure></div><div class="bio-main"><h4>Donald W. Winnicott（1896–1971）與 Heinz Kohut（1913–1981）｜從驅力走向關係與自我</h4><p>Winnicott 有小兒科醫師與精神分析師的雙重工作背景。他將視線放在嬰兒與照顧者之間，探討足夠好的照顧、抱持環境、過渡性客體及真我與假我。Kohut 則發展自體心理學，關注自我凝聚、同理的發展功能，以及人在重要關係中所需要的鏡映、理想化與相似感。兩者關注的核心不同，但都使心理動力理論更重視早期關係所提供的心理功能，也擴展了以本能衝突為中心的解釋。（Sharf, 2012, pp. 41–45; Seligman &amp; Reichenberg, 2010, ch. 5）</p></div></div></div></section><section class="reading-chapter" id="psychodynamic-chapter-2"><header class="chapter-cap"><span class="chapter-number">II.</span><h3 class="chapter-name">理解人的方式</h3></header><div class="chapter-prose"><h3>02｜人性觀與基本假設</h3><p>心理動力典範將人視為具有意識與無意識歷程的心理存在。感受、想像、身體反應、關係記憶與防衛方式，常共同影響行動。古典精神分析強調本能衝突與心理結構，後續自我心理學更重視自我調節與現實適應，關係取向則強調心理能力在重要人際關係中發展。（Prochaska &amp; Norcross, 2010, pp. 26–35, 76–82; Sharf, 2012, pp. 33–46）</p><p>這個典範不採完全一致的決定論。Freud 比較重視早期經驗與無意識的限制；Adler 著重個人以主觀目標組織生活，以及在社群中選擇新的方向；Jung 的個體化則涉及生命歷程中對意識態度與無意識內容的整合。三者對自由、目的與人格發展各有解釋。（Prochaska &amp; Norcross, 2010, pp. 61–74; Sharf, 2012, pp. 88–100, 126–131）</p><h3>03｜心理困擾的形成</h3><p>古典精神分析把症狀理解為衝突與防衛的折衷結果。當某些願望、情緒或想法與自我要求相牴觸，防衛有時能暫時降低焦慮，卻同時限制經驗進入意識。客體關係理論更關心早期互動形成的內在關係模式，這些模式也會在某些親密與依賴關係中再次出現。（Prochaska &amp; Norcross, 2010, pp. 33–38, 78–81; Sharf, 2012, pp. 39–43, 47–54）</p><p>Adler 不以壓抑作為困擾的唯一來源。他關切生活風格、私人邏輯與錯置的優越目標如何限制社會興趣。Jung 則注意片面的意識態度與未被承認的心理面向之間的張力。將這些差異保留，才能看見「心理動力」是一個理論家族而非一套單一病因說。（Sharf, 2012, pp. 89–100, 126–131; Prochaska &amp; Norcross, 2010, pp. 62–75）</p><h3>04｜核心概念與理論架構</h3><p><strong>概念間的關係。</strong> 在古典精神分析中，心理衝突、焦慮、防衛與症狀具有相互關聯；在客體關係傳統，早期互動留下關係期待，有時會在日後的關係中再次出現；在阿德勒學派，生活風格則組織個體對自己、他人及生活任務的解釋。這些是各自學派的解釋模型，不能合併成單一線性因果圖。（Sharf, 2012, pp. 33–46, 126–131）</p><h4>概念索引</h4><div class="concept-dictionary"><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>專業意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>無意識</td>
+<td>尚未進入或不易進入意識的心理歷程；各學派定義不同</td>
+</tr>
+<tr>
+<td>防衛機制</td>
+<td>面對心理衝突、焦慮與威脅時的心理調節方式</td>
+</tr>
+<tr>
+<td>移情</td>
+<td>重要關係的情感、期待與模式在治療關係中的展現</td>
+</tr>
+<tr>
+<td>反移情</td>
+<td>治療者對個案的情緒及關係反應，需在專業工作中辨認</td>
+</tr>
+<tr>
+<td>生活風格</td>
+<td>Adler 對個體自早期形成之生活組織方式的稱呼</td>
+</tr>
+<tr>
+<td>內在客體／客體表徵</td>
+<td>個人心中關於自己與重要他人的關係經驗及表徵</td>
+</tr>
+<tr>
+<td>自體客體</td>
+<td>自體心理學中協助維持及發展自我功能的關係經驗</td>
+</tr>
+</tbody>
+</table></div></div></section><figure class="art-hero" data-image-slot="01-03"><img alt="雨中石板路上的狗插畫" src="/brand/heros/03.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="psychodynamic-chapter-3"><header class="chapter-cap"><span class="chapter-number">III.</span><h3 class="chapter-name">治療如何發生</h3></header><div class="chapter-prose"><h3>05｜治療目標與改變機制</h3><p>心理動力治療的治療的核心目標包含增進對心理生活的理解、情緒承受力與關係選擇。古典精神分析強調辨認被壓抑的衝突及其防衛；客體關係與關係取向關注舊有的期待如何在治療關係中出現，並發展新的關係經驗；自體心理學重視同理性理解對自體功能的支持。（Prochaska &amp; Norcross, 2010, pp. 35–45, 79–82; Sharf, 2012, pp. 47–54）</p><p><strong>改變機制與介入技術必須區分。</strong> 洞察、修通與新的關係理解是改變歷程的概念；自由聯想、移情詮釋與夢的探索則是實際的工作方法。對 Adler 而言，鼓勵、修正私人邏輯與重新定向的重點也不在單次領悟，而把不同的選擇落實在生活任務中。（Sharf, 2012, pp. 47–54, 130–141; Corey, 2012, pp. 60–77）</p><h3>06｜治療關係</h3><p>移情使重要關係中累積的期待與情緒有機會在治療情境中被辨識。治療師亦須察覺自己的反移情反應，避免將個人反應直接視為個案的事實。當代關係精神分析尤其強調治療師的參與不能被假定為完全中立。（Prochaska &amp; Norcross, 2010, pp. 43–48; Sharf, 2012, pp. 47–54）</p><p>阿德勒治療採較合作與鼓勵的關係姿態；自體心理學將同理理解視為治療工作的核心條件。不同學派都重視治療關係，但對其功能的解釋有所差異：它可以是理解移情的材料、修復心理功能的環境，也可以是共同探索生活風格的合作關係。（Sharf, 2012, pp. 43–46, 130–133; Faris &amp; van Ooijen, 2012, pp. 24–49）</p><h3>07｜治療歷程與介入</h3><p><strong>概念化。</strong> 治療者整合目前困擾、重要關係史、慣常的情緒與防衛，以及治療現場的互動模式。若採阿德勒理論，另會評估家庭星座、早期回憶、生活風格與追求的目標；這些材料須依個案敘事理解，出生序無法直接推斷人格。（Sharf, 2012, pp. 47–54, 130–141; Corey, 2012, pp. 60–77）</p><p><strong>歷程。</strong> 工作常由形成安全且可持續的治療關係開始，辨認反覆模式及其情緒意義，並在新情境中檢視先前的理解。治療技術包括自由聯想、澄清、面質、詮釋與關係歷程的探索；不同學派會調整介入程度、治療結構及對當下關係的重視。（Prochaska &amp; Norcross, 2010, pp. 35–48; Sharf, 2012, pp. 47–54, 75–82）</p><h4>晤談中的工作姿態</h4><p>心理動力取向的晤談通常容許個案從當下最在意的事情談起。治療者留意反覆出現的主題、感受的突然轉折、難以言說之處，以及個案如何理解治療關係本身。一次晤談未必急於解決表面問題；治療也會協助個案把原先以行動表達的經驗，帶進可以訴說、感受與思考的範圍。（Sharf, 2012, pp. 47–54; Faris &amp; van Ooijen, 2012, chs. 2–3）</p></div></section><figure class="art-hero" data-image-slot="01-04"><img alt="窗邊看向庭院的黑貓插畫" src="/brand/heros/04.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="psychodynamic-chapter-4"><header class="chapter-cap"><span class="chapter-number">IV.</span><h3 class="chapter-name">學派與理論譜系</h3></header><div class="chapter-prose"><h3>08｜代表學派：各自如何理解受苦與改變</h3><h4>1. 古典精神分析｜Freud</h4><p><strong>人為什麼受苦？</strong> 難以被意識接受的願望與衝突會受到壓抑；防衛雖暫時減少焦慮，也會讓部分症狀與關係模式反覆出現。本我、自我與超我之間的張力，提供了理解衝突的一套模型。（Sharf, 2012, pp. 33–38, 47–54）</p><p><strong>人如何改變？</strong> 透過自由聯想、夢的材料、阻抗與移情的探索，辨認原本難以思考的衝突。所謂洞察同時涉及理智上的理解，以及在治療關係中反覆辨認與處理衝突。（Sharf, 2012, pp. 47–54）</p><h4>2. 榮格分析心理學｜Jung</h4><p><strong>人為什麼受苦？</strong> 意識態度若過度單一，或與未被承認的內在面向失去聯繫，心理生活便容易失衡。情結、陰影與象徵性材料因此具有理解個人困擾的意義。（Sharf, 2012, pp. 86–96）</p><p><strong>人如何改變？</strong> 透過夢的工作、主動想像、象徵探索及治療關係，加深對自我與無意識的理解。個體化指向整合，而非成為沒有衝突的人。（Sharf, 2012, pp. 96–105）</p><h4>3. 阿德勒個體心理學｜Adler</h4><p><strong>人為什麼受苦？</strong> 早年發展的生活風格、私人邏輯與虛構目標，容易使人反覆以狹窄方式追求安全或優越；當歸屬與社會興趣受到限制，困擾更容易被維持。（Adler, as cited in Sharf, 2012, pp. 126–131, 142–148）</p><p><strong>人如何改變？</strong> 在鼓勵式治療關係中理解生活風格、早期回憶、家庭星座與個人目標，重新評估過去的自我結論，再將洞察轉化為對工作、愛與社群更有建設性的行動。（Sharf, 2012, pp. 130–141）</p><h4>4. 客體關係取向｜Winnicott、Melanie Klein 等</h4><p><strong>人為什麼受苦？</strong> 早期重要關係會留在內在的自我與他人表徵中；當關係中的安全、依賴、攻擊與分離難以整合，個人有時在成年關係中繼續感受到相似的威脅。（Sharf, 2012, pp. 41–43; Seligman &amp; Reichenberg, 2010, ch. 5）</p><p><strong>人如何改變？</strong> 治療提供一段得以辨認、承受及重新理解內在關係模式的歷程。治療者除了理解過去，也觀察當下關係中如何出現相似的期待與防衛。（Sharf, 2012, pp. 41–43, 47–54）</p><h4>5. 自體心理學與關係精神分析｜Kohut、後續關係取向學者</h4><p><strong>人為什麼受苦？</strong> 當重要關係未能充分回應自我凝聚與自尊調節的發展需求，個體有時會長期依賴外部肯定，或在人際挫折中出現強烈的瓦解感。關係精神分析另強調心理困擾是在互動中形成及被維持的。（Sharf, 2012, pp. 43–46）</p><p><strong>人如何改變？</strong> Kohut 強調同理理解對自我結構的重要性；關係取向則重視治療師與個案雙方如何共同參與當下的關係過程。兩者不能簡化為單純安慰或鼓勵。（Sharf, 2012, pp. 43–46, 53–54）</p><h3>理論譜系與分類邊界</h3><p>Freud 關注內在衝突與防衛；Jung 關注象徵與個體化；Adler 重視生活目的與社會興趣；客體關係學者重視內在關係；Kohut 重視自我發展中的同理功能。它們有共同歷史，但各有不同的人性理論。（Halbur &amp; Halbur, 2019, ch. 4; Sharf, 2012, chs. 2–4）</p></div></section><footer class="reading-end"><button class="close-article" type="button">收合此篇　↑</button></footer></div></article></div></section><section class="atlas-item" data-open="false" id="theory-humanistic-existential-experiential"><h2 class="atlas-button"><span class="atlas-count">02</span><a class="atlas-title-link" href="/counseling/humanistic-existential-experiential"><span class="atlas-title">人本—存在—經驗典範</span><span class="atlas-english">Humanistic–Existential–Experiential</span></a><button aria-controls="panel-humanistic-existential-experiential" aria-expanded="false" class="atlas-toggle" id="trigger-humanistic-existential-experiential" type="button" aria-label="展開人本—存在—經驗典範內容"><span aria-hidden="true" class="atlas-symbol">+</span></button></h2><div aria-labelledby="trigger-humanistic-existential-experiential" class="atlas-panel" hidden="" id="panel-humanistic-existential-experiential" role="region"><article class="reading" id="article-humanistic-existential-experiential"><div class="reading-wrap"><header class="reading-head"><div class="serial"><span>THEORY STUDIES / 02</span></div><p class="reading-subtitle">從被理解，到重新感覺自己正在生活</p></header><figure class="art-hero" data-image-slot="02-01"><img alt="海邊奔跑的狗與燈塔插畫" src="/brand/heros/01.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="humanistic-existential-experiential-chapter-1"><header class="chapter-cap"><span class="chapter-number">I.</span><h3 class="chapter-name">思想的誕生</h3></header><div class="chapter-prose"><h3>01｜理論起源與發展</h3><p>此典範聚集幾條相近、但不能相互取代的路線：人本治療相信個體具有成長與自我理解的潛能；存在治療面對生命的有限、自由、孤獨與意義；經驗治療則重視此時此刻的情緒、身體與關係接觸。它們共享對主觀經驗及治療關係的重視，卻以不同的理論說明受苦與改變。（Seligman &amp; Reichenberg, 2010, chs. 7–11; Prochaska &amp; Norcross, 2010, chs. 4–6）</p><h3>三條源流如何慢慢匯合</h3><p>人本治療興起於二十世紀中葉，回應當時精神分析對無意識衝突的重視，以及行為主義對可觀察行為的強調。Rogers 從兒童輔導與臨床晤談發展出非指導式、後稱個人中心的治療立場；存在治療則沿著 Kierkegaard、Heidegger、Buber 以及臨床精神醫學的路線，將自由、死亡、孤獨與意義納入心理治療。（Sharf, 2012, pp. 161–168, 207–211; Seligman &amp; Reichenberg, 2010, pp. 142–174）</p><p>完形治療在 Fritz 與 Laura Perls、Paul Goodman 等人的工作中形成，結合完形心理學、場域觀、身體經驗與存在哲學。Gendlin 的聚焦與 Greenberg 的歷程經驗取向則把「如何在治療當下接觸經驗」發展為更清楚的過程理論。此典範因此具有相近的人性尊重立場，卻不能把所有學派簡化成同一套「抒發感受」技巧。（Sharf, 2012, pp. 240–253; Prochaska &amp; Norcross, 2010, pp. 160–185）</p><h3>走進理論家的生命</h3><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Carl R. Rogers"><a aria-label="Carl R. Rogers肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Carl_Ransom_Rogers.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Carl R. Rogers 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Ransom%20Rogers.jpg?width=320"/><span aria-hidden="true" class="bio-initials">CRR</span></span></a><figcaption class="bio-person-name">Carl R. Rogers</figcaption></figure></div><div class="bio-main"><h4>Carl R. Rogers（1902–1987）｜從尋找正確答案，轉向聆聽另一個人</h4><p>Rogers 成長於重視宗教、紀律與勞動的家庭。他起初在威斯康辛大學探索農業與宗教，之後曾就讀神學院；重新思考信仰後，他轉向心理學與兒童輔導工作。多年來，他與兒童、父母及遭遇困難的成人工作，愈發相信治療師不應站在個案之上替他決定正確人生。由早期的非指導式晤談，到後來的個人中心治療，他關注的是人在怎樣的關係中，才能坦然面對自己的經驗。（Sharf, 2012, pp. 207–211; Seligman &amp; Reichenberg, 2010, ch. 8）</p><p>Rogers 將治療關係本身置於理論核心。他提出同理理解、無條件積極關懷及真誠一致的重要性，也討論個案是否真正感受到這些關係條件。Rogers 強調的是真誠與接納，治療師無須時時表現溫柔，使個案能正視原本必須否認的部分。（Rogers, 1957, as cited in Sharf, 2012, pp. 213–220）</p></div></div><div class="bio-block" data-people="3"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Viktor Frankl"><a aria-label="Viktor Frankl肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Viktor_Frankl2.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Viktor Frankl 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Viktor%20Frankl2.jpg?width=320"/><span aria-hidden="true" class="bio-initials">VF</span></span></a><figcaption class="bio-person-name">Viktor Frankl</figcaption></figure><figure class="bio-person" data-person="Rollo May"><a aria-label="Rollo May肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Rollo_May_USD_Alcal%C3%A1_1977.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Rollo May 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rollo%20May%20USD%20Alcal%C3%A1%201977.jpg?width=320"/><span aria-hidden="true" class="bio-initials">RM</span></span></a><figcaption class="bio-person-name">Rollo May</figcaption></figure><figure class="bio-person" data-person="Irvin D. Yalom"><a aria-label="Irvin D. Yalom肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Irvin_Yalom.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Irvin D. Yalom 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Irvin%20Yalom.jpg?width=320"/><span aria-hidden="true" class="bio-initials">IDY</span></span></a><figcaption class="bio-person-name">Irvin D. Yalom</figcaption></figure></div><div class="bio-main"><h4>Viktor Frankl（1905–1997）、Rollo May（1909–1994）與 Irvin D. Yalom（1931–）｜把生命問題帶回治療</h4><p>歐洲存在哲學家長期討論自由、焦慮、死亡與選擇。部分早期存在治療者原受精神分析訓練，卻不滿意只以本能或過去解釋眼前的病人。Frankl 的人生經歷包括納粹集中營迫害；他所發展的意義治療特別關注意義、價值與人在限制下所能採取的態度。May 將存在思想引入美國心理治療，強調焦慮、勇氣及成為自己的責任。Yalom 則以死亡、自由、孤獨與無意義四項終極關懷，整理臨床中的存在議題。（Sharf, 2012, pp. 161–165, 166–175; Seligman &amp; Reichenberg, 2010, ch. 9）</p><p>存在治療不承諾永遠確定的答案。它關注的是，人如何在仍有痛苦、限制與不可控制之事的處境下，較真實地生活。（Prochaska &amp; Norcross, 2010, ch. 4）</p></div></div></div><figure class="art-hero" data-image-slot="02-02"><img alt="湖畔草地上奔跑的狗插畫" src="/brand/heros/02.webp" decoding="async" loading="lazy"/></figure><div class="chapter-prose"><div class="bio-block" data-people="2"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Fritz Perls"><a aria-label="Fritz Perls肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Fritz_Perls.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Fritz Perls 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fritz%20Perls.jpg?width=320"/><span aria-hidden="true" class="bio-initials">FP</span></span></a><figcaption class="bio-person-name">Fritz Perls</figcaption></figure><figure class="bio-person" data-person="Laura Perls"><a aria-label="Laura Perls肖像來源" class="bio-image-link" href="https://www.pz-news.de/kultur_artikel%2C-Einblicke-in-ein-bewegtes-Leben-Nachlass-von-Laura-Perls-jetzt-ans-Stadtarchiv-uebergeben-_arid%2C1434361.html" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Laura Perls 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://www.pz-news.de/cms_media/module_img/5747/2873728_1_articledetailxl_5e9f3be8aabd1.jpg"/><span aria-hidden="true" class="bio-initials">LP</span></span></a><figcaption class="bio-person-name">Laura Perls</figcaption></figure></div><div class="bio-main"><h4>Fritz Perls（1893–1970）與 Laura Perls（1905–1990）｜從分析過去，轉向感覺當下</h4><p>Fritz Perls 曾參與第一次世界大戰，學醫後在 Kurt Goldstein 的腦傷研究與臨床環境工作，也接受精神分析訓練。納粹掌權後，他離開德國，後來在南非與美國繼續工作。Laura Perls、Paul Goodman 及其他合作伙伴共同參與完形治療的形成；完形治療出自多位工作者的思想與實務。這段思想經歷使完形治療兼具精神分析、形態心理學、場域理論、現象學與存在思考。（Sharf, 2012, pp. 241–245）</p><p>完形治療把注意力從「我為什麼會這樣」部分轉到「我現在如何如此經驗」。感受、呼吸、動作、沉默與眼前的關係，成為理解人的材料。（Sharf, 2012, pp. 245–255）</p></div></div><div class="bio-block" data-people="2"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Eugene Gendlin"><a aria-label="Eugene Gendlin肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Eugene_Gendlin.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Eugene Gendlin 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Eugene%20Gendlin.jpg?width=320"/><span aria-hidden="true" class="bio-initials">EG</span></span></a><figcaption class="bio-person-name">Eugene Gendlin</figcaption></figure><figure class="bio-person" data-person="Leslie S. Greenberg"><a aria-label="Leslie S. Greenberg肖像來源" class="bio-image-link" href="https://isfar-firenze.it/formazione-corsi-docenti/leslie-s-greenberg/" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Leslie S. Greenberg 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://www.isfar-firenze.it/wp-content/uploads/2022/06/Greenberg-Leslie.jpg"/><span aria-hidden="true" class="bio-initials">LSG</span></span></a><figcaption class="bio-person-name">Leslie S. Greenberg</figcaption></figure></div><div class="bio-main"><h4>Eugene Gendlin（1926–2017）與 Leslie S. Greenberg（1945–）｜把情緒經驗帶進治療</h4><p>Gendlin 在人本與經驗研究傳統中發展聚焦法（focusing），重視尚無法立即說清楚的身體感受與內在意義。Greenberg 的歷程經驗治療與後來的情緒焦點治療，系統化了對情緒覺察、情緒圖式、情緒轉化與治療任務的工作。此一路線強調個案不能只靠抽象解釋理解情緒；某些改變需要在安全的治療關係中真正接觸並重新組織情緒經驗。（Prochaska &amp; Norcross, 2010, ch. 6; Seligman &amp; Reichenberg, 2010, ch. 11）</p></div></div></div></section><section class="reading-chapter" id="humanistic-existential-experiential-chapter-2"><header class="chapter-cap"><span class="chapter-number">II.</span><h3 class="chapter-name">理解人的方式</h3></header><div class="chapter-prose"><h3>02｜人性觀與基本假設</h3><p>人本取向通常認為，人具有成長、選擇及尋求意義的潛能，也受到具體生活條件的限制。Rogers 以實現傾向與有機體評價歷程理解發展；存在治療重視人的有限性與責任；完形治療把人置於持續變動的有機體—環境場域中；經驗取向則重視身體感受、情緒與意義形成的歷程。（Prochaska &amp; Norcross, 2010, pp. 97–104, 131–139, 162–167; Sharf, 2012, pp. 166–179, 211–214, 245–251）</p><p>這些理論對「自我」的定義不同。個人中心治療重視自我概念與經驗的一致性；存在治療不預設固定不變的真實自我；完形強調接觸及覺察；情緒焦點治療則在情緒基模與情緒轉化中理解自我組織。（Sharf, 2012, pp. 211–225, 245–263; Prochaska &amp; Norcross, 2010, pp. 131–147, 162–185）</p><h3>03｜心理困擾的形成</h3><p>個人中心治療將不一致（incongruence）視為心理困擾的重要核心：當自我價值附著於外在的價值條件，個體有時會扭曲或否認自身經驗。存在治療關心人如何迴避必然面對的限制與焦慮。兩者雖同樣尊重主觀經驗，困擾的理論來源卻不同。（Prochaska &amp; Norcross, 2010, pp. 101–104, 133–135; Sharf, 2012, pp. 211–214, 221–226）</p><p>完形治療重視接觸過程的中斷、未竟事務及僵化的自我調整方式；經驗與情緒焦點取向則關注情緒處理困難、持續性的不適應情緒圖式，以及經驗未被充分形成意義的情況。情緒焦點取向會區分情緒的不同功能，不將強烈情緒一概視為病理，也不將單純宣洩當作改變機制。（Prochaska &amp; Norcross, 2010, pp. 165–177, 182–186; Sharf, 2012, pp. 245–266）</p><h3>04｜核心概念與理論架構</h3><p><strong>概念之間如何連結？</strong> 個人中心治療著重價值條件如何使自我概念與有機體經驗分離；完形治療著重需求在接觸循環中如何浮現、被中斷或完成；情緒焦點治療辨別原初與次級情緒、適應性與不適應性情緒，並討論情緒如何在新經驗中轉化。各學派對這些概念有不同定義。（Prochaska &amp; Norcross, 2010, pp. 131–147, 162–185; Sharf, 2012, pp. 211–214, 245–258）</p><h4>概念索引</h4><div class="concept-dictionary"><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自我實現傾向</td>
+<td>Rogers 對有機體發展與成長動向的描述</td>
+</tr>
+<tr>
+<td>價值條件</td>
+<td>因外界接納或否定而內化的「我必須如何才有價值」</td>
+</tr>
+<tr>
+<td>一致／不一致</td>
+<td>自我概念與實際經驗是否能相互容納</td>
+</tr>
+<tr>
+<td>存在焦慮</td>
+<td>面對有限、自由、責任和不確定性時的根本性焦慮</td>
+</tr>
+<tr>
+<td>此時此刻</td>
+<td>將注意力放在當前正在發生的經驗與關係</td>
+</tr>
+<tr>
+<td>接觸邊界</td>
+<td>個體與環境、自己與他人之間的接觸和區分方式</td>
+</tr>
+<tr>
+<td>未竟事宜</td>
+<td>尚未被整合或完成的關係與情緒經驗</td>
+</tr>
+<tr>
+<td>感受到的意義（felt sense）</td>
+<td>Gendlin 所關注、尚未充分語言化的身體性整體感受</td>
+</tr>
+<tr>
+<td>情緒圖式</td>
+<td>經驗、記憶、身體反應、評價與行動傾向的組織</td>
+</tr>
+</tbody>
+</table></div></div></section><figure class="art-hero" data-image-slot="02-03"><img alt="雨中石板路上的狗插畫" src="/brand/heros/03.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="humanistic-existential-experiential-chapter-3"><header class="chapter-cap"><span class="chapter-number">III.</span><h3 class="chapter-name">治療如何發生</h3></header><div class="chapter-prose"><h3>05｜治療目標與改變機制</h3><p>個人中心治療將治療關係中的真誠一致、無條件積極關懷與同理理解，視為促進個案重新接觸經驗的重要條件。存在治療的改變則涉及在生命限制中更誠實地面對選擇、關係、責任與意義。兩者的共同點是尊重個人的主體性，但改變機制各異。（Sharf, 2012, pp. 213–221, 175–186; Prochaska &amp; Norcross, 2010, pp. 104–116, 135–145）</p><p>完形治療重視當下覺察、接觸與新的經驗整合。情緒焦點治療則透過接觸核心情緒、辨識情緒需要與產生轉化性的新情緒經驗，改變原先僵固的情緒反應。<strong>技術</strong>可以是兩椅對話、空椅工作或聚焦；<strong>機制</strong>則是覺察、接觸、情緒加工及經驗重組。兩者須分開討論。（Prochaska &amp; Norcross, 2010, pp. 167–185; Sharf, 2012, pp. 253–263）</p><h3>06｜治療關係</h3><p>個人中心治療賦予治療關係理論地位：治療師的真誠一致、無條件積極關懷、同理理解，以及個案確實感受到這些條件，都與改變歷程相關。治療者不以專家地位替個案決定其生命經驗的正確意義。（Sharf, 2012, pp. 213–221; Prochaska &amp; Norcross, 2010, pp. 135–141）</p><p>存在治療將真實相遇和對當事人作為人的尊重視為重要工作；完形治療的接觸與對話亦要求治療師承認自己是關係中的參與者。情緒焦點治療同時需要高度同理與歷程引導。Faris 與 van Ooijen（2012, pp. 24–60）提出的關係整合觀，可用來比較各學派，但不能取代各自的原始治療關係理論。</p><h3>07｜治療歷程與介入</h3><p><strong>概念化。</strong> 個人中心治療關注自我概念與實際經驗的落差；存在治療探索限制、責任、孤獨及意義如何在目前處境中交織；完形治療追蹤此時此地的接觸中斷與未竟事務；情緒焦點治療則辨識情緒反應類型及有待加工的情緒任務。（Sharf, 2012, pp. 173–186, 211–226, 245–264; Prochaska &amp; Norcross, 2010, pp. 162–185）</p><p><strong>介入。</strong> 個人中心治療以回應、澄清與同理同行為主；存在治療透過對話探索生命選擇；完形治療可運用當下覺察、實驗及空椅工作；情緒焦點治療則依個案狀態安排情緒聚焦、兩椅或空椅工作。即使名稱相同，空椅工作在完形與 EFT 中的理論任務及治療程序也各有不同。（Prochaska &amp; Norcross, 2010, pp. 109–116, 169–185; Sharf, 2012, pp. 213–221, 253–263）</p></div></section><figure class="art-hero" data-image-slot="02-04"><img alt="窗邊看向庭院的黑貓插畫" src="/brand/heros/04.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="humanistic-existential-experiential-chapter-4"><header class="chapter-cap"><span class="chapter-number">IV.</span><h3 class="chapter-name">學派與理論譜系</h3></header><div class="chapter-prose"><h3>08｜代表學派：各自如何理解受苦與改變</h3><h4>1. 個人中心治療｜Person-Centered Therapy</h4><p><strong>人為什麼受苦？</strong> 個體在成長中若長期相信「只有符合他人期待，才值得被愛」，便容易將外在評價內化為價值條件（conditions of worth）。不能符合自我形象的感受因此遭到否認或扭曲，使實際經驗與自我概念發生不一致（incongruence）。（Sharf, 2012, pp. 211–213, 221–225; Prochaska &amp; Norcross, 2010, ch. 5）</p><p><strong>人如何改變？</strong> 在能被理解、接納且真誠的治療關係中，個案開始覺察、表達原本難以承認的經驗。個案對自己的評價不再完全受外在條件左右，而能形成更彈性、自主的自我理解。（Rogers, 1957, as cited in Sharf, 2012, pp. 213–220）</p><p><strong>諮商怎樣進行？</strong> 治療師透過同理反映、澄清與真誠的關係回應，追隨個案的內在參照架構；治療師不替個案訂出標準人格。（Sharf, 2012, pp. 213–220）</p><h4>2. 存在治療｜Existential Therapy</h4><p><strong>人為什麼受苦？</strong> 人無法完全擺脫死亡、選擇、不確定、分離及意義問題。當人透過否認、逃避責任或過度依賴外在規則，迴避生命的基本處境時，焦慮便容易限制生活。存在焦慮本身不一定是病理。（Prochaska &amp; Norcross, 2010, ch. 4; Sharf, 2012, pp. 166–175, 186–190）</p><p><strong>人如何改變？</strong> 治療協助個案面對有限性、辨識仍可選擇的立場、承擔關係與生活的責任，以及在自身處境中尋找意義。真實地生活不等於完全沒有恐懼。（Sharf, 2012, pp. 175–186）</p><p><strong>諮商怎樣進行？</strong> 對話可圍繞失落、死亡、自由、孤獨、承諾與價值。治療關係中的真實相遇，比一套固定程序更重要。（Seligman &amp; Reichenberg, 2010, ch. 9）</p><h4>3. 完形治療｜Gestalt Therapy</h4><p><strong>人為什麼受苦？</strong> 人與環境之間需要持續接觸和調節。當個體習慣性壓抑需求、將他人要求吞入自身、把內在感受投射出去，或長期留在未完成的關係經驗中，接觸邊界與覺察容易受阻。（Sharf, 2012, pp. 245–251, 264–268）</p><p><strong>人如何改變？</strong> 透過此時此刻的覺察，辨認自己的感受、行動、需要和與他人的接觸方式；讓被分離的經驗重新進入可感受、可表達的整體。（Sharf, 2012, pp. 251–264）</p><p><strong>諮商怎樣進行？</strong> 治療師可邀請個案留意身體、語氣與停頓，並在取得同意且合宜時運用空椅、對話或角色實驗。實驗旨在促進覺察，避免強迫情緒宣洩。（Sharf, 2012, pp. 253–264）</p><h4>4. 經驗與情緒焦點治療｜Experiential / Emotion-Focused Therapy</h4><p><strong>人為什麼受苦？</strong> 有些情緒經驗未獲充分辨認、形成難以改變的情緒圖式，或與當下情境不相符。逃避與過度控制情緒，也會限制其提供訊息與促成調整的能力。（Prochaska &amp; Norcross, 2010, ch. 6）</p><p><strong>人如何改變？</strong> 治療引導個案進入可承受的情緒經驗，辨認感受中的意義與需求，區分不同情緒功能，並在新的情緒經驗中修正既有組織方式。單靠「想通」不足以改變情緒。（Prochaska &amp; Norcross, 2010, pp. 182–199; Seligman &amp; Reichenberg, 2010, ch. 11）</p><p><strong>諮商怎樣進行？</strong> 治療者追蹤情緒變化、協助象徵化難以言說的感受，並依個案當下的處理狀態使用工作任務。EFT 也有個別與伴侶等不同發展脈絡，（Prochaska &amp; Norcross, 2010, ch. 6）</p><h3>理論譜系與分類邊界</h3><p>Halbur 與 Halbur（2019, pp. 70–78）將個人中心、存在與完形放在人本學派家族中。這是一種歷史分類；Prochaska 與 Norcross（2010, pp. 160–185）則另將完形與經驗治療合章討論，</p><p>經驗治療在部分專書中作為一個寬廣家族，包含個人中心與完形；Prochaska 與 Norcross（2010, pp. 182–185）則在介紹完形後另外討論自稱「經驗治療」的分支。</p><p>個人中心治療主要回答<strong>人在怎樣的關係中能重新信任自己的經驗</strong>；存在治療回答<strong>人如何在有限性中承擔自己的生命</strong>；完形治療回答<strong>此刻的接觸與覺察如何被阻斷</strong>；情緒焦點治療回答<strong>情緒經驗如何被啟動、理解與改變</strong>。這是相互連結的理論家族，各自具有不同的改變理論與技術。（Sharf, 2012, chs. 5–7; Prochaska &amp; Norcross, 2010, chs. 4–6）</p></div></section><footer class="reading-end"><button class="close-article" type="button">收合此篇　↑</button></footer></div></article></div></section><section class="atlas-item" data-open="false" id="theory-behavioral"><h2 class="atlas-button"><span class="atlas-count">03</span><a class="atlas-title-link" href="/counseling/behavioral"><span class="atlas-title">行為典範</span><span class="atlas-english">Behavioral</span></a><button aria-controls="panel-behavioral" aria-expanded="false" class="atlas-toggle" id="trigger-behavioral" type="button" aria-label="展開行為典範內容"><span aria-hidden="true" class="atlas-symbol">+</span></button></h2><div aria-labelledby="trigger-behavioral" class="atlas-panel" hidden="" id="panel-behavioral" role="region"><article class="reading" id="article-behavioral"><div class="reading-wrap"><header class="reading-head"><div class="serial"><span>THEORY STUDIES / 03</span></div><p class="reading-subtitle">習得的反應，也能在新的環境裡重新學習</p></header><figure class="art-hero" data-image-slot="03-01"><img alt="海邊奔跑的狗與燈塔插畫" src="/brand/heros/01.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="behavioral-chapter-1"><header class="chapter-cap"><span class="chapter-number">I.</span><h3 class="chapter-name">思想的誕生</h3></header><div class="chapter-prose"><h3>01｜理論起源與發展</h3><p>行為取向的出發點與早期精神分析相當不同。它研究行為如何在環境中形成、受到什麼條件維持，以及哪些新的學習經驗能使它改變。當代行為治療除了外顯動作，也研究恐懼反應、情緒、注意、語言及情境功能。早期的實驗心理學傳統是其重要來源。（Sharf, 2012, pp. 280–291; Prochaska &amp; Norcross, 2010, chs. 8–9）</p><h3>從測量反射，到研究人如何學習</h3><p>Pavlov 研究消化生理時觀察到與刺激配對有關的反射，Watson 主張心理學應研究可觀察的行為，Skinner 則將行為之後的環境後果納入分析。三人的學習模型各異。Wolpe 後來將學習原理用於系統減敏感治療，發展出處理焦慮與恐懼的治療程序。（Sharf, 2012, pp. 281–294; Seligman &amp; Reichenberg, 2010, pp. 310–323）</p><p>Bandura 在社會學習研究中強調觀察與替代學習，並以自我效能解釋個體對行動能力的判斷。行為治療後來納入情境、學習史、認知預期及功能分析，發展為多元傳統。行為療法與 CBT 因此具有歷史連續性，但理論焦點不同。（Prochaska &amp; Norcross, 2010, pp. 243–265; Sharf, 2012, pp. 285–301）</p><h3>走進理論家的生命</h3><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Ivan Pavlov"><a aria-label="Ivan Pavlov肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Ivan_Pavlov_NLM3.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Ivan Pavlov 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ivan%20Pavlov%20NLM3.jpg?width=320"/><span aria-hidden="true" class="bio-initials">IP</span></span></a><figcaption class="bio-person-name">Ivan Pavlov</figcaption></figure></div><div class="bio-main"><h4>Ivan Pavlov（1849–1936）｜生理學研究意外打開了學習問題</h4><p>Pavlov 原本研究消化系統與反射，而非從心理治療工作起家。他注意到實驗中的動物在食物尚未出現時便出現唾液反應，於是進一步研究原本中性的訊號，如何經由反覆配對而引發反應。古典制約由此成為理解某些習得情緒反應的重要基礎。這段歷史提醒人們：恐懼未必需要依賴意識選擇，也會因過去的學習而自動出現。（Sharf, 2012, pp. 281–282; Seligman &amp; Reichenberg, 2010, ch. 16）</p></div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="John B. Watson"><a aria-label="John B. Watson肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:John_Broadus_Watson.JPG" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="John B. Watson 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/John%20Broadus%20Watson.JPG?width=320"/><span aria-hidden="true" class="bio-initials">JBW</span></span></a><figcaption class="bio-person-name">John B. Watson</figcaption></figure></div><div class="bio-main"><h4>John B. Watson（1878–1958）｜將心理學推向可觀察的行為</h4><p>Watson 主張心理學應重視可以觀察與檢驗的行為。他受 Pavlov 的制約研究影響，試圖將學習原理用於人類情緒。他與 Rayner 的「小艾伯特」研究成為行為主義史上的著名事件，亦涉及嚴重的研究倫理問題。（Watson &amp; Rayner, 1920, as cited in Sharf, 2012, p. 282）</p></div></div></div><figure class="art-hero" data-image-slot="03-02"><img alt="湖畔草地上奔跑的狗插畫" src="/brand/heros/02.webp" decoding="async" loading="lazy"/></figure><div class="chapter-prose"><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="B. F. Skinner"><a aria-label="B. F. Skinner肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:B.F._Skinner_at_Harvard_circa_1950_(cropped).jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="B. F. Skinner 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/B.F.%20Skinner%20at%20Harvard%20circa%201950%20(cropped).jpg?width=320"/><span aria-hidden="true" class="bio-initials">BFS</span></span></a><figcaption class="bio-person-name">B. F. Skinner</figcaption></figure></div><div class="bio-main"><h4>B. F. Skinner（1904–1990）｜從刺激反應，走到行為的後果</h4><p>Skinner 除了考察行為的前因，也研究行為之後出現的結果如何影響其再次發生的機率。他以操作制約說明增強、消弱、塑造與環境安排。這使治療者能夠系統性辨認：一個行為即使造成長期損害，為何仍會受到短期效果的維持。他用環境與行為功能解釋這些現象，避開「意志力不足」的道德評斷。（Sharf, 2012, pp. 282–288）</p></div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Joseph Wolpe"><a aria-label="Joseph Wolpe肖像來源" class="bio-image-link" href="https://psicologiaymente.com/biografias/joseph-wolpe" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Joseph Wolpe 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://pymstatic.com/10883/conversions/joseph-wolpe-wide_webp.webp"/><span aria-hidden="true" class="bio-initials">JW</span></span></a><figcaption class="bio-person-name">Joseph Wolpe</figcaption></figure></div><div class="bio-main"><h4>Joseph Wolpe（1915–1997）｜將學習原理帶進恐懼治療</h4><p>行為治療進入臨床的重要階段，是學者嘗試將制約原理轉化為系統化的減敏與接近恐懼情境的工作。Wolpe 的交互抑制與系統減敏，呈現早期行為治療如何由學習理論發展出治療程序；後續暴露療法則有不同的機制解釋及安排方式。（Sharf, 2012, pp. 289–297; Seligman &amp; Reichenberg, 2010, ch. 16）</p></div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Albert Bandura"><a aria-label="Albert Bandura肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Albert_Bandura_Psychologist.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Albert Bandura 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Albert%20Bandura%20Psychologist.jpg?width=320"/><span aria-hidden="true" class="bio-initials">AB</span></span></a><figcaption class="bio-person-name">Albert Bandura</figcaption></figure></div><div class="bio-main"><h4>Albert Bandura（1925–2021）｜人也會看著別人而學習</h4><p>Bandura 將觀察學習、自我效能與認知歷程帶入行為傳統。人未必需要親身受獎賞或懲罰才能學會行動；觀察他人的行為和結果，也能影響自己的選擇。這使行為治療不再只能以簡單的刺激—反應關係描述學習。（Sharf, 2012, pp. 283–284, 287–289）</p></div></div></div></section><section class="reading-chapter" id="behavioral-chapter-2"><header class="chapter-cap"><span class="chapter-number">II.</span><h3 class="chapter-name">理解人的方式</h3></header><div class="chapter-prose"><h3>02｜人性觀與基本假設</h3><p>行為典範重視環境、學習與可觀察行動對人的影響。它不預設每項困擾都由深層人格衝突造成，行為取向會詢問行為在什麼前因下發生、帶來什麼結果，以及哪些經驗使它被建立或維持。早期行為主義較偏環境決定論；社會學習與當代取向則納入期待、自我效能與個體的主動調節。（Sharf, 2012, pp. 285–291; Prochaska &amp; Norcross, 2010, pp. 243–249）</p><p>行為的意義須放在脈絡中理解。相同的外顯行為，在不同情境中具有不同功能；某個行動短期降低不適，卻在長期限制其他需要。行為治療因此重視可觀察資料，但不等於否認情緒、思考及身體經驗的存在。（Prochaska &amp; Norcross, 2010, pp. 243–266; Seligman &amp; Reichenberg, 2010, pp. 310–328）</p><h3>03｜心理困擾的形成</h3><p>從古典制約看，原本中性的線索經學習後也會引發恐懼或其他情緒反應；從操作制約看，行為是否重複與其後果有關。迴避行為會因短暫降低焦慮而受到負增強，於是人在短期得到緩解時，也失去重新學習的機會。（Sharf, 2012, pp. 285–294; Prochaska &amp; Norcross, 2010, pp. 219–244, 246–254）</p><p>社會學習觀進一步注意榜樣、效能期待與個體所處的社會脈絡。行為取向不以「缺乏意志力」概括困擾；治療概念化要辨別行為的前因、後果、學習史及環境條件與限制。（Sharf, 2012, pp. 294–300; Seligman &amp; Reichenberg, 2010, pp. 310–330）</p><h3>04｜核心概念與理論架構</h3><p><strong>概念間的關係。</strong> 刺激配對屬於反應學習；行為後果及增強關係屬於操作制約；對他人行為的觀察與效能期待屬於社會學習。三者可以共同說明複雜行為，但不能把「獎勵」、「負增強」與「懲罰」混作一般的鼓勵或責備。（Sharf, 2012, pp. 285–300; Prochaska &amp; Norcross, 2010, pp. 243–260）</p><h4>概念索引</h4><div class="concept-dictionary"><table>
+<thead>
+<tr>
+<th>術語</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>古典制約</td>
+<td>先前中性的刺激因學習而能引發反應</td>
+</tr>
+<tr>
+<td>操作制約</td>
+<td>行為出現的機率隨其後果而改變</td>
+</tr>
+<tr>
+<td>正增強／負增強</td>
+<td>分別以增加刺激／移除刺激，使行為機率增加；負增強不等於懲罰</td>
+</tr>
+<tr>
+<td>消弱</td>
+<td>維持某行為的增強不再出現時，行為便會改變</td>
+</tr>
+<tr>
+<td>塑造</td>
+<td>增強接近目標的每一步行動</td>
+</tr>
+<tr>
+<td>功能分析</td>
+<td>辨認特定情境中維持行為的前因與後果</td>
+</tr>
+<tr>
+<td>自我效能</td>
+<td>對自己能否完成特定行動的判斷</td>
+</tr>
+</tbody>
+</table></div></div></section><figure class="art-hero" data-image-slot="03-03"><img alt="雨中石板路上的狗插畫" src="/brand/heros/03.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="behavioral-chapter-3"><header class="chapter-cap"><span class="chapter-number">III.</span><h3 class="chapter-name">治療如何發生</h3></header><div class="chapter-prose"><h3>05｜治療目標與改變機制</h3><p>行為改變仰賴新的學習，單靠理解症狀成因仍不足夠。暴露治療使原先引發恐懼的線索在新的條件下被重新經驗；操作制約策略調整行為的後果；技能訓練與示範則擴充個體實際可以採取的行動。（Prochaska &amp; Norcross, 2010, pp. 219–265; Sharf, 2012, pp. 289–305）</p><p><strong>治療目標</strong>是改善功能、擴大行動自由並改變維持困擾的學習關係；<strong>改變機制</strong>是新的制約、消退／抑制性學習、增強安排及效能經驗；<strong>技術</strong>才是暴露、活動安排、塑造、模仿或行為契約。不同時期的行為治療對機制的解釋亦有差異。（Prochaska &amp; Norcross, 2010, pp. 219–265; Seligman &amp; Reichenberg, 2010, pp. 310–337）</p><h3>06｜治療關係</h3><p>行為治療的治療師常在共同決定目標後，扮演評估者、教練、環境設計協作者及學習歷程的引導者。當事人也要參與定義困擾行為、觀察生活脈絡與評估介入是否合適。（Sharf, 2012, pp. 289–309; Prochaska &amp; Norcross, 2010, pp. 272–276）</p><p>治療關係支持合作、動機與持續參與，但不能直接將「良好關係」視為行為改變的唯一機制。不同於個人中心治療，行為治療通常同時操作目標、活動、作業與回饋。（Seligman &amp; Reichenberg, 2010, pp. 1–19, 310–337; Prochaska &amp; Norcross, 2010, pp. 272–276）</p><h3>07｜治療歷程與介入</h3><p><strong>概念化。</strong> 功能分析依序檢視行為的前因、行為形式、立即後果與延宕後果；另考察行為發生的頻率、強度及情境差異。這套工作要求治療師不以診斷標籤取代具體行為資料。（Sharf, 2012, pp. 285–305; Prochaska &amp; Norcross, 2010, pp. 243–265）</p><p><strong>介入。</strong> 依學習機制選擇暴露與反應預防、漸進接近、增強安排、行為塑造、示範、行為活化或技能演練，並根據觀察回饋調整。暴露需尊重個案的同意與負荷；活動安排則要對應生活目標。策略需符合個案目標與具體的行為功能。（Sharf, 2012, pp. 289–309; Seligman &amp; Reichenberg, 2010, pp. 310–337）</p><h4>晤談中的工作姿態</h4><p>治療師通常與個案具體界定困擾發生的情境、頻率與維持因素，並檢視當事人希望改變的生活範圍。治療可安排行為紀錄、分階段練習、暴露、示範、活動安排及對環境條件的調整。治療目標也包括讓新的行動模式進入日常生活。（Sharf, 2012, pp. 289–309; Corey, 2012, ch. 9）</p></div></section><figure class="art-hero" data-image-slot="03-04"><img alt="窗邊看向庭院的黑貓插畫" src="/brand/heros/04.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="behavioral-chapter-4"><header class="chapter-cap"><span class="chapter-number">IV.</span><h3 class="chapter-name">學派與理論譜系</h3></header><div class="chapter-prose"><h3>08｜代表學派：各自如何理解受苦與改變</h3><h4>1. 古典制約與反應學習</h4><p><strong>人為什麼受苦？</strong> 原本無害的線索有時會與威脅、痛苦或強烈情緒建立聯結。當人再次遇到相似線索，身體與情緒便迅速反應，即使理智上知道眼前情境各有不同。（Sharf, 2012, pp. 281–282, 289–296）</p><p><strong>人如何改變？</strong> 新的學習經驗能修正舊有連結。治療中的暴露與減敏會依目標及安全考量調整，而非要求個案毫無準備地承受最強烈刺激。（Sharf, 2012, pp. 291–297）</p><h4>2. 操作制約與行為功能分析</h4><p><strong>人為什麼受苦？</strong> 某項行為有時因短暫減輕焦慮、取得注意或逃離要求而受到增強。即使它不利長遠生活，短期後果仍會維持它的重複出現。（Sharf, 2012, pp. 282–287, 289–291）</p><p><strong>人如何改變？</strong> 治療者分析行為的前因、行為本身與後果，調整維持條件，並增加替代行為的練習與增強機會。行為塑造倚靠分階段的練習與增強，單憑下決心不足以維持改變。（Sharf, 2012, pp. 285–291）</p><h4>3. 社會學習與自我效能</h4><p><strong>人為什麼受苦？</strong> 觀察到的行為模式、對行動結果的預期，以及「我能不能做到」的判斷，都會影響實際行為。問題不僅存在於外部環境，也涉及人如何理解自己的能力。（Sharf, 2012, pp. 283–284, 287–289）</p><p><strong>人如何改變？</strong> 透過示範、練習、回饋及完成階段目標，個體可獲得新的行動經驗，修正對自身能力的預期。（Sharf, 2012, pp. 287–300）</p><h4>4. 行為活化與當代情境取向</h4><p><strong>人為什麼受苦？</strong> 當活動、正向增強與生活參與減少，退縮與逃避有時會繼續維持困擾。當代情境行為取向更進一步探討思想和感受在特定情境中如何影響行動。（Sharf, 2012, pp. 300–315; Seligman &amp; Reichenberg, 2010, chs. 16, 19）</p><p><strong>人如何改變？</strong> 治療從重新建立有意義的活動、調整避免與增強循環著手。接受與承諾治療及辯證行為治療有行為主義根源，但已形成不同的綜合治療模式；（Sharf, 2012, pp. 309–315）</p><h3>理論譜系與分類邊界</h3><p>行為典範不等於認知與認知行為典範。兩者共享對學習與介入的重視，但後者將信念、資訊處理與認知評估建構為主要理論機制。Bandura 的社會學習觀處於兩者之間的重要歷史連結位置。（Sharf, 2012, pp. 280–331, 369–389; Halbur &amp; Halbur, 2019, pp. 66–85）</p><p>行為治療不等於「叫人做事」，也不等於忽視情緒。它依靠對學習與維持條件的理論分析。認知治療則更地以信念、解釋與認知圖式為工作對象；兩者在 CBT 形成後高度交會，卻有不同的歷史起點。（Halbur &amp; Halbur, 2019, ch. 4; Prochaska &amp; Norcross, 2010, chs. 8–10）</p></div></section><footer class="reading-end"><button class="close-article" type="button">收合此篇　↑</button></footer></div></article></div></section><section class="atlas-item" data-open="false" id="theory-cognitive-behavioral"><h2 class="atlas-button"><span class="atlas-count">04</span><a class="atlas-title-link" href="/counseling/cognitive-behavioral"><span class="atlas-title">認知與認知行為典範</span><span class="atlas-english">Cognitive–Behavioral</span></a><button aria-controls="panel-cognitive-behavioral" aria-expanded="false" class="atlas-toggle" id="trigger-cognitive-behavioral" type="button" aria-label="展開認知與認知行為典範內容"><span aria-hidden="true" class="atlas-symbol">+</span></button></h2><div aria-labelledby="trigger-cognitive-behavioral" class="atlas-panel" hidden="" id="panel-cognitive-behavioral" role="region"><article class="reading" id="article-cognitive-behavioral"><div class="reading-wrap"><header class="reading-head"><div class="serial"><span>THEORY STUDIES / 04</span></div><p class="reading-subtitle">事件發生之後，我們如何理解它，又如何繼續生活</p></header><figure class="art-hero" data-image-slot="04-01"><img alt="海邊奔跑的狗與燈塔插畫" src="/brand/heros/01.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="cognitive-behavioral-chapter-1"><header class="chapter-cap"><span class="chapter-number">I.</span><h3 class="chapter-name">思想的誕生</h3></header><div class="chapter-prose"><h3>01｜理論起源與發展</h3><p>認知取向不主張所有痛苦都是「想太多」。它要辨認的是：人如何解讀自己、他人與世界；這些解讀如何影響情緒、身體及行動；行動又如何回過頭來維持原先的解讀。不同認知行為學派對「改變」有不同定義：有的直接修正不合理信念，有的檢驗自動化思考，有的訓練因應能力，也有的改變人與思想之間的關係。（Sharf, 2012, pp. 331–410; Prochaska &amp; Norcross, 2010, ch. 10）</p><h3>兩位精神科醫師的分歧</h3><p>Ellis 與 Beck 都接受過精神分析訓練，但相繼轉向研究人在事件中如何賦予意義。Ellis 以哲學及非理性信念的論辯為主軸，發展出 REBT；Beck 在憂鬱研究與臨床觀察中注意自動思考、負向認知偏誤及圖式，建立結構化而合作的認知治療。兩者相互影響，卻不能以「改變負面想法」抹平理論差異。（Sharf, 2012, pp. 331–344, 369–382; Prochaska &amp; Norcross, 2010, pp. 296–318）</p><p>Meichenbaum 使自我指導語言、壓力與因應技能成為認知行為修正的重要議題；Linehan 在情緒調節困難與高風險臨床問題中發展 DBT 的接納與改變辯證；Hayes 等人則以功能情境論與關係框架理論支持 ACT 的心理彈性。這些取向發展出不同的改變機制，超出 Beck 認知治療原有的問題設定。（Prochaska &amp; Norcross, 2010, pp. 265–272, 296–318; Seligman &amp; Reichenberg, 2010, pp. 378–402）</p><h3>走進理論家的生命</h3><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Albert Ellis"><a aria-label="Albert Ellis肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Photo_of_Albert_Ellis_on_dust_jacket.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Albert Ellis 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Photo%20of%20Albert%20Ellis%20on%20dust%20jacket.jpg?width=320"/><span aria-hidden="true" class="bio-initials">AE</span></span></a><figcaption class="bio-person-name">Albert Ellis</figcaption></figure></div><div class="bio-main"><h4>Albert Ellis（1913–2007）｜由精神分析訓練走向直接的哲學辯論</h4><p>Ellis 的早年生命包含疾病、家庭困難與強烈的人際焦慮。他曾嘗試以行動面對自身的社交恐懼，後來接受心理治療與精神分析方面的訓練。在實務工作中，他對漫長地追尋過去、卻未必改變當前信念的做法產生不滿。1950 年代中期，他提出理性治療，歷經名稱與內容調整，發展成理情行為治療（REBT）。其治療風格以積極、直接地檢視信念為特色。（Sharf, 2012, pp. 332–334; Seligman &amp; Reichenberg, 2010, ch. 13）</p><p>Ellis 區分個人的偏好，以及要求事情「非如此不可」的絕對命令。他強調「必須」、「應該」、「絕對不能」式的要求，會使某些不如意事件變成對自我、他人或世界的全面否定。（Ellis, as cited in Sharf, 2012, pp. 334–339）</p></div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Aaron T. Beck"><a aria-label="Aaron T. Beck肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Liber_Brunensis_1942%2C_Aaron_T._Beck.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Aaron T. Beck 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Liber%20Brunensis%201942%2C%20Aaron%20T.%20Beck.jpg?width=320"/><span aria-hidden="true" class="bio-initials">ATB</span></span></a><figcaption class="bio-person-name">Aaron T. Beck</figcaption></figure></div><div class="bio-main"><h4>Aaron T. Beck（1921–2021）｜在研究憂鬱時修改自己的理論假設</h4><p>Beck 曾接受精神分析訓練，也試圖以研究檢驗精神分析對憂鬱的理解。在觀察與臨床工作中，他在臨床工作中注意到憂鬱者持續出現的負向思想、評價與預期，開始發展更具結構的認知治療。他關心個案的當前思考與深層信念如何彼此連結，並主張在合作關係中檢驗想法，由治療師與個案共同檢驗，避免單方面判定想法對錯。（Sharf, 2012, pp. 370–379; Seligman &amp; Reichenberg, 2010, ch. 14）</p><p>Beck 與 Ellis 的治療理論有差異。REBT 討論哲學性的不合理信念；Beck 的認知治療則重視自動化思考、中介信念、核心信念及認知圖式的關係。（Sharf, 2012, pp. 334–350, 373–387）</p></div></div></div><figure class="art-hero" data-image-slot="04-02"><img alt="湖畔草地上奔跑的狗插畫" src="/brand/heros/02.webp" decoding="async" loading="lazy"/></figure><div class="chapter-prose"><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Donald Meichenbaum"><a aria-label="Donald Meichenbaum肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Donald_Meichenbaum_at_TMI%27s_29th_Annual_Conference_2025_(cropped).png" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Donald Meichenbaum 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Donald%20Meichenbaum%20at%20TMI%27s%2029th%20Annual%20Conference%202025%20(cropped).png?width=320"/><span aria-hidden="true" class="bio-initials">DM</span></span></a><figcaption class="bio-person-name">Donald Meichenbaum</figcaption></figure></div><div class="bio-main"><h4>Donald Meichenbaum（1940–）｜讓內在對話成為可工作的對象</h4><p>Meichenbaum 的認知行為修正從自我指導、壓力因應與內在言語的工作發展。他除了思想內容，也研究人在面對壓力時如何對自己說話、如何準備、練習並運用因應策略。壓力免疫訓練因此兼具概念化、技巧獲得與實際應用。（Sharf, 2012, pp. 297–301; Seligman &amp; Reichenberg, 2010, ch. 16）</p></div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Marsha M. Linehan"><a aria-label="Marsha M. Linehan肖像來源" class="bio-image-link" href="https://www.linehaninstitute.org/our-board" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Marsha M. Linehan 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://images.squarespace-cdn.com/content/v1/6847badd1080fe0cccc0b312/dbef8db2-a716-4dc0-b422-93f0a7a008ff/marsha-linehan-rt.jpg"/><span aria-hidden="true" class="bio-initials">MML</span></span></a><figcaption class="bio-person-name">Marsha M. Linehan</figcaption></figure></div><div class="bio-main"><h4>Marsha M. Linehan（1943–）｜把接納與改變放在同一張治療地圖</h4><p>Linehan 發展辯證行為治療（DBT），以處理高度情緒失調、反覆危機及傷害自己的行為。此系統吸收行為分析、認知行為技術與正念實踐，將接納、驗證與行為改變並置。其歷史重要性在於：對極度痛苦的人，單靠催促改變，或單靠理解當下，都不足以回應全部臨床需要；治療需要協調兩者。（Sharf, 2012, pp. 312–315; Seligman &amp; Reichenberg, 2010, ch. 19）</p></div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Steven C. Hayes"><a aria-label="Steven C. Hayes肖像來源" class="bio-image-link" href="https://stevenchayes.com/about/" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Steven C. Hayes 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://www.soundstrue.com/cdn/shop/articles/Steven_C._Hayes_1200x1200.png?v=1743112664"/><span aria-hidden="true" class="bio-initials">SCH</span></span></a><figcaption class="bio-person-name">Steven C. Hayes</figcaption></figure></div><div class="bio-main"><h4>Steven C. Hayes（1948–）｜不必先消除每個念頭，才能向前走</h4><p>Hayes 是接受與承諾治療（ACT）發展的重要人物。ACT 源於情境行為科學，並重視語言及認知活動如何影響人的行動。這個取向不以辯論念頭真假作為唯一策略，而著重心理彈性、接納、去融合、價值與承諾行動。ACT 在行為與認知行為兩個典範之間具有交會位置。（Sharf, 2012, pp. 310–312; Seligman &amp; Reichenberg, 2010, ch. 19）</p></div></div></div></section><section class="reading-chapter" id="cognitive-behavioral-chapter-2"><header class="chapter-cap"><span class="chapter-number">II.</span><h3 class="chapter-name">理解人的方式</h3></header><div class="chapter-prose"><h3>02｜人性觀與基本假設</h3><p>認知治療傳統認為，人對事件的理解與評估參與了情緒及行動的形成。Ellis 區分偏好與絕對化要求；Beck 將自動思考、條件假設與深層信念置於認知結構中。人能觀察、檢驗既有的思考方式，並透過新的經驗修正它。（Sharf, 2012, pp. 334–339, 373–381; Prochaska &amp; Norcross, 2010, pp. 297–318）</p><p>第三波取向改變了對認知的工作態度。DBT 以生物社會觀理解情緒脆弱性與環境失效化的交互作用；ACT 強調人有時會被語言與思考規則過度控制，並把心理彈性視為核心。這些學派不要求所有不舒服的思想都先被反駁。（Seligman &amp; Reichenberg, 2010, pp. 378–402; Sharf, 2012, pp. 329–331, 407–410）</p><h3>03｜心理困擾的形成</h3><p>REBT 認為不合理的絕對化要求、災難化、低挫折容忍與整體貶抑，會使人對逆境產生額外的情緒困擾。Beck 的模型則重視早期經驗形成的圖式如何影響注意、記憶與詮釋，並與自動思考及行為策略互相維持。（Prochaska &amp; Norcross, 2010, pp. 299–314; Sharf, 2012, pp. 335–340, 373–379）</p><p>在 DBT 的生物社會模型中，情緒敏感性與長期失效化環境相互作用，使個體缺乏有效的情緒調節學習；ACT 則聚焦經驗逃避、認知融合與僵化行為。兩者對困擾形成的說明均不同於傳統認知錯誤模型。（Seligman &amp; Reichenberg, 2010, pp. 378–402; Halbur &amp; Halbur, 2019, pp. 78–85）</p><h3>04｜核心概念與理論架構</h3><p><strong>概念關係。</strong> REBT 的 ABC 模型區分事件（A）、信念（B）與情緒行為後果（C）；Beck 的認知模式區分深層信念、中介信念及情境中的自動思考；DBT 連結情緒易感性、失效化環境與技能缺口；ACT 討論認知融合、經驗逃避與價值導向的承諾行動。四者具有不同解釋單位。（Sharf, 2012, pp. 336–340, 373–381; Prochaska &amp; Norcross, 2010, pp. 297–318; Seligman &amp; Reichenberg, 2010, pp. 378–402）</p><h4>概念索引</h4><div class="concept-dictionary"><table>
+<thead>
+<tr>
+<th>取向</th>
+<th>主要工作對象</th>
+<th>典型改變途徑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REBT</td>
+<td>絕對化要求與非理性信念</td>
+<td>駁斥與重建生活哲學</td>
+</tr>
+<tr>
+<td>Beck CT</td>
+<td>自動化思考、核心信念與圖式</td>
+<td>合作檢驗、替代解釋、行為實驗</td>
+</tr>
+<tr>
+<td>Meichenbaum</td>
+<td>內在言語及壓力因應</td>
+<td>自我指導、因應技能與練習</td>
+</tr>
+<tr>
+<td>DBT</td>
+<td>情緒調節與危機行為模式</td>
+<td>接納、驗證、行為改變與技巧訓練</td>
+</tr>
+<tr>
+<td>ACT</td>
+<td>經驗逃避、認知融合與價值方向</td>
+<td>心理彈性、去融合與承諾行動</td>
+</tr>
+</tbody>
+</table></div></div></section><figure class="art-hero" data-image-slot="04-03"><img alt="雨中石板路上的狗插畫" src="/brand/heros/03.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="cognitive-behavioral-chapter-3"><header class="chapter-cap"><span class="chapter-number">III.</span><h3 class="chapter-name">治療如何發生</h3></header><div class="chapter-prose"><h3>05｜治療目標與改變機制</h3><p>Ellis 將認知、情緒與行為層次的辯論及練習結合，以減少絕對化要求。Beck 著重合作的經驗檢驗與行為實驗，使個案可以根據新資料修正解釋。Meichenbaum 透過自我指導與壓力免疫訓練，協助人在壓力情境中使用新的因應程序。（Sharf, 2012, pp. 339–350, 380–398; Prochaska &amp; Norcross, 2010, pp. 301–318）</p><p>DBT 同時培養情緒接納與有效改變，並重視正念、痛苦耐受、情緒調節及人際效能；ACT 則以接納、脫鉤、當下覺察、價值澄清與承諾行動增進心理彈性。<strong>改變機制</strong>是信念檢驗、情緒調節能力或心理彈性等過程；<strong>技術</strong>才是認知紀錄、行為實驗、技能演練及經驗練習。（Seligman &amp; Reichenberg, 2010, pp. 378–402; Sharf, 2012, pp. 380–398）</p><h3>06｜治療關係</h3><p>Beck 認知治療將合作經驗主義與引導式發現視為治療關係中的工作姿態。治療師和個案共同提出假設、檢查證據，而非以治療師的權威直接宣判想法錯誤。REBT 的治療者通常較直接、主動，也重視論辯，但仍須以可工作的關係與個案同意為基礎。（Prochaska &amp; Norcross, 2010, pp. 311–318; Sharf, 2012, pp. 340–347, 384–387）</p><p>DBT 強調接納與改變的辯證、對個案當下行為的確認與技能指導；ACT 的治療者則協助個案從與想法爭執轉向觀察想法及選擇價值行動。Faris 與 van Ooijen（2012, pp. 78–98）的關係整合觀提醒人們，技術始終在關係中施行；它無法取代各取向自身的改變機制理論。</p><h3>07｜治療歷程與介入</h3><p><strong>概念化。</strong> REBT 由觸發事件追查「必須如此」的信念及其後果；Beck 認知治療辨認情境、自動思考、情緒、行為與核心信念；DBT 以行為鏈與技能不足辨識高風險行為的維持條件；ACT 觀察經驗逃避與認知融合如何限制價值行動。（Sharf, 2012, pp. 335–350, 373–398; Seligman &amp; Reichenberg, 2010, pp. 378–402）</p><p><strong>介入與歷程。</strong> 治療通常需要共同設定問題與目標、形成個案概念化、在晤談內外檢驗或練習新的回應，並定期修正工作假設。REBT 使用認知辯論及情緒行為作業，Beck 取向常用思考紀錄與行為實驗，DBT 有行為鏈分析與技能訓練，ACT 有接納與脫鉤練習。介入形式不能脫離其模型任意互換。（Prochaska &amp; Norcross, 2010, pp. 301–318; Sharf, 2012, pp. 339–350, 383–398; Seligman &amp; Reichenberg, 2010, pp. 378–402）</p></div></section><figure class="art-hero" data-image-slot="04-04"><img alt="窗邊看向庭院的黑貓插畫" src="/brand/heros/04.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="cognitive-behavioral-chapter-4"><header class="chapter-cap"><span class="chapter-number">IV.</span><h3 class="chapter-name">學派與理論譜系</h3></header><div class="chapter-prose"><h3>08｜代表學派：各自如何理解受苦與改變</h3><h4>1. 理情行為治療｜Rational Emotive Behavior Therapy, REBT</h4><p><strong>人為什麼受苦？</strong> 生活事件令人失望時，但情緒困擾往往也受到人對事件的絕對化要求所影響。REBT 以 ABC 模型說明：A 是誘發事件，B 是對事件的信念，C 是情緒與行為後果。低挫折容忍、災難化及對自我價值的全面評斷，是理論重視的非理性信念形式。（Sharf, 2012, pp. 334–339, 350–355; Prochaska &amp; Norcross, 2010, ch. 10）</p><p><strong>人如何改變？</strong> 透過 D（駁斥）檢驗僵化、極端與不合邏輯的信念，建立更具彈性的信念與生活哲學。REBT 同時運用情緒及行為作業，而非只在理智上說服個案。（Sharf, 2012, pp. 339–350）</p><p><strong>諮商裡如何進行？</strong> 治療師可與個案直接討論某項「我非得如此不可」的要求，區分合理的失望與將人全盤否定的信念，並安排信念和行為的練習。（Seligman &amp; Reichenberg, 2010, ch. 13）</p><h4>2. Beck 認知治療｜Cognitive Therapy, CT</h4><p><strong>人為什麼受苦？</strong> 自動化思考與深層圖式會影響事件的意義。當人長期以負向認知偏誤理解自己、世界與未來，便容易形成維持困擾的思想、感受與行為循環。（Sharf, 2012, pp. 373–379）</p><p><strong>人如何改變？</strong> 透過合作式經驗檢驗，辨認自動化思考、連結中介與核心信念，檢查證據、提出其他解釋，並以行為實驗測試預測。治療的目標是較準確、較有彈性的認知歷程，而非強制樂觀。（Sharf, 2012, pp. 379–389）</p><p><strong>諮商裡如何進行？</strong> 晤談通常有焦點，包括情緒與情境回顧、思考紀錄、共同提出假設、安排實驗及回顧結果。（Seligman &amp; Reichenberg, 2010, ch. 14; Corey, 2012, ch. 10）</p><h4>3. 認知行為修正與壓力免疫訓練｜Cognitive Behavior Modification</h4><p><strong>人為什麼受苦？</strong> 面對壓力時的自我對話與因應程序，容易放大威脅感或限制行動。個案不一定欠缺努力，或尚未習得合用的準備、監控與因應方法。（Sharf, 2012, pp. 297–301）</p><p><strong>人如何改變？</strong> 治療協助辨識內在言語、學習新的自我指導、演練因應方法，並將它們帶回現實壓力情境中。（Sharf, 2012, pp. 297–301）</p><h4>4. 辯證行為治療｜Dialectical Behavior Therapy, DBT</h4><p><strong>人為什麼受苦？</strong> 情緒高度敏感與不利情緒學習的環境之間，容易形成持續的情緒調節困難；危機行為亦有其短期調節功能。DBT 從情緒易感性與學習環境理解困擾，避免將其歸咎於努力不足。（Sharf, 2012, pp. 312–315; Seligman &amp; Reichenberg, 2010, ch. 19）</p><p><strong>人如何改變？</strong> 以辯證立場結合接納與改變，運用正念、痛苦耐受、情緒調節及人際效能等技巧，同時處理生活中的危機與治療目標。（Sharf, 2012, pp. 312–315）</p><p><strong>諮商裡如何進行？</strong> DBT 是一個具有多種治療元素的系統，不等於單獨上幾堂正念課。個別治療、技巧訓練與其他支持形式，依具體 DBT 模式安排。（Seligman &amp; Reichenberg, 2010, ch. 19）</p><h4>5. 接受與承諾治療｜Acceptance and Commitment Therapy, ACT</h4><p><strong>人為什麼受苦？</strong> 當人過度與思想內容融合，或長期透過經驗逃避來控制不想要的感受時，生活選擇容易偏離所珍視的方向。痛苦不等於不正常；僵化的因應方式還會加重困擾。（Sharf, 2012, pp. 310–312）</p><p><strong>人如何改變？</strong> 練習接納當下經驗、與思想保持距離、回到當下、澄清價值並作出承諾行動。ACT 不要求個案先證明所有想法都是錯的，才能繼續生活。（Sharf, 2012, pp. 310–312; Seligman &amp; Reichenberg, 2010, ch. 19）</p><h3>理論譜系與分類邊界</h3><p>各取向在困擾觀與改變機制上仍有差異；「第三波」是歷史性的統稱。（Seligman &amp; Reichenberg, 2010, pp. 378–402; Halbur &amp; Halbur, 2019, pp. 78–85）</p><p>認知行為治療既可指整個理論家族，也可指某些特定形式的認知與行為介入。Ellis 與 Beck 在思想內容的處理上有重要差異；DBT 與 ACT 更將接納、情境與行為功能帶入治療。（Prochaska &amp; Norcross, 2010, chs. 8–10; Sharf, 2012, chs. 8–10）</p></div></section><footer class="reading-end"><button class="close-article" type="button">收合此篇　↑</button></footer></div></article></div></section><section class="atlas-item" data-open="false" id="theory-constructivist-postmodern"><h2 class="atlas-button"><span class="atlas-count">05</span><a class="atlas-title-link" href="/counseling/constructivist-postmodern"><span class="atlas-title">建構與後現代典範</span><span class="atlas-english">Constructivist–Postmodern</span></a><button aria-controls="panel-constructivist-postmodern" aria-expanded="false" class="atlas-toggle" id="trigger-constructivist-postmodern" type="button" aria-label="展開建構與後現代典範內容"><span aria-hidden="true" class="atlas-symbol">+</span></button></h2><div aria-labelledby="trigger-constructivist-postmodern" class="atlas-panel" hidden="" id="panel-constructivist-postmodern" role="region"><article class="reading" id="article-constructivist-postmodern"><div class="reading-wrap"><header class="reading-head"><div class="serial"><span>THEORY STUDIES / 05</span></div><p class="reading-subtitle">當故事只剩一種說法，人生還能往哪裡走</p></header><figure class="art-hero" data-image-slot="05-01"><img alt="海邊奔跑的狗與燈塔插畫" src="/brand/heros/01.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="constructivist-postmodern-chapter-1"><header class="chapter-cap"><span class="chapter-number">I.</span><h3 class="chapter-name">思想的誕生</h3></header><div class="chapter-prose"><h3>01｜理論起源與發展</h3><p>建構取向認為，人會依自己的經驗理解世界。記憶、語言、家庭與社會文化，都參與了這個詮釋過程。這個典範內各學派的知識論立場不同：個人建構心理學著重個人用來預期世界的概念系統；焦點解決短期治療重視偏好未來、例外與可行的改變；敘事治療則關注占支配地位的故事如何塑造身分，以及這些故事和社會話語的關係。（Sharf, 2012, pp. 452–473; Halbur &amp; Halbur, 2019, ch. 4）</p><h3>由個人詮釋，走向語言與共同建構</h3><p>Kelly 在二十世紀中葉以個人建構理論討論人如何組織對世界的預期，後續社會建構取向進一步轉向語言、對話與權力。焦點解決短期治療在密爾瓦基團隊的實務中發展，藉由探問偏好未來、例外及已有效的行動，形成不同於探查深層病因的治療形式。敘事治療則由 White 與 Epston 結合家庭工作及後結構思想，關注問題故事與身分如何相互塑造。（Prochaska &amp; Norcross, 2010, pp. 432–445; Sharf, 2012, pp. 452–474）</p><p>三條源流沒有同一個創立者。Kelly 重視個人如何建立概念系統；SFBT 更關注可描述的偏好未來與例外；敘事治療則使支配性話語、權力及替代故事成為主要問題。將它們放在同一上位典範，是基於知識與意義都經過詮釋，三者卻有不同的理論源流。（Halbur &amp; Halbur, 2019, pp. 85–95; Seligman &amp; Reichenberg, 2010, pp. 359–377）</p><h3>走進理論家的生命</h3><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="George A. Kelly"><a aria-label="George A. Kelly肖像來源" class="bio-image-link" href="https://pages.cpsc.ucalgary.ca/~gaines/pcp/Kelly/Kelly.html" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="George A. Kelly 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://psychosearch.ru/images/THEORY/determinanat/kelly/george_kelly.jpg"/><span aria-hidden="true" class="bio-initials">GAK</span></span></a><figcaption class="bio-person-name">George A. Kelly</figcaption></figure></div><div class="bio-main"><h4>George A. Kelly（1905–1967）｜人不斷為自己的世界提出假設</h4><p>Kelly 在二十世紀中葉提出個人建構心理學。他將人理解為持續觀察、預測與修正理解架構的存在：我們以自己建立的「建構」解釋事件，也用它預測接下來接下來會發生什麼。這使治療不必先把個案的理解判為不理性，而能詢問某個建構如何形成、在哪些情境有用、在哪些情境限制了其他選擇。（Sharf, 2012, pp. 453–455, 466–468）</p><p>Kelly 的位置也提醒我們：建構主義與後現代治療有歷史連結，但兩者仍有差異。個人建構強調個體理解世界的組織方式；社會建構則更加關注意義如何在人與人的互動及語言中生成。（Sharf, 2012, pp. 453–456）</p></div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Milton H. Erickson"><a aria-label="Milton H. Erickson肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Erickson_college.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Milton H. Erickson 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Erickson%20college.jpg?width=320"/><span aria-hidden="true" class="bio-initials">MHE</span></span></a><figcaption class="bio-person-name">Milton H. Erickson</figcaption></figure></div><div class="bio-main"><h4>Milton H. Erickson（1901–1980）｜傾聽一個人已經如何生活</h4><p>Erickson 的臨床工作擅長觀察個案的語言、行動和既有資源，並依個別情境使用間接溝通與建議。他對後來的短期治療、策略取向及建構治療具有影響，但他本身不等於焦點解決治療的創立者。（Sharf, 2012, pp. 454–456）</p></div></div></div><figure class="art-hero" data-image-slot="05-02"><img alt="湖畔草地上奔跑的狗插畫" src="/brand/heros/02.webp" decoding="async" loading="lazy"/></figure><div class="chapter-prose"><div class="bio-block" data-people="2"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Steve de Shazer"><a aria-label="Steve de Shazer肖像來源" class="bio-image-link" href="https://www.sfbta.org/Resources/sfbt-treatment-manuals" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Steve de Shazer 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://2.bp.blogspot.com/-jq8Uzt_Pk1U/VuWegEcbXyI/AAAAAAAAAIk/n_1QE4vqSJcVFmY6bWr5Pp1Ozc2sxKG3g/s1600/steve-de-shazer.jpg"/><span aria-hidden="true" class="bio-initials">SS</span></span></a><figcaption class="bio-person-name">Steve de Shazer</figcaption></figure><figure class="bio-person" data-person="Insoo Kim Berg"><a aria-label="Insoo Kim Berg肖像來源" class="bio-image-link" href="https://adipa.co/sesiones-magistrales/insoo-kim-berg-bill-ohanlon-terapia-centrada-en-soluciones/" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Insoo Kim Berg 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="/brand/people/insoo-kim-berg.jpeg"/><span aria-hidden="true" class="bio-initials">IKB</span></span></a><figcaption class="bio-person-name">Insoo Kim Berg</figcaption></figure></div><div class="bio-main"><h4>Steve de Shazer（1940–2005）與 Insoo Kim Berg（1934–2007）｜把眼光轉向尚未出現的生活</h4><p>兩人在美國密爾瓦基的短期家庭治療中心與同事共同發展焦點解決短期治療（SFBT）。這條路線直接從個案的生活出發，詢問個案希望生活出現什麼不同、過去何時已有部分改變，以及接下來有哪些小而可見的行動。他們的貢獻是建立一種以對話組織希望與改變線索的臨床方法，並有完整的晤談程序與理論脈絡。（de Shazer &amp; Berg, as cited in Sharf, 2012, pp. 456–465; Seligman &amp; Reichenberg, 2010, ch. 18）</p></div></div><div class="bio-block" data-people="2"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Michael White"><a aria-label="Michael White肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Michael_White_photo.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Michael White 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Michael%20White%20photo.jpg?width=320"/><span aria-hidden="true" class="bio-initials">MW</span></span></a><figcaption class="bio-person-name">Michael White</figcaption></figure><figure class="bio-person" data-person="David Epston"><a aria-label="David Epston肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:David_Epston.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="David Epston 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/David%20Epston.jpg?width=320"/><span aria-hidden="true" class="bio-initials">DE</span></span></a><figcaption class="bio-person-name">David Epston</figcaption></figure></div><div class="bio-main"><h4>Michael White（1948–2008）與 David Epston（1944–）｜將人與問題分開</h4><p>White 與 Epston 的敘事治療，在家庭治療與後現代思想的交會中成形。治療者開始問：一個人為何長期只能用某種問題故事描述自己？哪些經驗被忽略？誰有權替他命名身分？敘事治療透過外化對話、獨特結果與重新著述，使問題不再與人的全部身分畫上等號。改變還涉及重新檢視支配故事的來源、效果與其他敘事。（Sharf, 2012, pp. 466–473）</p></div></div></div></section><section class="reading-chapter" id="constructivist-postmodern-chapter-2"><header class="chapter-cap"><span class="chapter-number">II.</span><h3 class="chapter-name">理解人的方式</h3></header><div class="chapter-prose"><h3>02｜人性觀與基本假設</h3><p>建構取向把人理解為積極參與意義形成的存在。Kelly 的個人建構理論重視個體如何預期事件並修正理解；社會建構取向重視語言及關係如何參與現實的描述。這個觀點仍承認外在限制，同時研究人如何在具體生活脈絡中理解它。（Prochaska &amp; Norcross, 2010, pp. 434–441; Sharf, 2012, pp. 452–459）</p><p>在 SFBT 中，個案是其生活目標、例外與資源的重要知識持有人；在敘事治療中，人的生命可以有不同的故事線索，既有的問題標籤無法窮盡整個身分。治療師在對話中協助個案辨認被忽略的經驗，尊重其對生活的理解。（Prochaska &amp; Norcross, 2010, pp. 435–446; Sharf, 2012, pp. 458–474）</p><h3>03｜心理困擾的形成</h3><p>個人建構心理學關注原有建構失去預測能力時的焦慮與僵化；SFBT 不提出共同的單一病理理論，主要研究當下的問題描述、偏好未來與例外。兩者的差別在於：前者具有較清楚的認知—建構人格理論，後者優先關注治療對話的可用性。（Sharf, 2012, pp. 453–465; Halbur &amp; Halbur, 2019, pp. 85–95）</p><p>敘事治療關注問題主導故事如何使其他生活經驗難以被看見，並注意性別、文化、制度與專業語言如何增加某些敘事的權威。受苦有時也涉及可被承認的身分位置、對話與社會資源過於狹窄。（Prochaska &amp; Norcross, 2010, pp. 441–445; Sharf, 2012, pp. 466–474）</p><h3>04｜核心概念與理論架構</h3><p><strong>概念關係。</strong> 「個人建構」是人用來預期經驗的分類架構；「例外」是問題較少發生或暫時沒有出現的生活時刻；「問題外化」是將人與問題身分區分的對話實踐；「重新著述」則把被忽略的事件連結為另一條生命故事。它們出自不同理論語系，不宜互當同義詞。（Sharf, 2012, pp. 453–474; Prochaska &amp; Norcross, 2010, pp. 435–445）</p><h4>概念索引</h4><div class="concept-dictionary"><table>
+<thead>
+<tr>
+<th>核心詞彙</th>
+<th>精確意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>個人建構</td>
+<td>個體用以理解與預測經驗的概念區分</td>
+</tr>
+<tr>
+<td>社會建構</td>
+<td>意義在語言、互動與社會實踐中形成的觀點</td>
+</tr>
+<tr>
+<td>偏好未來</td>
+<td>個案自己期待的具體生活改變</td>
+</tr>
+<tr>
+<td>例外</td>
+<td>問題沒有出現、較輕或已有不同回應的時刻</td>
+</tr>
+<tr>
+<td>量尺問句</td>
+<td>協助辨認差異、進展與下一步的對話方式</td>
+</tr>
+<tr>
+<td>問題外化</td>
+<td>將問題與人的整體身分區分的敘事實踐</td>
+</tr>
+<tr>
+<td>問題主導故事</td>
+<td>某一問題敘事占據了對自我及生活的主要解釋位置</td>
+</tr>
+<tr>
+<td>重新著述</td>
+<td>將原先被忽略的經驗連接成具有意義的替代生命故事</td>
+</tr>
+</tbody>
+</table></div></div></section><figure class="art-hero" data-image-slot="05-03"><img alt="雨中石板路上的狗插畫" src="/brand/heros/03.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="constructivist-postmodern-chapter-3"><header class="chapter-cap"><span class="chapter-number">III.</span><h3 class="chapter-name">治療如何發生</h3></header><div class="chapter-prose"><h3>05｜治療目標與改變機制</h3><p>對 Kelly 而言，改變涉及個人建構系統變得更有彈性、能容納新的經驗。SFBT 從具體的偏好未來、既有例外與小幅進展著手，協助個案採取不同的行動。敘事治療則透過問題外化、獨特結果與重新著述，讓人不再只由問題故事界定。（Sharf, 2012, pp. 453–474; Prochaska &amp; Norcross, 2010, pp. 435–445）</p><p><strong>機制與技術之別。</strong> 意義重新建構、對未來的可行預期及身分故事的改變，是不同的改變歷程；奇蹟問句、量尺問句、外化對話與見證文件，是促進這些歷程的治療技術。它們不能互換成一套不分學派的問句集。（Seligman &amp; Reichenberg, 2010, pp. 359–377; Sharf, 2012, pp. 457–474）</p><h3>06｜治療關係</h3><p>焦點解決治療的合作關係把個案視為目標與生活知識的專家，治療師對描述差異、例外與下一步負責。敘事治療則重視治療者不以專家解釋壓過當事人的經驗，並檢視治療中的命名權與知識權力。（Prochaska &amp; Norcross, 2010, pp. 435–445; Sharf, 2012, pp. 457–474）</p><p>建構與後現代治療重整專業位置，將治療工作放在與個案協商、共同提問及尊重其意義世界的工作。這個取向與女性主義治療都關心知識權力，但後者另以性別與社會不平等作為更的倫理政治基礎。（Halbur &amp; Halbur, 2019, pp. 85–95; Sharf, 2012, pp. 484–500）</p><h3>07｜治療歷程與介入</h3><p><strong>概念化。</strong> 個人建構治療留意個案反覆使用的預期架構；焦點解決治療整理偏好未來、既有例外、資源與可觀察的進展；敘事治療探問問題故事、問題對生活的影響、抵抗問題的行動與重要見證者。（Sharf, 2012, pp. 453–474; Prochaska &amp; Norcross, 2010, pp. 435–445）</p><p><strong>介入。</strong> 焦點解決使用偏好未來、量尺、例外與因應問句；敘事治療可運用外化、重新著述、獨特結果、治療性文件及見證；個人建構取向則透過辨識並嘗試新的建構位置，擴充對世界的理解。這些方法皆需維持個案對其生活經驗的作者位置。（Seligman &amp; Reichenberg, 2010, pp. 359–377; Sharf, 2012, pp. 457–474）</p></div></section><figure class="art-hero" data-image-slot="05-04"><img alt="窗邊看向庭院的黑貓插畫" src="/brand/heros/04.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="constructivist-postmodern-chapter-4"><header class="chapter-cap"><span class="chapter-number">IV.</span><h3 class="chapter-name">學派與理論譜系</h3></header><div class="chapter-prose"><h3>08｜代表學派：各自如何理解受苦與改變</h3><h4>1. 個人建構心理學與治療｜Personal Construct Psychology</h4><p><strong>人為什麼受苦？</strong> 人依靠既有的個人建構理解經驗與預測事件。當這套系統過度僵化，或無法涵蓋新的經驗時，世界便難以理解；個案也容易反覆以失效的方式預期他人。（Sharf, 2012, pp. 453–455, 466–468）</p><p><strong>人如何改變？</strong> 在治療中辨認個人反覆使用的概念區分，嘗試新的理解位置，並檢視不同建構對生活與關係的影響。此處的改變在於拓展理解與行動的選擇。（Sharf, 2012, pp. 466–468）</p><p><strong>諮商裡如何進行？</strong> 治療師關注個案如何描述自己和他人、如何預測關係，並與個案共同探索可替代的理解架構。（Sharf, 2012, pp. 466–468）</p><h4>2. 焦點解決短期治療｜Solution-Focused Brief Therapy, SFBT</h4><p><strong>人為什麼受苦？</strong> SFBT 沒有一套單一的病理成因論。此取向關心的是困擾如何支配對話、個案希望有何不同，以及現有資源與例外如何被忽略。若硬替 SFBT 編出「人受苦都是因為負向思考」之類的單一理論，便會誤解其非病理化立場。（Sharf, 2012, pp. 457–460; Seligman &amp; Reichenberg, 2010, ch. 18）</p><p><strong>人如何改變？</strong> 藉由澄清具體的偏好未來、找出問題較少發生的時刻、辨認既有能力與小幅進展，找出眼前可實行的改變。改變無須等待對全部過往問題完成解釋。（Sharf, 2012, pp. 457–465）</p><p><strong>諮商裡如何進行？</strong> 可使用奇蹟問句、例外問句、量尺問句與因應問句。這些問句須依個案對話調整；其作用是協助個案更清楚描述自身想要的生活。（Seligman &amp; Reichenberg, 2010, ch. 18; Sharf, 2012, pp. 458–463）</p><h4>3. 敘事治療｜Narrative Therapy</h4><p><strong>人為什麼受苦？</strong> 反覆強化的「問題主導故事」容易遮蔽其他生命經驗，讓人以單一標籤認識自己。家庭關係、制度、性別與文化中的權力話語，也會影響哪些故事容易被接受。（Sharf, 2012, pp. 466–473）</p><p><strong>人如何改變？</strong> 透過外化問題、探詢問題的影響與個人回應、辨識獨特結果及重新著述，使個案能連結被忽略的價值、能力、關係與生命歷史。人不再只被問題描述。（Sharf, 2012, pp. 468–473）</p><p><strong>諮商裡如何進行？</strong> 治療者可與個案共同為問題命名，詢問問題何時較有力量、何時較無力量，也探索能支持另一段生命敘事的人際見證與文件形式。（Sharf, 2012, pp. 468–473）</p><h3>理論譜系與分類邊界</h3><p>現實治療在部分教科書與焦點解決一起置於「行動導向」治療系統，但 Glasser 以選擇理論與需求為基礎；（Sharf, 2012, pp. 416–474; Seligman &amp; Reichenberg, 2010, pp. 338–377）</p><p>敘事治療與女性主義治療都關注支配性話語和身分標籤；兩者的倫理與實務可交會。女性主義取向則以性別、權力及社會不平等為核心。（Sharf, 2012, pp. 484–510; Halbur &amp; Halbur, 2019, ch. 4）</p><p>兩者都談目標、選擇與下一步，因此在 Seligman 與 Reichenberg（2010）的教科書中，同屬重視行動的治療系統。然而，現實治療以 Glasser 的選擇理論、基本需求與行為選擇作為基礎；SFBT 的理論與實務更重視建構性對話及對偏好未來的描繪。「重視行動」是工作焦點，不足以證明兩者屬於相同的理論典範。（Seligman &amp; Reichenberg, 2010, chs. 15, 17–18; Sharf, 2012, chs. 11–12）</p><p>現實治療容易與焦點解決一起被稱為「行動導向」，但它有獨立的理論家族與創始歷史。William Glasser（1925–2013）先學化學工程，後接受醫學及精神科訓練。他在處理難以接觸的臨床與矯正場域個案時，開始質疑傳統精神分析的工作方式，轉而重視治療關係、當前行為及個案的選擇；之後其思想從控制理論轉向選擇理論，並應用於學校、婚姻及心理治療。（Sharf, 2012, pp. 417–419; Seligman &amp; Reichenberg, 2010, ch. 17）</p><p><strong>人為什麼受苦？</strong> 在選擇理論中，人試圖滿足生存、愛與歸屬、力量、自由和樂趣等基本需求；當想要的關係與現有生活之間存在落差，個人的行為選擇常無法有效滿足需求。（Sharf, 2012, pp. 419–423）</p><p><strong>人如何改變？</strong> 現實治療重視與個案建立投入而負責任的工作關係，檢視目前正在做的事是否有效，並促成具體、可實行的選擇與承諾。治療師仍須辨識個案無法控制的外在限制。（Sharf, 2012, pp. 422–434）</p><p><strong>理論位置。</strong> Sharf（2012）將現實治療獨立成章；Seligman 與 Reichenberg（2010）把它放在重視行動的治療系統；Prochaska 與 Norcross（2010, ch. 4）則於存在治療的替代路線中討論。</p></div></section><footer class="reading-end"><button class="close-article" type="button">收合此篇　↑</button></footer></div></article></div></section><section class="atlas-item" data-open="false" id="theory-systemic-relational"><h2 class="atlas-button"><span class="atlas-count">06</span><a class="atlas-title-link" href="/counseling/systemic-relational"><span class="atlas-title">系統與關係典範</span><span class="atlas-english">Systemic–Relational</span></a><button aria-controls="panel-systemic-relational" aria-expanded="false" class="atlas-toggle" id="trigger-systemic-relational" type="button" aria-label="展開系統與關係典範內容"><span aria-hidden="true" class="atlas-symbol">+</span></button></h2><div aria-labelledby="trigger-systemic-relational" class="atlas-panel" hidden="" id="panel-systemic-relational" role="region"><article class="reading" id="article-systemic-relational"><div class="reading-wrap"><header class="reading-head"><div class="serial"><span>THEORY STUDIES / 06</span></div><p class="reading-subtitle">一個人的困擾，有時也牽動整段關係的排列</p></header><figure class="art-hero" data-image-slot="06-01"><img alt="海邊奔跑的狗與燈塔插畫" src="/brand/heros/01.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="systemic-relational-chapter-1"><header class="chapter-cap"><span class="chapter-number">I.</span><h3 class="chapter-name">思想的誕生</h3></header><div class="chapter-prose"><h3>01｜理論起源與發展</h3><p>系統與關係取向將觀察單位由單一個人擴展到家庭、伴侶或其他重要互動系統。它不否定個人的痛苦，也不主張所有問題都由家人造成；它要理解的是：關係中的規則、角色、界線、世代傳承及回饋循環，如何影響各個成員的行為與經驗。症狀有時具有個人意義；在特定互動模式裡，也承擔維持關係安排的功能。（Sharf, 2012, pp. 533–558; Seligman &amp; Reichenberg, 2010, ch. 20）</p><h3>家庭不再只是病人的背景</h3><p>二十世紀中葉，部分精神醫療及兒童家庭工作者開始觀察：理解個人的困擾，也需要考察關係互動，家庭成員間的回應方式、權力安排與跨世代歷史也影響困擾的維持。一般系統論、控制論與溝通研究，促使治療者從線性原因轉向循環互動。（Sharf, 2012, pp. 533–539; Prochaska &amp; Norcross, 2010, pp. 335–347）</p><p>Bowen 從家庭情緒系統及世代傳遞提出差異化的概念；Minuchin 從家庭結構、界線與子系統理解家庭運作；Haley 著重溝通與問題的維持規則；Satir 與 Whitaker 則帶入人本與經驗性工作的立場。四者對「家庭是一個系統」的共同承認，沒有消除其理論分歧。（Sharf, 2012, pp. 539–565; Seligman &amp; Reichenberg, 2010, pp. 398–434）</p><h3>走進理論家的生命</h3><h4>從只見病人，走向看見互動</h4><p>二十世紀的家庭治療出自多個領域的共同發展。婚姻諮商、精神醫學、傳播研究與一般系統理論的工作相互交會。當治療者開始觀察，家庭中一人的行為往往引起他人回應，而他人的回應又反過來影響原本的行為，線性的「誰造成誰」便不足以描述關係歷程。系統中的正回饋與負回饋，在系統理論中指改變或維持穩定的歷程，與日常所說的稱讚、批評不同。（Sharf, 2012, pp. 534–539）</p><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Murray Bowen"><a aria-label="Murray Bowen肖像來源" class="bio-image-link" href="https://www.thebowencenter.org/dr-bowen" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Murray Bowen 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://images.squarespace-cdn.com/content/v1/5b478c8450a54f38cf1c7739/1550876194267-T5X1ZIIY6OAHI5ZGKGC0/ke17ZwdGBToddI8pDm48kHu9WJd1h9ql0E1srOjm-LgUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcj6nyO1HEeGnkU9tB_1QIyXcl_khHOVvy4CPpwJ6gIArDAhZ9t3gUQt7MgrB4cLMt/Murray-Bowen-cropped%2B%28yellow%29.png"/><span aria-hidden="true" class="bio-initials">MB</span></span></a><figcaption class="bio-person-name">Murray Bowen</figcaption></figure></div><div class="bio-main"><h4>Murray Bowen（1913–1990）｜從個別精神醫療轉向整個家庭的情緒歷史</h4><p>Bowen 在精神醫學與家族工作的脈絡中，觀察個人症狀與家庭情緒歷程的關聯。他關心焦慮在家人之間、跨越世代的傳遞，以及家庭成員在親密與自主之間的位置。由此形成自我分化、三角關係、核心家庭情緒歷程、家庭投射與多世代傳遞等概念。（Bowen, as cited in Sharf, 2012, pp. 539–545）</p><p>Bowen 所說的「分化」指在親密關係中保有自主，無須疏離或切斷家人。它指向個人在情緒壓力中維持思考、情感及關係自主性的能力。（Sharf, 2012, pp. 539–543）</p></div></div></div><figure class="art-hero" data-image-slot="06-02"><img alt="湖畔草地上奔跑的狗插畫" src="/brand/heros/02.webp" decoding="async" loading="lazy"/></figure><div class="chapter-prose"><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Salvador Minuchin"><a aria-label="Salvador Minuchin肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Salvador_Minuchin_(2013).jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Salvador Minuchin 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Salvador%20Minuchin%20(2013).jpg?width=320"/><span aria-hidden="true" class="bio-initials">SM</span></span></a><figcaption class="bio-person-name">Salvador Minuchin</figcaption></figure></div><div class="bio-main"><h4>Salvador Minuchin（1921–2017）｜在家庭成員之間看見結構</h4><p>Minuchin 發展結構派家庭治療，聚焦家庭中的次系統、界線、權力階序和互動聯盟。他詢問每位成員對關係的看法，也在晤談現場觀察家人如何打斷、保護、迴避或代替彼此說話。家庭結構可以從成員的實際互動中辨認。（Sharf, 2012, pp. 545–553）</p></div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Jay Haley"><a aria-label="Jay Haley肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Jay_Haley.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Jay Haley 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Jay%20Haley.jpg?width=320"/><span aria-hidden="true" class="bio-initials">JH</span></span></a><figcaption class="bio-person-name">Jay Haley</figcaption></figure></div><div class="bio-main"><h4>Jay Haley（1923–2007）與策略取向｜症狀如何成為循環的一部分</h4><p>策略派家庭治療重視問題在當前互動中的維持方式，以及既有解決嘗試如何反而鞏固問題。Haley 等人的治療工作使用目標、依家庭情境設計的介入。策略取向與結構取向都關注現場行動，卻在權力、結構和介入方式的理論焦點上有所不同。（Sharf, 2012, pp. 553–558）</p></div></div><div class="bio-block" data-people="2"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Virginia Satir"><a aria-label="Virginia Satir肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:VirginiaSatir.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Virginia Satir 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/VirginiaSatir.jpg?width=320"/><span aria-hidden="true" class="bio-initials">VS</span></span></a><figcaption class="bio-person-name">Virginia Satir</figcaption></figure><figure class="bio-person" data-person="Carl Whitaker"><a aria-label="Carl Whitaker肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:CarlWhitaker.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Carl Whitaker 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/CarlWhitaker.jpg?width=320"/><span aria-hidden="true" class="bio-initials">CW</span></span></a><figcaption class="bio-person-name">Carl Whitaker</figcaption></figure></div><div class="bio-main"><h4>Virginia Satir（1916–1988）與 Carl Whitaker（1912–1995）｜關係裡也有情緒與人的存在</h4><p>Satir 與 Whitaker 將情緒與真實接觸帶進家庭治療。Satir 重視自我價值、溝通姿態、家庭關係與成長；Whitaker 則以經驗性、象徵性與高度投入的治療方式促進家庭互動。兩者均有人本與經驗取向的成分，顯示不同理論家族之間存在交會。（Sharf, 2012, pp. 558–562; Seligman &amp; Reichenberg, 2010, ch. 20）</p></div></div></div></section><section class="reading-chapter" id="systemic-relational-chapter-2"><header class="chapter-cap"><span class="chapter-number">II.</span><h3 class="chapter-name">理解人的方式</h3></header><div class="chapter-prose"><h3>02｜人性觀與基本假設</h3><p>系統取向理解人時，通常不把個體視為能與其關係脈絡完全切割的獨立單位。行為具有互動性：個人的回應影響他人，也受到他人回應影響。家庭與關係系統常發展出穩定的互動規則與角色，使關係既提供支持，也有時限制新的選擇。（Prochaska &amp; Norcross, 2010, pp. 335–361; Sharf, 2012, pp. 533–547）</p><p>不同學派的人性觀仍有差別。Bowen 強調情緒與理智功能的分化；結構派關注家庭組織如何回應生命週期的變化；經驗家庭治療則重視真實接觸、情緒表達與自我價值。系統論保留個人責任，同時觀察關係互動，避免把問題全歸咎於某位成員。（Sharf, 2012, pp. 539–565; Seligman &amp; Reichenberg, 2010, pp. 398–434）</p><h3>03｜心理困擾的形成</h3><p>從系統觀點看，困擾有時受到循環互動維持。Bowen 注意三角關係、情緒融合及跨世代的反應模式；Minuchin 關注界線僵化、過度涉入或失去功能的家庭組織；策略派則檢視反覆用來解決問題的回應，如何反過來使問題持續。（Prochaska &amp; Norcross, 2010, pp. 339–361; Sharf, 2012, pp. 539–558）</p><p>系統觀不以責備家庭為目標，也不能把所有症狀都解釋為家庭問題。社會、文化、創傷、物質條件與個人的身體或心理狀態，仍需在適當情況下獨立評估。家庭系統治療的理論重點，是讓互動模式成為理解單位之一，也保留個體的主觀經驗。（Seligman &amp; Reichenberg, 2010, pp. 398–434; Sharf, 2012, pp. 565–580）</p><h3>04｜核心概念與理論架構</h3><p><strong>概念關係。</strong> 三角關係、分化與跨世代傳遞是 Bowen 語彙；界線、階層、子系統與聯盟屬結構派語彙；回饋循環、問題維持序列與重構則常見於策略取向。這些概念都看見互動，但觀察與干預的單位不同。（Sharf, 2012, pp. 533–565; Prochaska &amp; Norcross, 2010, pp. 335–361）</p><h4>概念索引</h4><div class="concept-dictionary"><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>專業意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>循環因果</td>
+<td>個體的行動和他人的回應彼此影響，難以用單一因果箭頭描述</td>
+</tr>
+<tr>
+<td>恆定</td>
+<td>系統傾向維持既有組織的動態</td>
+</tr>
+<tr>
+<td>回饋</td>
+<td>某些行動後果回到系統，促成穩定或改變</td>
+</tr>
+<tr>
+<td>自我分化</td>
+<td>在情緒關係中兼顧連結與自主判斷的能力</td>
+</tr>
+<tr>
+<td>三角關係</td>
+<td>二人之間的焦慮透過第三人參與而重新安排</td>
+</tr>
+<tr>
+<td>次系統</td>
+<td>伴侶、親子、手足等家庭內不同互動單位</td>
+</tr>
+<tr>
+<td>界線</td>
+<td>家庭成員與次系統間的接觸、責任及區分</td>
+</tr>
+<tr>
+<td>加入與重構</td>
+<td>治療師進入家庭互動，再協助調整其組織方式</td>
+</tr>
+</tbody>
+</table></div></div></section><figure class="art-hero" data-image-slot="06-03"><img alt="雨中石板路上的狗插畫" src="/brand/heros/03.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="systemic-relational-chapter-3"><header class="chapter-cap"><span class="chapter-number">III.</span><h3 class="chapter-name">治療如何發生</h3></header><div class="chapter-prose"><h3>05｜治療目標與改變機制</h3><p>Bowen 模式重視提高自我分化，並理解原生家庭中的情緒反應；結構派著重重整界線、階層與子系統的互動；策略派嘗試改變維持問題的互動序列；經驗派著重情緒接觸、真實互動與個人的成長。其改變機制分別是更有分化的回應、結構重整、互動循環變更與經驗性轉化。（Sharf, 2012, pp. 539–565; Prochaska &amp; Norcross, 2010, pp. 339–361）</p><p><strong>介入技術</strong>如家族圖、互動演練、界線設置、重新框架及直接任務，必須回到其理論目的才能理解。使用家族圖不必然代表採用 Bowen 學派；在諮商中使用空椅也不必然代表採用經驗家庭治療。（Sharf, 2012, pp. 539–565; Seligman &amp; Reichenberg, 2010, pp. 398–434）</p><h3>06｜治療關係</h3><p>系統治療常涉及多人共同參與，治療者須處理結盟、公平發言及關係權力。Bowen 取向相對重視治療師的非焦慮姿態與系統觀察；結構派治療師通常更直接參與家庭互動並促成新安排；經驗派則重視真實接觸。治療師角色因學派而異。（Sharf, 2012, pp. 539–565; Prochaska &amp; Norcross, 2010, pp. 339–361）</p><p>多人治療中的合作關係除了一個「治療師—個案」聯盟。每位參與者的安全、動機、權利與對問題的理解各有差異；治療者需要避免將某位家庭成員固定為唯一的問題來源。（Seligman &amp; Reichenberg, 2010, pp. 398–434; Faris &amp; van Ooijen, 2012, pp. 61–77）</p><h3>07｜治療歷程與介入</h3><p><strong>概念化。</strong> 治療者觀察家庭結構、日常互動順序、跨世代重要事件、界線與權力分配，也留意個體在不同情境的功能。家族圖可呈現關係與生命事件；互動觀察則協助辨識實際的循環模式。兩種資料不可相互取代。（Sharf, 2012, pp. 539–565; Seligman &amp; Reichenberg, 2010, pp. 398–434）</p><p><strong>介入。</strong> Bowen 取向可運用家系圖、去三角化與自我立場工作；結構派可透過加入家庭、現場演練及界線介入；策略派重視重新框架與任務安排；Satir 取向較重視溝通姿態、情緒體驗及家庭成員之間的真實回應。選用方法時需辨別介入是否符合正在概念化的循環。（Sharf, 2012, pp. 539–565; Prochaska &amp; Norcross, 2010, pp. 339–361）</p></div></section><figure class="art-hero" data-image-slot="06-04"><img alt="窗邊看向庭院的黑貓插畫" src="/brand/heros/04.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="systemic-relational-chapter-4"><header class="chapter-cap"><span class="chapter-number">IV.</span><h3 class="chapter-name">學派與理論譜系</h3></header><div class="chapter-prose"><h3>08｜代表學派：各自如何理解受苦與改變</h3><h4>1. Bowen 多世代家庭系統</h4><p><strong>人為什麼受苦？</strong> 慢性焦慮、情緒融合、三角化及多世代關係模式，會限制部分個體在重要關係中維持思考自主與親密連結的能力。（Sharf, 2012, pp. 539–542）</p><p><strong>人如何改變？</strong> 透過辨認三角關係、理解家族歷史與情緒反應，增進自我分化；當個人不再只能以退縮、對抗或融合回應焦慮，關係有機會改變。（Sharf, 2012, pp. 542–545）</p><p><strong>在諮商室裡</strong>：可使用家系圖、世代關係訪談及對情緒歷程的探索。家系圖用於整理關係脈絡，無關成員的優劣評價。（Sharf, 2012, pp. 539–545）</p><h4>2. 結構派家庭治療</h4><p><strong>人為什麼受苦？</strong> 家庭次系統的界線若過於模糊或僵硬，或權力、責任與世代角色的組織不利於成員發展，反覆互動便容易維持問題。（Sharf, 2012, pp. 545–547）</p><p><strong>人如何改變？</strong> 治療者協助家人重新組織互動，調整界線與階序，支持不同次系統較合宜地運作。（Sharf, 2012, pp. 547–553）</p><p><strong>在諮商室裡</strong>：可邀請家庭成員直接互動，觀察並調整當下出現的溝通模式，而非只輪流聽取個別陳述。（Sharf, 2012, pp. 547–553）</p><h4>3. 策略派與溝通取向家庭治療</h4><p><strong>人為什麼受苦？</strong> 反覆採用同一種解決方法，有時反而會維持問題；某些關係循環即使每個人都想改善，也會彼此強化。（Sharf, 2012, pp. 553–556）</p><p><strong>人如何改變？</strong> 透過重新界定問題、調整互動安排和嘗試不同回應，使原本封閉的循環出現其他選擇。（Sharf, 2012, pp. 553–558）</p><p><strong>在諮商室裡</strong>：治療師會與家庭設定清楚的工作目標，觀察相互影響的行為並安排有目的的互動任務。（Sharf, 2012, pp. 553–558）</p><h4>4. 經驗與人本家庭治療</h4><p><strong>人為什麼受苦？</strong> 成員有時習慣隱藏真實感受、以保護性姿態互動，或失去直接而真誠的接觸。Satir 與 Whitaker 的具體理論不同，不宜將其壓縮成同一技術清單。（Sharf, 2012, pp. 558–562）</p><p><strong>人如何改變？</strong> 在真實的互動與情緒經驗中發現原本被壓抑的需要，形成更清楚、更有彈性的關係選擇。（Sharf, 2012, pp. 558–562）</p><p><strong>在諮商室裡</strong>：治療師重視感受與溝通過程，可邀請成員更直接表達對彼此的經驗，並留意關係的安全和負荷。（Seligman &amp; Reichenberg, 2010, ch. 20）</p><h3>理論譜系與分類邊界</h3><p>Halbur 與 Halbur（2019, pp. 95–110）把家庭取向列為獨立學派家族，</p><p>結構派與 Bowen 系統觀的主要差別在於前者將組織與界線視為重要改變單位，後者將情緒歷程與分化視為核心。經驗家庭治療雖吸收人本理念，其主要治療單位仍是關係系統。（Sharf, 2012, pp. 539–565）</p><p>系統觀點可用於家庭、伴侶或其他重要關係；個別治療也可以採系統觀點。系統理論不應成為責怪父母或要求所有人都一起晤談的理由。重要的是辨認互動如何運作，以及介入的工作單位究竟是個人、關係還是整個家庭。（Sharf, 2012, pp. 533–562; Faris &amp; van Ooijen, 2012, chs. 1–3）</p></div></section><footer class="reading-end"><button class="close-article" type="button">收合此篇　↑</button></footer></div></article></div></section><section class="atlas-item" data-open="false" id="theory-feminist-critical"><h2 class="atlas-button"><span class="atlas-count">07</span><a class="atlas-title-link" href="/counseling/feminist-critical"><span class="atlas-title">女性主義與批判典範</span><span class="atlas-english">Feminist–Critical</span></a><button aria-controls="panel-feminist-critical" aria-expanded="false" class="atlas-toggle" id="trigger-feminist-critical" type="button" aria-label="展開女性主義與批判典範內容"><span aria-hidden="true" class="atlas-symbol">+</span></button></h2><div aria-labelledby="trigger-feminist-critical" class="atlas-panel" hidden="" id="panel-feminist-critical" role="region"><article class="reading" id="article-feminist-critical"><div class="reading-wrap"><header class="reading-head"><div class="serial"><span>THEORY STUDIES / 07</span></div><p class="reading-subtitle">有些痛苦，不能只要求一個人獨自承擔</p></header><figure class="art-hero" data-image-slot="07-01"><img alt="海邊奔跑的狗與燈塔插畫" src="/brand/heros/01.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="feminist-critical-chapter-1"><header class="chapter-cap"><span class="chapter-number">I.</span><h3 class="chapter-name">思想的誕生</h3></header><div class="chapter-prose"><h3>01｜理論起源與發展</h3><p>女性主義治療對傳統心理治療提出一個根本問題：當一個人受苦，治療是否只檢查其人格、信念與情緒，卻沒有檢查性別規範、家庭權力、工作制度、階級、文化和歧視？女性主義治療直接檢視誰有權定義問題、治療者與個案之間有何權力差異，以及個人的生命經驗如何嵌在社會結構中。（Sharf, 2012, pp. 484–500; Halbur &amp; Halbur, 2019, ch. 4）</p><p>此典範的「批判」指向對權力、知識與社會規範的反思。這些取向各有其人格理論與實務立場。（Sharf, 2012, pp. 486–510）</p><h3>一個不以單一創始人為中心的歷史</h3><p>女性主義治療在二十世紀後半女性運動、意識提升團體與專業心理治療的交會中發展。早期工作者除了詢問女性需要什麼療法，也追問為何某些社會期待被當作正常人格、哪些女性經驗長期遭到忽略，以及治療師對個案的評價如何受到文化權力影響。（Sharf, 2012, pp. 484–494; Prochaska &amp; Norcross, 2010, pp. 375–383）</p><p>Chesler 質疑精神醫療的性別規範；Gilligan 提醒心理發展理論有時將特定群體經驗當成普遍標準；Miller 與關係文化理論重新考察成熟與關係；Brown 等人則將女性主義思想帶入具體治療倫理與實務。這段歷史由不同思想者共同書寫，也持續修正心理學原有的假設。（Sharf, 2012, pp. 484–500; Prochaska &amp; Norcross, 2010, pp. 375–394）</p><h3>走進理論家的生命</h3><h4>從意識提升團體到心理治療</h4><p>女性主義治療不像精神分析或個人中心治療，難以只以一位創立者描述。二十世紀女性主義運動中的意識提升團體，使參與者開始將原本被視為私人失敗的生活經驗，放進性別角色與制度脈絡中重新理解。受專業心理治療訓練的女性工作者，進一步質疑當時的診斷、治療關係和對女性的病理化解釋。這個立場要求治療師先理解個人所處的權力關係，避免把所有困擾歸因於個體。（Sharf, 2012, pp. 486–489）</p><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Phyllis Chesler"><a aria-label="Phyllis Chesler肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Phyllis_Chesler_1958.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Phyllis Chesler 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Phyllis%20Chesler%201958.jpg?width=320"/><span aria-hidden="true" class="bio-initials">PC</span></span></a><figcaption class="bio-person-name">Phyllis Chesler</figcaption></figure></div><div class="bio-main"><h4>Phyllis Chesler（1940–）｜質問精神醫療如何對待女性</h4><p>Chesler 的《Women and Madness》對精神醫療中的性別偏見、女性被診斷與被治療的方式提出尖銳質疑。她也批評治療關係中的父權式專家權力，以及治療者與個案之間的不當性關係。這些問題使治療不再只是在技術上「幫助病人」，也必須檢視專業者如何運用權力。（Chesler, 1972, as cited in Sharf, 2012, pp. 486–488）</p></div></div></div><figure class="art-hero" data-image-slot="07-02"><img alt="湖畔草地上奔跑的狗插畫" src="/brand/heros/02.webp" decoding="async" loading="lazy"/></figure><div class="chapter-prose"><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Carol Gilligan"><a aria-label="Carol Gilligan肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Carol_Gilligan_P1010970_-_cropped.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Carol Gilligan 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Carol%20Gilligan%20P1010970%20-%20cropped.jpg?width=320"/><span aria-hidden="true" class="bio-initials">CG</span></span></a><figcaption class="bio-person-name">Carol Gilligan</figcaption></figure></div><div class="bio-main"><h4>Carol Gilligan（1936–）｜另一種聲音，同樣值得傾聽</h4><p>Gilligan 對主流道德發展理論提出挑戰，重視照顧、責任、關係與人所處的情境。其工作促使心理學反思：若理論與測量的發展長期以特定群體的生命經驗為標準，其他經驗是否容易被誤認為能力不足？對 Gilligan 研究的解釋曾出現過度二分及研究方法上的爭論。Gilligan 的理論並不主張「女性天生善於照顧、男性天生重視公正」。（Gilligan, 1982, as cited in Sharf, 2012, pp. 494–495）</p></div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Jean Baker Miller"><a aria-label="Jean Baker Miller肖像來源" class="bio-image-link" href="https://www.nlm.nih.gov/exhibition/changing-the-face-of-medicine/physicians/biography_jean_miller.html" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Jean Baker Miller 肖像照片" decoding="async" loading="lazy" src="/brand/people/jean-baker-miller.jpg"/><span aria-hidden="true" class="bio-initials">JBM</span></span></a><figcaption class="bio-person-name">Jean Baker Miller</figcaption></figure></div><div class="bio-main"><h4>Jean Baker Miller（1927–2006）｜在不平等關係裡重新看待成長</h4><p>Miller 關注女性在從屬社會位置中如何發展、適應與維持關係。這一脈絡後來成為關係文化理論（relational-cultural theory）的重要來源。關係本身參與心理發展；連結、互惠、真誠及關係中的權力，都是理解成長與受苦的核心。對此取向而言，成熟不必被單一定義為「愈獨立愈好」，也可包括在關係中維持尊嚴、差異與互相回應的能力。（Miller, 1986, as cited in Sharf, 2012, pp. 495–497）</p></div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Laura S. Brown"><a aria-label="Laura S. Brown肖像來源" class="bio-image-link" href="https://www.drlaurabrown.com/about/" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Laura S. Brown 肖像照片" decoding="async" loading="lazy" src="/brand/people/laura-s-brown.png"/><span aria-hidden="true" class="bio-initials">LSB</span></span></a><figcaption class="bio-person-name">Laura S. Brown</figcaption></figure></div><div class="bio-main"><h4>Laura S. Brown 與女性主義治療的專業化</h4><p>Brown 等臨床工作者使女性主義立場進一步發展為具有專業倫理、心理治療關係觀及臨床工作原則的理論取向。此傳統要求治療者留意自身位置，不將其文化假設當成普遍真理，也不因為個案的困擾與壓迫有關，就忽略個人的選擇、力量與複雜性。（Sharf, 2012, pp. 486–500）</p></div></div></div></section><section class="reading-chapter" id="feminist-critical-chapter-2"><header class="chapter-cap"><span class="chapter-number">II.</span><h3 class="chapter-name">理解人的方式</h3></header><div class="chapter-prose"><h3>02｜人性觀與基本假設</h3><p>女性主義治療將人理解為在性別、階級、族群、家庭及制度脈絡中成長的主體。個體仍具有選擇與行動能力，但資源、權力與社會期待會影響這些選擇可以如何實現。它拒絕把某一文化群體的生活經驗當成全人類唯一的成熟標準。（Sharf, 2012, pp. 489–500; Prochaska &amp; Norcross, 2010, pp. 376–383）</p><p>關係文化理論對「愈獨立愈成熟」提出批判，關心人在互惠、真誠與連結中如何發展。女性主義傳統內部對性別差異及權力解釋也各有差異；尤其不能把照顧取向簡化為女性的天賦特質。（Sharf, 2012, pp. 492–500; Halbur &amp; Halbur, 2019, pp. 85–95）</p><h3>03｜心理困擾的形成</h3><p>女性主義治療認為，部分心理困擾與長期的不平等、歧視及角色期待有關。當人將外部限制完全內化為自身缺陷時，羞恥、無力感與自我責備往往加重。治療須區分個體經驗與社會條件，而非預設所有痛苦都有單一的社會成因。（Sharf, 2012, pp. 484–500, 511–525; Prochaska &amp; Norcross, 2010, pp. 377–384）</p><p>關係文化理論另強調長期缺少互惠、真誠與回應的關係，會限制部分人的心理發展。女性主義取向也關注治療過程有時也會重演權力不對等，使個案的聲音被專家解釋取代。（Sharf, 2012, pp. 495–501; Prochaska &amp; Norcross, 2010, pp. 389–394）</p><h3>04｜核心概念與理論架構</h3><p><strong>概念之間如何關聯？</strong> 「個人即政治」是理解私人經驗與制度權力的問題意識；性別角色分析、權力分析是概念化方式；賦權描述個體與群體取得資源、聲音與選擇的歷程；交織性則提醒多種社會位置不能分開計算。這些術語分屬不同理論層次，不應直接視為等價技術。（Sharf, 2012, pp. 484–501; Prochaska &amp; Norcross, 2010, pp. 376–391）</p><h4>概念索引</h4><div class="concept-dictionary"><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>個人即政治</td>
+<td>私人經驗與社會制度、權力及文化規範之間具有關聯</td>
+</tr>
+<tr>
+<td>性別角色分析</td>
+<td>分析性別期待如何影響對自我及他人的理解</td>
+</tr>
+<tr>
+<td>權力分析</td>
+<td>研究誰能做決定、定義問題、取得資源及承擔後果</td>
+</tr>
+<tr>
+<td>賦權</td>
+<td>擴大對自身處境的理解、選擇、行動與資源運用能力</td>
+</tr>
+<tr>
+<td>治療關係的平權</td>
+<td>承認治療角色差異，同時對權力使用與合作負責</td>
+</tr>
+<tr>
+<td>關係文化理論</td>
+<td>重視人在互惠、真誠連結中的心理發展</td>
+</tr>
+<tr>
+<td>交織性觀點</td>
+<td>不同身分與社會權力處境彼此交錯，而非互不相關</td>
+</tr>
+<tr>
+<td>社會脈絡化</td>
+<td>將心理困擾放回生活、文化與制度條件中理解</td>
+</tr>
+</tbody>
+</table></div></div></section><figure class="art-hero" data-image-slot="07-03"><img alt="雨中石板路上的狗插畫" src="/brand/heros/03.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="feminist-critical-chapter-3"><header class="chapter-cap"><span class="chapter-number">III.</span><h3 class="chapter-name">治療如何發生</h3></header><div class="chapter-prose"><h3>05｜治療目標與改變機制</h3><p>女性主義治療的目標包含減少個人化自責、辨認壓迫與內化規範、擴展自我定義及可行選擇。改變涵蓋對權力的理解，也包括在人際關係中重新協商界線、取得資源及形成更有主體性的決定。（Sharf, 2012, pp. 497–510; Prochaska &amp; Norcross, 2010, pp. 381–389）</p><p><strong>改變機制</strong>包括對權力脈絡的重新理解、賦權、關係中的相互尊重及新的行動位置；<strong>介入技術</strong>則包括性別角色分析、權力分析、重構、書寫及倡議資源探索。不同女性主義治療師可以借用 CBT、人本或敘事技術，但其倫理與解釋框架仍須清楚。（Sharf, 2012, pp. 497–510; Corey, 2012, pp. 175–190）</p><h3>06｜治療關係</h3><p>女性主義治療把治療關係本身視為權力工作的場所。治療師擁有訓練、知識與專業責任，仍無權單方面替當事人定義身分。合作、適當透明與對治療決策的共同討論，是減少專家權力遮蔽個案經驗的重要方式。（Prochaska &amp; Norcross, 2010, pp. 389–394; Sharf, 2012, pp. 499–505）</p><p>「平權」指對實際存在的專業權力差異負責，治療者與個案仍有不同角色。關係文化學者尤其重視真誠、連結與對差異的尊重。這類治療關係可同時支持個人的心理工作及對外在限制的辨識。（Sharf, 2012, pp. 495–501, 499–505; Faris &amp; van Ooijen, 2012, pp. 24–60）</p><h3>07｜治療歷程與介入</h3><p><strong>概念化。</strong> 治療者除了解當事人的情緒、思想、創傷及關係史，也詢問性別角色、家庭權力、階級及文化期待如何影響可用選擇。需避免因理論偏好而替個案預先指定某種政治身分或生活目標。（Sharf, 2012, pp. 484–510, 511–525; Prochaska &amp; Norcross, 2010, pp. 375–394）</p><p><strong>介入。</strong> 性別角色與權力分析協助辨認過去難以命名的限制；重新框架與賦權工作擴大對資源及行動選擇的理解；治療還會處理關係界線、自我主張與文化身分。若結合敘事或認知技術，仍需說明該技術如何服務其女性主義的個案概念化，而非把所有技術一律視為相同。（Sharf, 2012, pp. 497–510; Corey, 2012, pp. 175–190）</p><h4>晤談中的工作姿態</h4><p>治療師除了傾聽情緒、關係與生活事件，也會留意某種自我否定是否與社會期待或權力經驗有關。晤談可涉及性別角色分析、權力分析、重新界定問題、賦權策略、界線與資源探索。不同女性主義治療者也會結合認知、人本、心理動力或敘事方法；<strong>共同點是其價值與權力立場，而非一套所有人都使用的固定技術</strong>。（Sharf, 2012, pp. 497–510; Corey, 2012, ch. 12）</p></div></section><figure class="art-hero" data-image-slot="07-04"><img alt="窗邊看向庭院的黑貓插畫" src="/brand/heros/04.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="feminist-critical-chapter-4"><header class="chapter-cap"><span class="chapter-number">IV.</span><h3 class="chapter-name">學派與理論譜系</h3></header><div class="chapter-prose"><h3>08｜代表學派：各自如何理解受苦與改變</h3><h4>1. 個人的困擾與社會權力不能分開</h4><p><strong>人為什麼受苦？</strong> 有些個案面對性別歧視、照顧責任分配不公、身分污名、文化排斥或制度性的資源不足。當社會條件長期被當作自然規範，個人便容易把受到的限制理解成自己「不夠好」。（Sharf, 2012, pp. 486–494, 497–499）</p><p><strong>人如何改變？</strong> 治療協助個案辨認個人經驗與社會結構之間的關係，重新理解羞恥、自責和憤怒，並建立有助於選擇、界線與資源運用的能力。改變可以發生於心理層次、人際關係或社會參與；不能要求每個人都必須成為運動者。（Sharf, 2012, pp. 497–507）</p><h4>2. 治療關係中的權力必須被看見</h4><p><strong>人為什麼受苦？</strong> 當權威者持續決定什麼感覺才合理、哪種生活才正常，個體對便容易不再相信自身經驗。治療師若不反思自身權力，也有機會在協助過程中重演支配。（Sharf, 2012, pp. 486–488, 497–500）</p><p><strong>人如何改變？</strong> 女性主義治療強調合作、透明、平等參與及對個案知識的尊重。專業角色仍有差異；「平等」要求治療者對權力的使用負責。（Sharf, 2012, pp. 497–501）</p><h4>3. 關係中的成長，不能只用獨立衡量</h4><p><strong>人為什麼受苦？</strong> 長期處在不對等或失去連結的關係裡，有些人開始懷疑自己的需要是否值得被看見；長期缺乏真實和互惠的接觸，也會傷害部分人的自我價值感。（Sharf, 2012, pp. 495–497）</p><p><strong>人如何改變？</strong> 關係文化取向重視真誠、相互同理、信任與賦權，協助個案建立更有利於成長的關係。它不同於要求所有人斷開依附而獨自自立。（Sharf, 2012, pp. 495–500）</p><h4>4. 文化身分與交織處境</h4><p><strong>人為什麼受苦？</strong> 性別、階級、族群、障礙、年齡、性傾向等身分與社會處境彼此交織。只考慮其中一項，容易忽略個案面對的實際限制與資源。（Sharf, 2012, pp. 488–494, 520–525）</p><p><strong>人如何改變？</strong> 治療者與個案共同檢視不同身分在其生活中的意義，避免以單一群體的經驗概括所有人。個案可以決定哪些文化議題與其治療目標相關。（Sharf, 2012, pp. 492–501, 520–525）</p><h3>理論譜系與分類邊界</h3><p>Seligman 與 Reichenberg（2010, pp. 226–235）將女性主義治療放在重視情緒與感受的治療系統中，並特別討論性別角色的限制、文化與賦權；</p><p>敘事治療重視問題故事、知識與語言；女性主義治療則討論性別化權力與社會不平等。多元文化治療強調文化身分、文化能力與脈絡敏感性；女性主義治療也處理這些議題，但另有其女性主義思想及治療倫理的歷史。三者可互相借用概念，不能因此視為相同學派。（Sharf, 2012, pp. 473–477, 484–510; Halbur &amp; Halbur, 2019, ch. 4）</p><p>可以。它也適用於男性、不同性別認同及不同文化背景的個案工作，重點在於其生活中的權力經驗、性別規範與主體性。Sharf 也將女性主義治療與男性、性少數及多元文化個案分別論述。（Sharf, 2012, pp. 520–525）</p></div></section><footer class="reading-end"><button class="close-article" type="button">收合此篇　↑</button></footer></div></article></div></section><section class="atlas-item" data-open="false" id="theory-group-counseling-and-psychotherapy"><h2 class="atlas-button"><span class="atlas-count">08</span><a class="atlas-title-link" href="/counseling/group-counseling-and-psychotherapy"><span class="atlas-title">團體諮商與心理治療</span><span class="atlas-english">Group Counseling and Psychotherapy</span></a><button aria-controls="panel-group-counseling-and-psychotherapy" aria-expanded="false" class="atlas-toggle" id="trigger-group-counseling-and-psychotherapy" type="button" aria-label="展開團體諮商與心理治療內容"><span aria-hidden="true" class="atlas-symbol">+</span></button></h2><div aria-labelledby="trigger-group-counseling-and-psychotherapy" class="atlas-panel" hidden="" id="panel-group-counseling-and-psychotherapy" role="region"><article class="reading" id="article-group-counseling-and-psychotherapy"><div class="reading-wrap"><header class="reading-head"><div class="serial"><span>THEORY STUDIES / 08</span></div><p class="reading-subtitle">當關係成為理解人的現場</p></header><figure class="art-hero" data-image-slot="08-01"><img alt="海邊奔跑的狗與燈塔插畫" src="/brand/heros/01.webp" decoding="async" loading="lazy"/></figure><div class="chapter-prose group-opening"><p>人與人的關係，常是心理困擾發生的地方。人在關係中學會靠近、退讓、競爭與爭取認可，也學會隱藏自己的需要。團體諮商與心理治療把相處方式帶進同一個空間：一群人相互回應，並在帶領者的協助下，理解自己如何與他人相處。團體裡的人際經驗，本身就成為治療工作的材料。（Yalom &amp; Leszcz, 2005, pp. 19–24, 53–56; Corey et al., 2026, pp. 6–8）</p>
+<p>團體治療有自己的工作結構，成員之間的互動是治療的重要部分。個別治療以治療師與一名當事人的關係為主要工作場域；團體還包含成員彼此的關係，以及每個人與整個團體的關係。這些關係同時影響治療歷程。（Yalom &amp; Leszcz, 2005, pp. 53–58, 117–124）</p>
+<p><strong>理論位置。</strong>「團體」是一種治療形式，也是一個人際工作場域。精神分析、認知行為、人本與系統取向，都有各自的團體治療。不同學派都能發展自己的團體治療。（Corey, 2016, pp. 121–123, 449–454; Corey et al., 2026, pp. 112–116; Yalom &amp; Leszcz, 2005, pp. xiii–xv）</p>
+</div><section class="reading-chapter" id="group-counseling-and-psychotherapy-chapter-1"><header class="chapter-cap"><span class="chapter-number">I.</span><h3 class="chapter-name">思想的誕生</h3></header><div class="chapter-prose"><h3>01｜理論起源與發展</h3>
+<div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Joseph H. Pratt"><a aria-label="Joseph H. Pratt肖像來源" class="bio-image-link" href="https://dl.tufts.edu/concern/images/m900p341j" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Joseph H. Pratt 肖像照片" decoding="async" loading="lazy" src="/brand/people/joseph-h-pratt.jpg"/><span aria-hidden="true" class="bio-initials">JP</span></span></a><figcaption class="bio-person-name">Joseph H. Pratt</figcaption></figure></div><div class="bio-main"><h4>從結核病診間開始：Joseph H. Pratt</h4>
+<p>1905 年，美國波士頓的內科醫師 Joseph H. Pratt 面對的是結核病患者。疾病帶來身體上的損耗，也使患者承受孤立與沮喪。Pratt 將家訪、病人日記及每週聚會納入照護，讓約二十五名患者同處一室，彼此聽見治療過程與生活近況。當時的聚會仍帶有醫療衛教與督促的色彩；患者之間形成的支持與凝聚，卻揭示了共同參與本身的心理意義。這段歷史通常被視為現代團體治療的重要起點。（Pratt, as cited in Yalom &amp; Leszcz, 2005, p. 539）</p>
+<p>Pratt 並未建立今日完整的團體心理治療理論。他的臨床實踐留下另一個問題：若醫師之外的人也能成為支持來源，治療關係是否必須限於專業者與患者之間？二十世紀後來的團體治療發展，持續擴充了這個問題。（Yalom &amp; Leszcz, 2005, pp. 539–540）</p>
+</div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Jacob L. Moreno"><span aria-label="Jacob L. Moreno肖像位置" class="bio-image-link"><a aria-label="Jacob L. Moreno照片來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Moreno_mit_bueste_(cropped).gif" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Jacob L. Moreno 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Moreno%20mit%20bueste%20(cropped).gif"/><span aria-hidden="true" class="bio-initials">JM</span></span></a></span><figcaption class="bio-person-name">Jacob L. Moreno</figcaption></figure></div><div class="bio-main"><h4>把人生帶上舞台：Jacob L. Moreno</h4>
+<p>Jacob L. Moreno 生於羅馬尼亞，青年時期生活在維也納的思想環境中，接受醫學訓練後於 1925 年前往美國。他發展的心理劇（psychodrama），讓人不只敘說生活中的處境，也能藉由角色、行動與舞台呈現衝突。他也重視自發性、創造力與成員之間的選擇關係，並發展社會計量學（sociometry）等概念。（Moreno, as cited in Corey, 2016, pp. 189–193）</p>
+<p>心理劇將團體帶到不同的工作方向：成員會聆聽、擔任輔助角色、見證彼此的故事，也能藉角色交換重新理解關係。這個傳統特別強調行動中的經驗，與後來偏重言語互動的團體治療形成不同面貌。（Corey, 2016, pp. 193–204）</p>
+</div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Kurt Lewin"><a aria-label="Kurt Lewin肖像來源" class="bio-image-link" href="https://www.psicopolis.com/kurt/kltedesco.htm" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Kurt Lewin 肖像照片" decoding="async" loading="lazy" src="/brand/people/kurt-lewin.jpg"/><span aria-hidden="true" class="bio-initials">KL</span></span></a><figcaption class="bio-person-name">Kurt Lewin</figcaption></figure></div><div class="bio-main"><h4>一場意外改變了團體學習：Kurt Lewin</h4>
+<p>1946 年，社會心理學家 Kurt Lewin 參與一項處理族群緊張與公共態度的訓練工作。研究人員原本安排團體活動，並在晚間討論白天所觀察的互動。有參與者得知此事，提出旁聽的要求。當他們開始聽見研究人員對自己行為的觀察，進而加入討論時，研究人員與參與者開始共同討論當下的互動。這段歷程成為 T-group（訓練團體）的重要源流。（Lewin, as cited in Yalom &amp; Leszcz, 2005, pp. 526–529）</p>
+<p>T-group 將回饋、參與式觀察與此時此地的經驗帶入團體學習。它源自社會心理學、教育及組織工作，起初與醫療體系的團體治療分屬不同領域。後來的人際相遇團體（encounter groups）與團體心理治療互相影響，也曾因帶領者訓練、界限及過度情緒揭露而產生爭議。（Yalom &amp; Leszcz, 2005, pp. 528–531, 539–541）</p>
+</div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Alexander Wolf"><span aria-label="Alexander Wolf肖像位置" class="bio-image-link"><span class="bio-circle"><span aria-hidden="true" class="bio-initials">AW</span></span></span><figcaption class="bio-person-name">Alexander Wolf</figcaption></figure></div><div class="bio-main"><h4>戰爭、醫院與精神分析傳統</h4>
+<p>第二次世界大戰期間，臨床人力不足與大量軍人心理照護需求，使團體工作受到重視。精神分析與精神醫學界開始探索團體能否成為治療環境。Alexander Wolf 於 1938 年運用精神分析觀點帶領團體，將成員間的移情、無意識衝突與早期家庭經驗納入治療。（Wolf, as cited in Corey, 2016, pp. 123–125; 另見 Yalom &amp; Leszcz, 2005, pp. 539–540）</p>
+<p>團體治療的歷史有數條不同源流。醫療團體、人際訓練、心理劇、精神分析團體，以及人本取向的相遇團體，都帶著不同的問題與工作方式走向同一個領域。（Corey, 2016, pp. 121–123, 189–193, 256–258; Yalom &amp; Leszcz, 2005, pp. 525–541）</p>
+</div></div><figure class="art-hero" data-image-slot="08-02"><img alt="湖畔草地上奔跑的狗插畫" src="/brand/heros/02.webp" decoding="async" loading="lazy"/></figure><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Irvin D. Yalom"><a aria-label="Irvin D. Yalom肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Irvin_Yalom.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Irvin D. Yalom 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Irvin%20Yalom.jpg?width=320"/><span aria-hidden="true" class="bio-initials">IY</span></span></a><figcaption class="bio-person-name">Irvin D. Yalom</figcaption></figure></div><div class="bio-main"><h4>從小說、精神醫學到團體：Irvin D. Yalom</h4>
+<p>Irvin D. Yalom 童年生活在美國華盛頓特區的一處貧困社區，父母是第一次世界大戰後自俄國移民至美國的人。他形容年少時的街道環境充滿危險，閱讀則為他打開另一個世界。他常騎腳踏車前往圖書館，從小說中接觸複雜的人物與人際處境。此後，他成為精神科醫師，也持續書寫小說與臨床著作。（Yalom 的自述與傳記資料引自 Corey, 2016, pp. 225–226）</p>
+<p>Yalom 在 1970 年出版《The Theory and Practice of Group Psychotherapy》，將團體中的多種經驗整理為可辨識的治療因子。他特別重視人際學習、團體凝聚力與此時此地。團體成員在互動中產生的感受、重複出現的關係形式與對彼此的回應，都成為治療材料。（Corey, 2016, pp. 225–227; Yalom &amp; Leszcz, 2005, pp. 1–3, 19–20, 53–54, 117–120）</p>
+</div></div><div class="bio-block" data-people="2"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="S. H. Foulkes"><a aria-label="S. H. Foulkes肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:S.H.FOULKES.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="S. H. Foulkes 肖像照片" decoding="async" loading="lazy" src="/brand/people/s-h-foulkes.jpg"/><span aria-hidden="true" class="bio-initials">SF</span></span></a><figcaption class="bio-person-name">S. H. Foulkes</figcaption></figure><figure class="bio-person" data-person="Wilfred Bion"><a aria-label="Wilfred Bion肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Wilfred_Bion_1916.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Wilfred Bion 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wilfred_Bion_1916.jpg?width=320"/><span aria-hidden="true" class="bio-initials">WB</span></span></a><figcaption class="bio-person-name">Wilfred Bion</figcaption></figure></div><div class="bio-main"><h4>將整個團體視為研究對象：S. H. Foulkes 與 Wilfred Bion</h4>
+<p>精神分析團體的另一條道路，來自對整體團體的觀察。S. H. Foulkes 將自由聯想帶入團體情境，強調成員發言之間的相互關聯；Wilfred Bion 則分析團體作為整體時的無意識歷程，以及這些歷程如何干擾共同工作。在這兩種觀點裡，帶領者除了理解個別成員，也會觀察整個團體的共同歷程。（Foulkes, as cited in Corey, 2016, pp. 134–136; Bion, as cited in Yalom &amp; Leszcz, 2005, pp. 192–194）</p>
+<p>Foulkes 的團體分析與 Bion 的團體整體觀，不能簡化為 Yalom 的人際學習模式。前者更重視分析性理解及團體層次的無意識動力；Yalom 則把成員當下的相互影響與治療因子置於較核心的位置。（Corey, 2016, pp. 133–136; Yalom &amp; Leszcz, 2005, pp. 117–151, 192–194）</p>
+</div></div><div class="bio-block" data-people="2"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Molyn Leszcz"><a aria-label="Molyn Leszcz肖像來源" class="bio-image-link" href="https://psychiatry.utoronto.ca/faculty/molyn-leszcz" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Molyn Leszcz 肖像照片" decoding="async" loading="lazy" src="/brand/people/molyn-leszcz.jpg"/><span aria-hidden="true" class="bio-initials">ML</span></span></a><figcaption class="bio-person-name">Molyn Leszcz</figcaption></figure><figure class="bio-person" data-person="Irvin D. Yalom"><a aria-label="Irvin D. Yalom肖像來源" class="bio-image-link" href="https://commons.wikimedia.org/wiki/File:Irvin_Yalom.jpg" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Irvin D. Yalom 肖像照片" decoding="async" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('no-photo')" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Irvin%20Yalom.jpg?width=320"/><span aria-hidden="true" class="bio-initials">IY</span></span></a><figcaption class="bio-person-name">Irvin D. Yalom</figcaption></figure></div><div class="bio-main"><h4>一部不斷修訂的書：Molyn Leszcz 與 Yalom</h4>
+<p>Molyn Leszcz 於 1980 年到史丹佛大學接受為期一年的團體治療訓練，與 Yalom 相識。其後，他在多倫多大學發展團體治療訓練工作。兩人合作修訂 2005 年第五版時，試圖讓治療因子、人際歷程與不同臨床場域的團體工作相互連結。2005 年第五版由 Yalom 與 Leszcz 共同修訂；正文雖沿用第一人稱敘述，仍是兩人合著。（Yalom &amp; Leszcz, 2005, pp. xi–xv）</p>
+<p>兩位作者也注意到，團體治療的成員、目標、時間結構與介入方式各有不同。若只看團體名稱，便難以理解它真正如何運作。（Yalom &amp; Leszcz, 2005, pp. xii–xv, 475–491）</p>
+</div></div><div class="bio-block" data-people="1"><div aria-label="理論家肖像" class="bio-rail"><figure class="bio-person" data-person="Gerald Corey"><a aria-label="Gerald Corey肖像來源" class="bio-image-link" href="https://uhcno.edu/academics/ways-to-learn/continuing-education.php" rel="noopener noreferrer" target="_blank"><span class="bio-circle"><img alt="Gerald Corey 肖像照片" decoding="async" loading="lazy" src="/brand/people/gerald-corey.png"/><span aria-hidden="true" class="bio-initials">GC</span></span></a><figcaption class="bio-person-name">Gerald Corey</figcaption></figure></div><div class="bio-main"><h4>Gerald Corey：從學派理論走向團體歷程</h4>
+<p>Gerald Corey 長期從事諮商教育及團體工作。他的《Theory and Practice of Group Counseling》將精神分析、阿德勒、心理劇、存在、人本、完形、認知行為、現實治療與焦點解決等模式放到團體情境中討論，並以整合章節處理學派之間的共通處與差異。這個編排讓團體治療不必依附於某一種單一人格理論。（Corey, 2016, pp. ix–xxi, 449–475）</p>
+<p>《Groups: Process and Practice》則將團體工作轉向完整的專業流程。這本書始於 1977 年的第一版；2026 年第十一版延續團體領導、倫理、文化差異與各發展階段的討論。（Corey et al., 2026, pp. xxiii–xxvi）</p>
+<hr/>
+</div></div></div></section><section class="reading-chapter" id="group-counseling-and-psychotherapy-chapter-2"><header class="chapter-cap"><span class="chapter-number">II.</span><h3 class="chapter-name">理解人的方式</h3></header><div class="chapter-prose"><h3>02｜人性觀與基本假設</h3>
+<h4>人在關係之中形成自己</h4>
+<p>團體心理治療的人際取向把人理解為生活在關係網絡中的存在。個人如何理解自己、表達需要、保護界限與面對衝突，都與重要他人的回應相連。Yalom 與 Leszcz 借重人際精神醫學傳統，強調心理困擾與人際關係之間的相互作用，並將團體視為研究相處方式的臨床場域。（Yalom &amp; Leszcz, 2005, pp. 19–25）</p>
+<p>團體也是一個具有自身生命的系統。每位成員帶著各自的經驗進來，互動卻會形成共同的規範、地位、聯盟、沉默、衝突與凝聚。成員影響團體氣氛，也受到團體氣氛影響。團體歷程來自眾人的相互作用，無法只由個別成員或帶領者解釋。（Yalom &amp; Leszcz, 2005, pp. 53–64, 117–124; Corey et al., 2026, pp. 210–216）</p>
+<h4>自由、責任與相互依賴</h4>
+<p>成員在團體中有選擇揭露或保留的權利，也需面對自己的參與方式如何影響其他人。存在取向重視自由、孤獨、選擇與責任；人本取向重視真誠、尊重及成員的自主；心理動力取向則觀察過去關係經驗如何影響現在的選擇。團體工作可以採用上述理論，但各自的人性觀仍有差異。（Corey, 2016, pp. 225–233, 256–267; Corey et al., 2026, pp. 126–133）</p>
+<h4>個人、團體與文化環境</h4>
+<p>每個人對直接表達、自我揭露、眼神接觸、權威及團體衝突的理解，都受到文化、家庭、性別與社會位置影響。偏見、排除與權力不對等，也會出現在團體的實際互動中。帶領者應留意每位成員的經驗，以及團體內的社會文化位置。（Corey et al., 2026, pp. 10–21, 83–93）</p>
+<h3>03｜心理困擾的形成</h3>
+<h4>關係模式的重複</h4>
+<p>有些人渴望被理解，受到注意時卻立即退縮；有些人害怕被忽略，於是不斷爭取發言。人際取向關心個人對他人反應的預期，以及這種預期如何維持習慣的相處方式。當互動形成固定模式，原本用來保護自己的反應，有時反而延續孤獨、疏離或衝突。（Yalom &amp; Leszcz, 2005, pp. 22–25, 28–33）</p>
+<h4>未被察覺的影響</h4>
+<p>團體中的困擾常存在於「我想傳達的意思」與「別人實際接收到的影響」之間。成員能感覺到自己在關係中受挫，卻未必看見自己如何參與其中。成員彼此提供直接回饋，這種差距因此有了討論的機會。（Yalom &amp; Leszcz, 2005, pp. 36–38, 42–51; Corey et al., 2026, pp. 309–312）</p>
+<h4>早期關係經驗在團體中的再現</h4>
+<p>精神分析取向重視移情，以及早期家庭關係如何在團體內重新出現。團體中有帶領者、有其他成員，也有注意力與資源的分配；嫉妒、競爭、依賴及對權威的反應，也會在團體裡出現。Yalom 與 Leszcz 將「原生家庭經驗的矯正性重現」列為治療因子，但強調重新經歷本身不足以帶來改變，重要的是關係能有不同的發展。（Yalom &amp; Leszcz, 2005, pp. 14–17; Corey, 2016, pp. 124–131）</p>
+<h4>羞愧、孤立與對差異的恐懼</h4>
+<p>有些人長期相信自己的痛苦無人能理解，也擔心揭露後會被拒絕。團體中的初期猶豫、沉默或防衛，便與這些擔憂相互交織。治療師不宜將不願立即揭露等同於缺乏動機，還需要理解信任、文化差異及團體安全感的發展。（Yalom &amp; Leszcz, 2005, pp. 6–9; Corey et al., 2026, pp. 188–201, 237–242）</p>
+<blockquote>
+<p><strong>受苦觀的核心：</strong> 人際團體治療關心一個人如何在關係中受傷、如何形成保護自己的模式，以及這些模式如何在新關係裡持續運作。這段論述屬於人際歷程取向。其他團體治療學派對心理困擾另有解釋。（Yalom &amp; Leszcz, 2005, pp. 19–25; Corey, 2016, pp. 449–454）</p>
+</blockquote>
+<h3>04｜核心概念</h3>
+<h4>團體治療的十一項治療因子</h4>
+<p>Yalom 與 Leszcz 將團體治療經驗歸納為十一項因子。各項因子經常相互作用，在不同團體類型及發展階段也有不同分量。（Yalom &amp; Leszcz, 2005, pp. 1–3, 77–85）</p>
+<table>
+<thead>
+<tr>
+<th>治療因子</th>
+<th>主要意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>希望的灌注（Instillation of hope）</td>
+<td>從他人的經驗與改變中，重新燃起自己的希望</td>
+</tr>
+<tr>
+<td>普同性（Universality）</td>
+<td>發現他人也經歷相似的困難，減少孤立與羞愧</td>
+</tr>
+<tr>
+<td>訊息傳遞（Imparting information）</td>
+<td>從帶領者與成員得到心理教育、說明及可運用的知識</td>
+</tr>
+<tr>
+<td>利他性（Altruism）</td>
+<td>在幫助其他成員的過程中，重新感受自身的價值與能力</td>
+</tr>
+<tr>
+<td>原生家庭經驗的矯正性重現（Corrective recapitulation of the primary family group）</td>
+<td>使舊有家庭互動模式浮現，並有機會產生新的關係經驗</td>
+</tr>
+<tr>
+<td>社會化技術的發展（Development of socializing techniques）</td>
+<td>學習理解互動影響、溝通及回應他人的方式</td>
+</tr>
+<tr>
+<td>模仿行為（Imitative behavior）</td>
+<td>觀察帶領者與其他成員的互動，嘗試新的行為</td>
+</tr>
+<tr>
+<td>人際學習（Interpersonal learning）</td>
+<td>察覺自身對他人的影響，理解並調整關係模式</td>
+</tr>
+<tr>
+<td>團體凝聚力（Group cohesiveness）</td>
+<td>感受被接納、被連結，以及對團體的歸屬</td>
+</tr>
+<tr>
+<td>情緒宣洩（Catharsis）</td>
+<td>表達被壓抑的情緒，並在關係與理解中處理其意義</td>
+</tr>
+<tr>
+<td>存在因素（Existential factors）</td>
+<td>面對孤獨、死亡、選擇、責任與生命的有限性</td>
+</tr>
+</tbody>
+</table>
+<p><em>十一項因子的定義依 Yalom 與 Leszcz（2005, pp. 1–18, 19–76, 77–116）譯述。</em></p>
+<h4>團體作為社會縮影（Social microcosm）</h4>
+<p>人一旦進入團體，原本習慣的關係形式常會在成員往來中出現。治療師不必只依靠成員描述外面的人際關係，也能觀察當下互動。此時，團體具有雙重功能：既呈現個人既有的互動模式，也提供新互動的嘗試空間。（Yalom &amp; Leszcz, 2005, pp. 27–41）</p>
+<h4>此時此地（Here-and-now）</h4>
+<p>此時此地包含兩個相連的工作：先讓成員注意正在發生的互動，再協助大家理解它的意義。只有情緒被激起，尚不足以形成深入的人際學習。團體還需要回看剛才發生的事，理解某個反應如何影響他人，以及彼此如何共同維持互動。（Yalom &amp; Leszcz, 2005, pp. 117–124, 141–151）</p>
+<h4>凝聚力、規範與團體氣氛</h4>
+<p>凝聚力容得下成員間的差異與衝突。它關乎成員是否能留在關係中、是否相信自己的經驗可以被接住，以及團體能否容納差異。團體規範則影響成員是否習慣輪流向帶領者說話，或能直接回應彼此。（Yalom &amp; Leszcz, 2005, pp. 53–64, 67–76, 117–124; Corey et al., 2026, pp. 210–216）</p>
+<hr/>
+</div></section><figure class="art-hero" data-image-slot="08-03"><img alt="雨中石板路上的狗插畫" src="/brand/heros/03.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="group-counseling-and-psychotherapy-chapter-3"><header class="chapter-cap"><span class="chapter-number">III.</span><h3 class="chapter-name">治療如何發生</h3></header><div class="chapter-prose"><h3>05｜治療目標與改變機制</h3>
+<h4>從被理解，到重新理解自己</h4>
+<p>團體先提供一個讓經驗得到聆聽的關係環境。成員發現其他人也承受相似的困擾，也看見其他人如何面對相似處境。普同性、希望與利他性使人有機會重新理解自己的位置，而不再只把自己看作受助者。（Yalom &amp; Leszcz, 2005, pp. 4–14）</p>
+<h4>從發現模式，到矯正性情緒經驗</h4>
+<p>人際學習始於對互動模式的察覺，但治療目標不只在於獲得洞察。成員需要在團體中承擔新的關係風險，嘗試不同的表達方式，並經驗他人的回應。當以往的關係預期不再完全支配當下行動，新的情緒經驗才有機會形成。（Yalom &amp; Leszcz, 2005, pp. 40–52, 77–86）</p>
+<h4>從情緒表達，到經驗的整合</h4>
+<p>團體治療仍需要處理情緒表達之後的理解與整合。Yalom 與 Leszcz 將情緒表達放在團體關係與意義形成的脈絡裡：成員需要理解情緒對自己與他人意味著什麼。若只追求強烈揭露或宣洩，既無法保證學習，也會提高團體工作的風險。（Yalom &amp; Leszcz, 2005, pp. 77–92, 536–538; Corey et al., 2026, pp. 318–320）</p>
+<h4>從團體中的嘗試，到生活中的改變</h4>
+<p>團體提供一個相對可觀察的互動場域。成員在其中練習表達需求、承受分歧、給予回饋與建立界限；治療結束前，還需要將這些學習連結到生活中的真實關係。團體中的學習還需要在日常關係中反覆運用。（Corey et al., 2026, pp. 314–321, 333–348; Yalom &amp; Leszcz, 2005, pp. 283–289）</p>
+<p><strong>改變機制的核心：</strong> 關係模式在團體中浮現；成員從回饋與情緒經驗理解其影響；在有支持也有挑戰的環境中嘗試不同的互動；再將學到的方式帶回生活。這段說明概括人際歷程取向的改變方式。不同學派仍有各自的改變理論。（Yalom &amp; Leszcz, 2005, pp. 27–52, 117–151; Corey, 2016, pp. 449–475）</p>
+<h3>06｜治療關係</h3>
+<h4>治療關係不只存在於治療師與成員之間</h4>
+<p>團體至少包含三個彼此相關的層次：成員與帶領者、成員與成員、成員與整體團體。治療師若持續成為所有談話的終點，成員之間的關係便不容易成為工作核心。帶領者需要協助成員彼此說話、回應與理解。（Yalom &amp; Leszcz, 2005, pp. 53–58, 117–124; Corey et al., 2026, pp. 209–217）</p>
+<h4>團體帶領者的角色</h4>
+<p>帶領者負責建立工作架構、維持界限、留意團體安全、促進參與、觀察互動，並協助成員理解共同發生的事情。專業角色不等於控制每一段對話。何時提供結構、何時退後讓成員彼此工作，是團體帶領的重要判斷。（Yalom &amp; Leszcz, 2005, pp. 117–140; Corey et al., 2026, pp. 29–51, 225–231）</p>
+<h4>成員的角色與共同責任</h4>
+<p>團體成員彼此參與治療。每個人的回應都能幫助他人理解自己，也需對自身揭露、參與和回饋的方式負責。帶領者可以邀請參與，卻不能把成員是否立即說出私密內容當作治療成功的標準。（Corey et al., 2026, pp. 188–201, 218–224, 306–312）</p>
+<h4>衝突、沉默與界限</h4>
+<p>沉默有不同原因，包括不安、思考、觀察與文化差異。衝突也會觸及成員對拒絕或權威的擔憂。帶領者應協助成員理解當下的沉默與衝突，無須急著把它們消除。若團體將壓力誤認為深度，成員的自主性便容易受到侵蝕。（Corey et al., 2026, pp. 237–274; Yalom &amp; Leszcz, 2005, pp. 391–408）</p>
+<h4>雙帶領者（Coleadership）</h4>
+<p>共同帶領可增加對成員與團體歷程的觀察，也提供帶領者彼此討論及支持的機會。兩位帶領者之間的分工、意見差異與相互信任，也會成為團體看得見的關係模式。雙帶領重視事前協調與持續檢討，工作量的分配只是其中一環。（Corey et al., 2026, pp. 51–55）</p>
+<h3>07｜治療歷程與介入</h3>
+<h4>團體成立前的準備</h4>
+<p><strong>形成與準備。</strong> 團體成立前，需要設定目標、對象、團體性質、時間安排、成員組成、開放或封閉形式，以及相關的風險與倫理考量。事前面談與知情同意協助成員理解參與要求，也讓帶領者評估團體形式是否適合其需要。（Corey et al., 2026, pp. 163–183; Yalom &amp; Leszcz, 2005, pp. 231–309）</p>
+<p><strong>初始階段。</strong> 成員會留意自己能否被接受、應該說多少、帶領者是否可信，以及別人如何看待自己。帶領者協助建立規範與安全感，澄清團體目標，並支持成員之間的直接互動。此時過早要求深入揭露，容易使人轉向防衛。（Corey et al., 2026, pp. 188–231; Yalom &amp; Leszcz, 2005, pp. 309–345）</p>
+<p><strong>過渡階段。</strong> 當表面的禮貌不足以維持相處，成員開始質疑、退縮、競爭，或對帶領者表達不滿。這些反應可成為理解信任、控制與關係期待的材料。治療師需要辨認團體文化與權力因素，避免將所有遲疑都貼上抗拒的標籤。（Corey et al., 2026, pp. 237–283）</p>
+<p><strong>工作階段。</strong> 成員能較直接地彼此回應，願意承受不同觀點，也能把新發現與個人的生活目標連結。此時凝聚力、回饋、情緒表達、行為嘗試與認知理解相互作用。帶領者協助團體保持工作深度，同時留意個別成員的步調。（Corey et al., 2026, pp. 288–327; Yalom &amp; Leszcz, 2005, pp. 345–391）</p>
+<p><strong>結束階段。</strong> 結束階段需要處理告別與分離。成員需要回顧彼此關係的改變、整理未完成的感受、辨認可延續到生活中的學習，並面對失落與分離。對開放式團體而言，個別成員的離開也需受到重視。（Corey et al., 2026, pp. 331–353）</p>
+<h4>個案概念化：同時看見個人與團體</h4>
+<p>團體概念化至少要回答三個問題：某位成員在人際關係中反覆出現什麼模式？這個模式在團體的哪些互動中出現？整個團體又如何回應與維持這個模式？帶領者同時觀察團體規範、成員之間的關係及正在發展的共同情緒。（Yalom &amp; Leszcz, 2005, pp. 27–52, 117–151; Corey et al., 2026, pp. 210–216, 237–274）</p>
+<h4>主要介入原則與技術</h4>
+<table>
+<thead>
+<tr>
+<th>介入</th>
+<th>工作重點</th>
+<th>文獻定位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>此時此地的歷程探詢</td>
+<td>觀察現在發生的互動，邀請成員辨認自己的感受與影響</td>
+<td>Yalom &amp; Leszcz, 2005, pp. 117–151</td>
+</tr>
+<tr>
+<td>成員間的回饋</td>
+<td>以具體行為及自身感受描述互動，減少評價式建議</td>
+<td>Corey et al., 2026, pp. 309–312</td>
+</tr>
+<tr>
+<td>連結成員（linking）</td>
+<td>將相似或不同的經驗帶入成員之間，減少對帶領者的單向依賴</td>
+<td>Corey, 2016, pp. 15–29；Corey et al., 2026, pp. 42–49</td>
+</tr>
+<tr>
+<td>澄清與摘要</td>
+<td>協助成員理解經驗、整理團體目前的工作主題</td>
+<td>Corey et al., 2026, pp. 42–49</td>
+</tr>
+<tr>
+<td>溫和挑戰與面質</td>
+<td>指出言語、行動與關係期待之間的矛盾，協助成員思考</td>
+<td>Corey et al., 2026, pp. 250–256, 311–313</td>
+</tr>
+<tr>
+<td>角色扮演與心理劇</td>
+<td>藉行動及角色經驗探索關係、情緒與其他選擇</td>
+<td>Corey, 2016, pp. 189–224</td>
+</tr>
+<tr>
+<td>認知重整與行為練習</td>
+<td>在結構化團體中練習思考與行為上的替代方式</td>
+<td>Corey, 2016, pp. 347–396</td>
+</tr>
+<tr>
+<td>結束階段的統整與行動計畫</td>
+<td>整理學習，思考如何將團體改變帶回生活</td>
+<td>Corey et al., 2026, pp. 331–348</td>
+</tr>
+</tbody>
+</table>
+<p>治療技術的選擇取決於團體目標、發展階段、理論取向與成員狀態。角色扮演、情緒揭露與面質，都需要符合團體當下的信任程度及知情同意；強烈的情緒反應不等於治療深度。（Corey, 2016, pp. 449–475; Corey et al., 2026, pp. 112–122; Yalom &amp; Leszcz, 2005, pp. 536–541）</p>
+<h4>團體的倫理：保密是共同承諾，也是實際限制</h4>
+<p>個別治療主要涉及治療師對當事人的保密責任；團體另有其他成員。帶領者應在開始前清楚說明保密規則，邀請成員共同承諾不在團體外揭露他人的私密資訊，也必須讓成員理解，專業者無法完全控制其他成員在團體外的行為。心理風險、成員間的私下接觸、退出權利、線上團體的隱私條件及帶領者能力，均應納入團體設計。（Corey et al., 2026, pp. 67–79, 93–107; Corey, 2016, pp. 45–66）</p>
+<p>團體諮商的適切性須依當事人的狀態與需求評估。帶領者應考量當事人目前的心理狀態、支持資源、團體目標與成員組成，並在必要時安排其他形式的專業協助。評估與轉介同樣屬於團體工作的專業責任。（Yalom &amp; Leszcz, 2005, pp. 231–281; Corey et al., 2026, pp. 163–183）</p>
+<hr/>
+</div></section><figure class="art-hero" data-image-slot="08-04"><img alt="窗邊看向庭院的黑貓插畫" src="/brand/heros/04.webp" decoding="async" loading="lazy"/></figure><section class="reading-chapter" id="group-counseling-and-psychotherapy-chapter-4"><header class="chapter-cap"><span class="chapter-number">IV.</span><h3 class="chapter-name">學派與理論譜系</h3></header><div class="chapter-prose"><h3>08｜代表學派與重要著作</h3>
+<h4>團體工作有哪些不同形式？</h4>
+<p>「團體」不必然表示所有人接受相同的治療。團體諮商以成長、適應及生活困擾為常見焦點；團體心理治療通常涉及更深入或持續的臨床工作；心理教育團體著重知識與技能學習；任務團體則以共同完成工作為主要目的。不同團體形式之間有交集，目標、介入及帶領者的能力要求仍各有側重。（Corey et al., 2026, pp. 3–9）</p>
+<table>
+<thead>
+<tr>
+<th>團體形式</th>
+<th>主要工作方式</th>
+<th>關注焦點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人際歷程團體</td>
+<td>聚焦當下互動、回饋與關係模式</td>
+<td>人際學習、關係經驗、團體凝聚</td>
+</tr>
+<tr>
+<td>精神分析／心理動力團體</td>
+<td>探索移情、無意識及重複的人際關係</td>
+<td>早期經驗與當前互動的關聯</td>
+</tr>
+<tr>
+<td>阿德勒團體</td>
+<td>探索生活風格、歸屬及社會興趣</td>
+<td>生活目標、關係與合作</td>
+</tr>
+<tr>
+<td>心理劇團體</td>
+<td>角色交換、行動演出及團體見證</td>
+<td>自發性、角色與情緒經驗</td>
+</tr>
+<tr>
+<td>人本／存在／完形團體</td>
+<td>關注主觀經驗、當下覺察與真實接觸</td>
+<td>自我理解、責任、意義與接觸</td>
+</tr>
+<tr>
+<td>認知行為／REBT 團體</td>
+<td>認知檢視、行為練習與結構化工作</td>
+<td>信念、行為模式及技能改變</td>
+</tr>
+<tr>
+<td>現實治療／焦點解決團體</td>
+<td>討論選擇、目標、資源與可行行動</td>
+<td>現在的選擇與偏好未來</td>
+</tr>
+<tr>
+<td>心理教育／支持性團體</td>
+<td>主題討論、資訊分享與成員支持</td>
+<td>知識、因應資源與共同處境</td>
+</tr>
+</tbody>
+</table>
+<p><em>分類依據 Corey（2016, pp. 121–448）與 Corey et al.（2026, pp. 3–9, 112–156）。表列的是能夠交互運用的理論取向與團體形式，不能當成八種互斥的學派。</em></p>
+<h4>治療學派如何理解團體中的改變？</h4>
+<p><strong>心理動力。</strong> 團體讓移情、早期家庭角色、依賴與競爭呈現於現在的互動。治療著重辨認與修通這類關係模式。（Corey, 2016, pp. 123–160）</p>
+<p><strong>阿德勒。</strong> 團體提供歸屬與合作的經驗，並探索個人的生活風格、目的與社會興趣。鼓勵與重新定向是重要工作。（Corey, 2016, pp. 161–188）</p>
+<p><strong>心理劇。</strong> 團體成員藉角色扮演及行動經驗探索處境，強調自發性、創造力及角色轉換。（Corey, 2016, pp. 189–224）</p>
+<p><strong>人本—存在—經驗。</strong> 個人中心團體重視同理、真誠與無條件積極關注；存在團體聚焦自由、責任、孤獨與意義；完形團體重視當下覺察、接觸與未竟事務。這些取向在治療關係與介入方式上各有差異。（Corey, 2016, pp. 225–324）</p>
+<p><strong>認知與認知行為。</strong> 結構化團體可以處理信念、認知評估、行為練習及情緒調節。REBT 和其他認知行為團體的概念化與介入重點仍須區分。（Corey, 2016, pp. 347–396; Corey et al., 2026, pp. 135–146）</p>
+<p><strong>後現代及選擇取向。</strong> 焦點解決關注資源、例外經驗與可行步驟；現實治療關注需求、選擇與行動。兩者都運用目標與行動計畫，理論前提卻不相同。（Corey, 2016, pp. 397–448）</p>
+<p><strong>女性主義與多元文化工作。</strong> 權力、性別、文化身分與社會條件，都參與團體關係的形成。這些取向將團體中的發言機會、規範、差異經驗與社會正義納入理解。（Corey et al., 2026, pp. 10–21, 83–93, 154–156）</p>
+<h4>三本核心專書如何分工？</h4>
+<table>
+<thead>
+<tr>
+<th>書籍</th>
+<th>主要貢獻</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>The Theory and Practice of Group Psychotherapy</em></td>
+<td>治療因子、人際學習、凝聚力、此時此地、團體歷史</td>
+
+</tr>
+<tr>
+<td><em>Theory and Practice of Group Counseling</em></td>
+<td>各學派在團體中的理論差異、技術、學派整合</td>
+
+</tr>
+<tr>
+<td><em>Groups: Process and Practice</em></td>
+<td>團體種類、帶領倫理、團體階段、多元文化及實務</td>
+
+</tr>
+</tbody>
+</table>
+<h4>給第一次接觸團體諮商的人</h4>
+<p><strong>團體裡一定要分享很私人的事嗎？</strong> 團體工作重視信任的建立，也重視成員對自我揭露的選擇。分享的深度應與團體階段、目標及個人準備程度相符。（Corey et al., 2026, pp. 188–201, 305–309）</p>
+<p><strong>團體諮商會不會只是在聽別人的問題？</strong> 成員聽見彼此的經驗固然重要，團體亦可直接探索成員之間發生的互動。這種即時回饋與人際學習，是人際歷程團體的重要工作。（Yalom &amp; Leszcz, 2005, pp. 19–52, 117–151）</p>
+<p><strong>團體中的衝突表示團體失敗了嗎？</strong> 不一定。衝突有時涉及成員對親近、界限、差異與權力的關切；帶領者需協助團體以安全且尊重的方式處理。（Corey et al., 2026, pp. 237–274）</p>
+<p><strong>為什麼結束也需要談？</strong> 因為分離、未完成的感受及如何延續新的關係經驗，都是治療歷程的一部分。（Corey et al., 2026, pp. 331–353）</p>
+</div></section><footer class="reading-end"><button class="close-article" type="button">收合此篇　↑</button></footer></div></article></div></section><section class="atlas-item atlas-references" data-open="false" id="theory-references"><h2><button aria-controls="panel-references" aria-expanded="false" class="atlas-button" id="trigger-references" type="button"><span class="atlas-count">09</span><span><span class="atlas-title">參考文獻</span><span class="atlas-english">References · APA 7th Edition</span></span><span aria-hidden="true" class="atlas-symbol">+</span></button></h2><div aria-labelledby="trigger-references" class="atlas-panel" hidden="" id="panel-references" role="region"><article class="reading bibliography-reading"><div class="reading-wrap"><header class="reading-head"><div class="serial"><span>THEORY STUDIES / 09</span></div></header><section class="reading-chapter bibliography-chapter"><header class="chapter-cap"><span class="chapter-number">09.</span><h3 class="chapter-name">參考文獻</h3></header><div class="chapter-prose bibliography-prose"><p class="apa-entry">Corey, G. (2012). <em>Student manual for theory and practice of counseling and psychotherapy</em> (9th ed.). Brooks/Cole, Cengage Learning.</p><p class="apa-entry">Corey, G. (2016). <em>Theory and practice of group counseling</em> (9th ed.). Cengage Learning.</p><p class="apa-entry">Corey, M. S., Corey, G., &amp; Corey, C. (2026). <em>Groups: Process and practice</em> (11th ed.). Cengage Learning.</p><p class="apa-entry">Faris, A., &amp; van Ooijen, E. (2012). <em>Integrative counselling and psychotherapy: A relational approach</em>. SAGE Publications.</p><p class="apa-entry">Halbur, D. A., &amp; Halbur, K. V. (2019). <em>Developing your theoretical orientation for counseling and psychotherapy</em> (4th ed.). Pearson.</p><p class="apa-entry">Prochaska, J. O., &amp; Norcross, J. C. (2010). <em>Systems of psychotherapy: A transtheoretical analysis</em> (7th ed.). Brooks/Cole, Cengage Learning.</p><p class="apa-entry">Seligman, L., &amp; Reichenberg, L. W. (2010). <em>Theories of counseling and psychotherapy: Systems, strategies, and skills</em> (3rd ed.). Pearson.</p><p class="apa-entry">Sharf, R. S. (2012). <em>Theories of psychotherapy and counseling: Concepts and cases</em> (5th ed.). Brooks/Cole, Cengage Learning.</p><p class="apa-entry">Yalom, I. D., &amp; Leszcz, M. (2005). <em>The theory and practice of group psychotherapy</em> (5th ed.). Basic Books.</p></div></section><div class="reading-end"><button class="close-article" type="button">收起內容 ↑</button></div></div></article></div></section></div></div></main><footer class="site-footer"><span>小祈叔叔的心理學研究</span></footer><script>
+
+(()=>{
+const items=[...document.querySelectorAll('.atlas-item')];
+function openItem(item,desired){
+ items.forEach(other=>{
+  const isOpen=other===item&&desired;
+const btn=other.querySelector('.atlas-toggle, .atlas-button');const pnl=other.querySelector('.atlas-panel');
+  if(!btn||!pnl)return;
+  other.dataset.open=String(isOpen);btn.setAttribute('aria-expanded',String(isOpen));pnl.hidden=!isOpen;
+  const ico=btn.querySelector('.atlas-symbol');if(ico)ico.textContent=isOpen?'−':'+';
+ });
+}
+for(const item of items){
+ const button=item.querySelector('.atlas-toggle, .atlas-button');const panel=item.querySelector('.atlas-panel');
+ button?.addEventListener('click',()=>{const desired=item.dataset.open!=='true';openItem(item,desired);if(!desired)item.scrollIntoView({block:'start',behavior:'smooth'});});
+ panel?.querySelector('.close-article')?.addEventListener('click',()=>{openItem(item,false);item.scrollIntoView({block:'start',behavior:'smooth'});});
+}
+})();
+</script></body></html>

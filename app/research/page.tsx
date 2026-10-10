@@ -1,2 +1,61 @@
-// Reuse the existing academic page without modifying its content.
-export { default, metadata, dynamic } from "../page";
+import type { Metadata } from "next";
+import ResearchContent from "../page";
+
+export const metadata: Metadata = {
+  title: { absolute: "Wade Chi-Wei Jen (任祈蔚) | Academic CV & Psychology Research" },
+  description:
+    "Academic CV of Wade Chi-Wei Jen (任祈蔚), counseling psychologist and clinical psychology researcher. Includes education, publications, conference presentations, awards, research experience, and interests in emotional processing and group counseling.",
+  alternates: { canonical: "/research" },
+  openGraph: {
+    type: "profile",
+    locale: "en_US",
+    siteName: "Wade Chi-Wei Jen",
+    title: "Wade Chi-Wei Jen (任祈蔚) | Academic CV & Psychology Research",
+    description:
+      "Academic profile, psychology research interests, publications, conference presentations, and research experience.",
+    url: "/research",
+    images: [{ url: "/brand/images/about.webp", alt: "任祈蔚學術履歷" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wade Chi-Wei Jen (任祈蔚) | Academic CV & Psychology Research",
+    description:
+      "Academic profile, psychology research interests, publications, conference presentations, and research experience.",
+    images: ["/brand/images/about.webp"],
+  },
+};
+
+export const dynamic = "force-dynamic";
+
+const profileStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  name: "Wade Chi-Wei Jen (任祈蔚) | Academic CV & Psychology Research",
+  url: "https://jacho.vercel.app/research",
+  inLanguage: "en",
+  mainEntity: {
+    "@type": "Person",
+    name: "Wade Chi-Wei Jen",
+    alternateName: ["任祈蔚", "小祈叔叔"],
+    jobTitle: "Counseling Psychologist and Psychology Researcher",
+    url: "https://jacho.vercel.app/about",
+    image: "https://jacho.vercel.app/brand/images/about.webp",
+    affiliation: [
+      { "@type": "CollegeOrUniversity", name: "國立臺灣大學" },
+      { "@type": "CollegeOrUniversity", name: "國立清華大學" },
+    ],
+    knowsAbout: ["Psychology Research", "Alexithymia", "Emotional Processing", "Group Counseling", "Psychotherapy"],
+  },
+};
+
+export default function ResearchPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profileStructuredData) }}
+      />
+      <ResearchContent />
+    </>
+  );
+}

@@ -6,31 +6,22 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jacho.vercel.app"),
   title: {
-    default: "Wade Chi-Wei Jen | Licensed Counselor & Clinical Psychology PhD Student",
+    default: "Wade Chi-Wei Jen (任祈蔚) | Counseling Psychologist & Researcher",
     template: "%s | Wade Jen",
   },
   description:
-    "Personal academic website of Wade Chi-Wei Jen (任祈蔚), licensed counselor in Taiwan and PhD student in clinical psychology at National Taiwan University, specializing in alexithymia and group psychotherapy.",
-  keywords: [
-    "Wade Chi-Wei Jen",
-    "任祈蔚",
-    "clinical psychology",
-    "alexithymia",
-    "group counseling",
-    "psychotherapy",
-    "NTU",
-    "National Taiwan University",
-    "mixed methods",
-    "SPR",
-  ],
+    "Wade Chi-Wei Jen (任祈蔚) is a counseling psychologist and psychology researcher in Taiwan, with interests in emotional processing, alexithymia, group counseling, and psychotherapy.",
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Wade Chi-Wei Jen | Licensed Counselor & Clinical Psychology PhD Student",
+    siteName: "Wade Chi-Wei Jen",
+    title: "Wade Chi-Wei Jen (任祈蔚) | Counseling Psychologist & Researcher",
     description:
-      "Mixed-methods researcher at NTU investigating alexithymia and group psychotherapy.",
+      "Wade Chi-Wei Jen (任祈蔚) is a counseling psychologist and psychology researcher in Taiwan, with interests in emotional processing, alexithymia, group counseling, and psychotherapy.",
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
