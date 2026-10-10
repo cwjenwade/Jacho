@@ -244,3 +244,20 @@ a:hover .arrow-round{transform:translate(4px,-3px);background:#e5eae3}
  .training-entry,.training-entry:nth-last-child(-n+2){padding:17px 0 20px;border-bottom:1px solid var(--line)}
  .training-entry:last-child{border-bottom:0;padding-bottom:5px}
 }
+
+/* Practice locations stay nested under the counseling role in the CV. */
+.practice-affiliations{margin-top:0;border-top:0;padding-top:17px}
+.practice-affiliations__heading{display:flex;justify-content:space-between;align-items:baseline;gap:22px;margin-bottom:14px}
+.practice-affiliations__heading h4{margin:0;font:400 18px/1.5 var(--serif);white-space:nowrap}
+.practice-affiliations__heading p{max-width:43ch;font-size:12px;line-height:1.8;color:var(--faint)}
+.location-list{border-top:1px solid var(--line)}
+.location-entry{display:grid;grid-template-columns:82px minmax(0,1fr);gap:17px;padding:12px 0;border-bottom:1px solid var(--line);min-width:0}
+.location-entry__region{font:italic 13px/1.6 var(--latin);letter-spacing:.1em;color:#a17f67;padding-top:2px}
+.location-entry__details h5{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:0;font:400 17px/1.45 var(--serif);letter-spacing:.015em}
+.location-entry__role{font-size:11px;letter-spacing:.06em;color:var(--ink-soft);margin-top:3px}
+.location-entry address{margin-top:6px;font-size:12px;line-height:1.7;color:var(--ink-soft);font-style:normal}
+.location-entry__icons{display:inline-flex;align-items:center;gap:7px}
+.location-entry__icons a{display:grid;place-items:center;width:25px;height:25px;border:1px solid #c8cec3;border-radius:50%;color:#687465;transition:color .2s,border-color .2s,background .2s}
+.location-entry__icons a:hover{color:var(--ink);border-color:var(--sage);background:#e9ece5}
+.location-entry__icons svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:760px){.practice-affiliations{margin-top:17px;padding-top:15px}.practice-affiliations__heading{display:block}.practice-affiliations__heading p{margin-top:5px}.location-entry{grid-template-columns:55px minmax(0,1fr);gap:12px;padding:11px 0}.location-entry__details h5{font-size:16px}.location-entry__icons{gap:5px}}

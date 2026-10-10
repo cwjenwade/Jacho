@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   transpilePackages: ["motion", "framer-motion", "@phosphor-icons/react"],
+  outputFileTracingIncludes: {
+    "/counseling/*": ["./public/brand/counseling.html"],
+  },
   images: {
     remotePatterns: [{ protocol: "https", hostname: "picsum.photos" }],
   },

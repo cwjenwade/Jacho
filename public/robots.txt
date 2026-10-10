@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jacho.vercel.app/sitemap.xml
