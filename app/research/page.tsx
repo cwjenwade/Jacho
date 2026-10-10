@@ -3,8 +3,9 @@ import ResearchContent from "../page";
 
 export const metadata: Metadata = {
   title: { absolute: "Wade Chi-Wei Jen (任祈蔚) | Academic CV & Psychology Research" },
+  keywords: ["Wade Chi-Wei Jen", "任祈蔚", "academic CV", "psychology research", "alexithymia", "emotional processing", "group counseling", "psychometrics", "諮商心理學", "心理學研究"],
   description:
-    "Academic CV of Wade Chi-Wei Jen (任祈蔚), counseling psychologist and clinical psychology researcher. Includes education, publications, conference presentations, awards, research experience, and interests in emotional processing and group counseling.",
+    "Academic CV of Wade Chi-Wei Jen (任祈蔚): counseling psychology, research publications, conference presentations and interests in alexithymia, emotional processing and group counseling.",
   alternates: { canonical: "/research" },
   openGraph: {
     type: "profile",
@@ -33,6 +34,7 @@ const profileStructuredData = {
   name: "Wade Chi-Wei Jen (任祈蔚) | Academic CV & Psychology Research",
   url: "https://jacho.vercel.app/research",
   inLanguage: "en",
+  keywords: "psychology research, alexithymia, emotional processing, group counseling, academic CV",
   mainEntity: {
     "@type": "Person",
     name: "Wade Chi-Wei Jen",
